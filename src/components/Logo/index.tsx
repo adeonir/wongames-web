@@ -2,10 +2,11 @@ import { LogoContainer } from './styles'
 
 export type LogoProps = {
   color?: 'white' | 'black'
+  size?: 'normal' | 'large'
 }
 
-export const Logo = ({ color = 'white' }: LogoProps) => (
-  <LogoContainer color={color}>
+export const Logo = ({ color = 'white', size = 'normal' }: LogoProps) => (
+  <LogoContainer color={color} size={size}>
     <svg
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
