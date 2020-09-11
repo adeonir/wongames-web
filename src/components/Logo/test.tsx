@@ -38,8 +38,9 @@ describe('<Logo />', () => {
 
   it('should render a bigger logo without text when `hideLabel` is true ', () => {
     renderWithTheme(<Logo hideLabel />)
-    expect(
-      screen.getByLabelText(/Won Games/i).parentElement,
-    ).toHaveStyleRule('width', '5.8rem', { media: '(max-width: 768px)' })
+    expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyleRule(
+      'width',
+      '5.8rem',
+    )
   })
 })
