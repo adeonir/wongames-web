@@ -49,7 +49,6 @@ export const GlobalStyles = createGlobalStyle`
     body {
       font-family: ${theme.font.family};
       font-size: ${theme.font.sizes.medium};
-      line-height: ${theme.font.sizes.large};
       scroll-behavior: smooth;
     }
 
