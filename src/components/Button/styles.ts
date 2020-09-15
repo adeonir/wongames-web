@@ -2,7 +2,7 @@ import styled, { css, DefaultTheme } from 'styled-components'
 
 import { ButtonProps } from '.'
 
-type ContainerProps = Pick<ButtonProps, 'size'>
+type ContainerProps = Pick<ButtonProps, 'size' | 'fullWidth'>
 
 const modifiers = {
   small: (theme: DefaultTheme) => css`
@@ -20,15 +20,19 @@ const modifiers = {
     padding: ${theme.spacings.xxsmall} ${theme.spacings.xlarge};
     height: 5rem;
   `,
+  fullWidth: () => css`
+    width: 100%;
+  `,
 }
 
 export const ButtonContainer = styled.button<ContainerProps>`
-  ${({ theme, size }) => css`
+  ${({ theme, size, fullWidth }) => css`
     background: linear-gradient(180deg, #ff5f5f 0%, #f062c0 50%);
     color: ${theme.colors.white};
     border-radius: ${theme.border.radius};
     border: 0;
 
     ${!!size && modifiers[size](theme)}
+    ${!!fullWidth && modifiers.fullWidth}
   `};
 `
