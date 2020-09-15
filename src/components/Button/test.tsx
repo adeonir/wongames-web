@@ -1,3 +1,4 @@
+import { AddShoppingCart } from '@styled-icons/material-outlined/AddShoppingCart'
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
@@ -5,11 +6,15 @@ import { Button } from '.'
 
 describe('<Button />', () => {
   it('should render the medium size by default', () => {
-    renderWithTheme(<Button>Buy now</Button>)
+    const {
+      container: { firstChild },
+    } = renderWithTheme(<Button>Buy now</Button>)
 
     expect(screen.getByRole('button', { name: /buy now/i })).toHaveStyle({
       height: '4rem',
     })
+
+    expect(firstChild).toMatchSnapshot()
   })
 
   it('should render the small size', () => {
@@ -34,5 +39,14 @@ describe('<Button />', () => {
     expect(screen.getByRole('button', { name: /buy now/i })).toHaveStyle({
       width: '100%',
     })
+  })
+
+  it('should render the a version with icon', () => {
+    renderWithTheme(
+      <Button icon={<AddShoppingCart data-testid="icon" />}>Buy now</Button>,
+    )
+
+    expect(screen.getByText(/buy now/i)).toBeInTheDocument()
+    expect(screen.getByTestId('icon')).toBeInTheDocument()
   })
 })
