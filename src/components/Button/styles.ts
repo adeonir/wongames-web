@@ -27,10 +27,6 @@ const modifiers = {
 
     svg {
       width: ${theme.font.sizes.medium};
-
-      & + span {
-        margin-left: ${theme.spacings.xxsmall};
-      }
     }
   `,
   large: (theme: DefaultTheme) => css`
@@ -40,19 +36,15 @@ const modifiers = {
 
     svg {
       width: ${theme.font.sizes.large};
-
-      & + span {
-        margin-left: ${theme.spacings.xxsmall};
-      }
     }
   `,
   fullWidth: () => css`
     width: 100%;
   `,
-  withIcon: () => css`
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  withIcon: (theme: DefaultTheme) => css`
+    svg + span {
+      margin-left: ${theme.spacings.xxsmall};
+    }
   `,
 }
 
@@ -65,6 +57,11 @@ export const ButtonContainer = styled.button<ContainerProps>`
     cursor: pointer;
     position: relative;
     z-index: ${theme.layers.base};
+    text-decoration: none;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
     &:before {
       background-image: linear-gradient(180deg, #e35565 0%, #d958a6 50%);
@@ -89,6 +86,7 @@ export const ButtonContainer = styled.button<ContainerProps>`
 
     ${!!size && modifiers[size](theme)}
     ${!!fullWidth && modifiers.fullWidth}
-    ${!!hasIcon && modifiers.withIcon}
+    ${!!hasIcon &&
+    modifiers.withIcon(theme)}
   `};
 `
