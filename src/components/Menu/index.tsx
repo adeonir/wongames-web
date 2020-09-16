@@ -16,8 +16,13 @@ import {
   SignUpLink,
 } from './styles'
 
-export const Menu = () => {
+export type MenuProps = {
+  username?: string
+}
+
+export const Menu = ({ username }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false)
+
   return (
     <MenuContainer>
       <IconWrapper>
@@ -41,17 +46,26 @@ export const Menu = () => {
         <MenuNav>
           <MenuLink href="#">Home</MenuLink>
           <MenuLink href="#">Explore</MenuLink>
+
+          {!!username && (
+            <>
+              <MenuLink href="#">My account</MenuLink>
+              <MenuLink href="#">Wishlist</MenuLink>
+            </>
+          )}
         </MenuNav>
 
-        <RegisterBox>
-          <Button size="large" fullWidth>
-            Sign in
-          </Button>
-          <span>or</span>
-          <SignUpLink href="#" title="Sign up">
-            Sign up
-          </SignUpLink>
-        </RegisterBox>
+        {!username && (
+          <RegisterBox>
+            <Button size="large" fullWidth>
+              Sign in
+            </Button>
+            <span>or</span>
+            <SignUpLink href="#" title="Sign up">
+              Sign up
+            </SignUpLink>
+          </RegisterBox>
+        )}
       </FullMenu>
     </MenuContainer>
   )
