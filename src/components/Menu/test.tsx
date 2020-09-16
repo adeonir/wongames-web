@@ -37,7 +37,7 @@ describe('<Menu />', () => {
   it('should show the register box when not logged in', () => {
     renderWithTheme(<Menu />)
 
-    expect(screen.getByText(/sign in/i)).toBeInTheDocument()
+    expect(screen.getByText(/sign in now/i)).toBeInTheDocument()
     expect(screen.getByText(/sign up/i)).toBeInTheDocument()
 
     expect(screen.queryByText(/my account/i)).not.toBeInTheDocument()
@@ -47,7 +47,7 @@ describe('<Menu />', () => {
   it('should show my account and wishlist when logged in', () => {
     renderWithTheme(<Menu username="adeonir" />)
 
-    expect(screen.queryByText(/sign in/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/sign in now/i)).not.toBeInTheDocument()
     expect(screen.queryByText(/sign up/i)).not.toBeInTheDocument()
 
     expect(screen.getByText(/my account/i)).toBeInTheDocument()

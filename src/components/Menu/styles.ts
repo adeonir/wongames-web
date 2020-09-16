@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 type FullMenuProps = {
   isOpen: boolean
@@ -10,12 +11,17 @@ export const MenuContainer = styled.menu`
     align-items: center;
     grid-template-columns: 1fr auto 1fr;
     padding: ${theme.spacings.small} 0;
+
+    ${media.greaterThan('medium')`
+      grid-template-columns: auto auto 1fr;
+    `}
   `}
 `
 
 export const MenuGroup = styled.div`
   ${({ theme }) => css`
     display: flex;
+    align-items: center;
     justify-content: flex-end;
 
     > div {
@@ -90,11 +96,18 @@ export const FullMenu = styled.nav<FullMenuProps>`
   `}
 `
 
-export const MenuNav = styled.div``
+export const MenuNav = styled.div`
+  ${({ theme }) => css`
+    ${media.greaterThan('medium')`
+			margin-left: ${theme.spacings.small};
+		`}
+  `}
+`
 
 export const MenuLink = styled.a`
   ${({ theme }) => css`
     position: relative;
+    color: ${theme.colors.white};
     font-size: ${theme.font.sizes.medium};
     margin: 0.3rem ${theme.spacings.small} 0;
     text-decoration: none;

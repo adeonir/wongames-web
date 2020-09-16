@@ -2,7 +2,7 @@ import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
 import { Search as SearchIcon } from '@styled-icons/material-outlined/Search'
 import { ShoppingCart as ShoppingCartIcon } from '@styled-icons/material-outlined/ShoppingCart'
 import { Menu2 as MenuIcon } from '@styled-icons/remix-line/Menu2'
-import { Button, Logo } from 'components'
+import { Button, Logo, MediaMatch } from 'components'
 import React, { useState } from 'react'
 
 import {
@@ -25,11 +25,20 @@ export const Menu = ({ username }: MenuProps) => {
 
   return (
     <MenuContainer>
-      <IconWrapper>
-        <MenuIcon aria-label="Open menu" onClick={() => setIsOpen(true)} />
-      </IconWrapper>
+      <MediaMatch lessThan="medium">
+        <IconWrapper>
+          <MenuIcon aria-label="Open menu" onClick={() => setIsOpen(true)} />
+        </IconWrapper>
+      </MediaMatch>
 
       <Logo hideLabel />
+
+      <MediaMatch greaterThan="medium">
+        <MenuNav>
+          <MenuLink href="#">Home</MenuLink>
+          <MenuLink href="#">Explore</MenuLink>
+        </MenuNav>
+      </MediaMatch>
 
       <MenuGroup>
         <IconWrapper>
@@ -38,6 +47,12 @@ export const Menu = ({ username }: MenuProps) => {
         <IconWrapper>
           <ShoppingCartIcon aria-label="Open shopping cart" />
         </IconWrapper>
+
+        {!username && (
+          <MediaMatch greaterThan="medium">
+            <Button>Sign in</Button>
+          </MediaMatch>
+        )}
       </MenuGroup>
 
       <FullMenu aria-hidden={!isOpen} isOpen={isOpen}>
@@ -58,7 +73,7 @@ export const Menu = ({ username }: MenuProps) => {
         {!username && (
           <RegisterBox>
             <Button size="large" fullWidth>
-              Sign in
+              Sign in now
             </Button>
             <span>or</span>
             <SignUpLink href="#" title="Sign up">
