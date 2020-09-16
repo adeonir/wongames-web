@@ -2,10 +2,19 @@ import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
 import { Search as SearchIcon } from '@styled-icons/material-outlined/Search'
 import { ShoppingCart as ShoppingCartIcon } from '@styled-icons/material-outlined/ShoppingCart'
 import { Menu2 as MenuIcon } from '@styled-icons/remix-line/Menu2'
-import { Logo } from 'components'
-import { useState } from 'react'
+import { Button, Logo } from 'components'
+import React, { useState } from 'react'
 
-import { FullMenu, IconWrapper, MenuContainer, MenuGroup } from './styles'
+import {
+  FullMenu,
+  IconWrapper,
+  MenuContainer,
+  MenuGroup,
+  MenuLink,
+  MenuNav,
+  RegisterBox,
+  SignUpLink,
+} from './styles'
 
 export const Menu = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -28,6 +37,21 @@ export const Menu = () => {
 
       <FullMenu aria-hidden={!isOpen} isOpen={isOpen}>
         <CloseIcon aria-label="Close menu" onClick={() => setIsOpen(false)} />
+
+        <MenuNav>
+          <MenuLink href="#">Home</MenuLink>
+          <MenuLink href="#">Explore</MenuLink>
+        </MenuNav>
+
+        <RegisterBox>
+          <Button size="large" fullWidth>
+            Sign in
+          </Button>
+          <span>or</span>
+          <SignUpLink href="#" title="Sign up">
+            Sign up
+          </SignUpLink>
+        </RegisterBox>
       </FullMenu>
     </MenuContainer>
   )

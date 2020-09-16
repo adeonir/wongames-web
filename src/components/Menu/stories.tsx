@@ -8,3 +8,10 @@ export default {
 } as Meta
 
 export const Basic: Story = () => <Menu />
+
+Basic.parameters = {
+  layout: 'fullscreen',
+  backgrounds: {
+    default: 'dark',
+  },
+}
