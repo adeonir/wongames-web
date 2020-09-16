@@ -86,7 +86,6 @@ export const ButtonContainer = styled.button<ContainerProps>`
 
     ${!!size && modifiers[size](theme)}
     ${!!fullWidth && modifiers.fullWidth}
-    ${!!hasIcon &&
-    modifiers.withIcon(theme)}
+    ${!!hasIcon && modifiers.withIcon(theme)}
   `};
 `
