@@ -1,5 +1,9 @@
 import styled, { css } from 'styled-components'
 
+type FullMenuProps = {
+  isOpen: boolean
+}
+
 export const MenuContainer = styled.menu`
   ${({ theme }) => css`
     display: grid;
@@ -26,5 +30,11 @@ export const IconWrapper = styled.div`
     cursor: pointer;
     width: 2.4rem;
     height: 2.4rem;
+  `}
+`
+
+export const FullMenu = styled.nav<FullMenuProps>`
+  ${({ isOpen }) => css`
+    opacity: ${isOpen ? 1 : 0};
   `}
 `
