@@ -1,8 +1,12 @@
 import { HeadingContainer } from './styles'
 
+export type LineColors = 'primary' | 'secondary'
+
 export type HeadingProps = {
   children: React.ReactNode
   color?: 'white' | 'black'
+  size?: 'small' | 'medium'
+  lineColor?: LineColors
   lineLeft?: boolean
   lineBottom?: boolean
 }
@@ -10,10 +14,18 @@ export type HeadingProps = {
 export const Heading = ({
   children,
   color = 'white',
+  size = 'medium',
+  lineColor = 'primary',
   lineLeft = false,
   lineBottom = false,
 }: HeadingProps) => (
-  <HeadingContainer color={color} lineLeft={lineLeft} lineBottom={lineBottom}>
+  <HeadingContainer
+    color={color}
+    size={size}
+    lineColor={lineColor}
+    lineLeft={lineLeft}
+    lineBottom={lineBottom}
+  >
     {children}
   </HeadingContainer>
 )
