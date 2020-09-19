@@ -1,10 +1,11 @@
 import { Button } from 'components'
 
-import { HighlightContainer, Subtitle, Title } from './styles'
+import { Content, HighlightContainer, Subtitle, Title } from './styles'
 
 export type HighlightProps = {
   title: string
   subtitle: string
+  backgroundImage: string
   buttonLabel: string
   buttonLink: string
 }
@@ -12,14 +13,17 @@ export type HighlightProps = {
 export const Highlight = ({
   title,
   subtitle,
+  backgroundImage,
   buttonLabel,
   buttonLink,
 }: HighlightProps) => (
-  <HighlightContainer>
-    <Title>{title}</Title>
-    <Subtitle>{subtitle}</Subtitle>
-    <Button as="a" href={buttonLink}>
-      {buttonLabel}
-    </Button>
+  <HighlightContainer backgroundImage={backgroundImage}>
+    <Content>
+      <Title>{title}</Title>
+      <Subtitle>{subtitle}</Subtitle>
+      <Button as="a" href={buttonLink}>
+        {buttonLabel}
+      </Button>
+    </Content>
   </HighlightContainer>
 )
