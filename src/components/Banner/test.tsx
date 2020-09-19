@@ -29,6 +29,32 @@ describe('<Banner />', () => {
 
     expect(screen.getByRole('img')).toBeInTheDocument()
 
-    expect(firstChild).toMatchSnapshot
+    expect(firstChild).toMatchSnapshot()
+  })
+
+  it('should render the ribbon', () => {
+    const {
+      container: { firstChild },
+    } = renderWithTheme(
+      <Banner
+        {...props}
+        ribbonText="Best seller"
+        ribbonSize="small"
+        ribbonColor="secondary"
+      />,
+    )
+
+    expect(screen.getByText(/best seller/i)).toBeInTheDocument()
+
+    expect(screen.getByText(/best seller/i)).toHaveStyle({
+      backgroundColor: '#3cd3c1',
+    })
+
+    expect(screen.getByText(/best seller/i)).toHaveStyle({
+      height: '2.6rem',
+      fontSize: '1.2rem',
+    })
+
+    expect(firstChild).toMatchSnapshot()
   })
 })

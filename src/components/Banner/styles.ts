@@ -1,3 +1,4 @@
+import { RibbonContainer } from 'components/Ribbon/styles'
 import { rgba } from 'polished'
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
@@ -9,6 +10,16 @@ type ImageProps = {
 export const BannerContainer = styled.section`
   ${({ theme }) => css`
     position: relative;
+
+    ${media.lessThan('medium')`
+      ${RibbonContainer} {
+        right: 0;
+
+        &::after {
+          display: none;
+        }
+      }
+    `}
 
     ${media.greaterThan('medium')`
       box-shadow: 0 0.4rem 0.5rem ${rgba(theme.colors.black, 0.2)};
