@@ -12,7 +12,9 @@ const props = {
 
 describe('<Highlight />', () => {
   it('should render deadings and buttons', () => {
-    renderWithTheme(<Highlight {...props} />)
+    const {
+      container: { firstChild },
+    } = renderWithTheme(<Highlight {...props} />)
 
     expect(
       screen.getByRole('heading', { name: /this is the title/i }),
@@ -23,5 +25,7 @@ describe('<Highlight />', () => {
     ).toBeInTheDocument()
 
     expect(screen.getByRole('link', { name: /buy now/i })).toBeInTheDocument()
+
+    expect(firstChild).toMatchSnapshot()
   })
 })
