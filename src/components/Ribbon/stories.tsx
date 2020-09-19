@@ -21,7 +21,7 @@ export const Basic: Story<RibbonProps> = (args) => (
       width: '40rem',
       height: '24rem',
       position: 'relative',
-      background: '#8f8f8f',
+      background: '#eaeaea',
     }}
   >
     <Ribbon {...args} />
