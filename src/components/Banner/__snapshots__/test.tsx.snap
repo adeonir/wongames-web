@@ -1,0 +1,396 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Banner /> should render correctly 1`] = `
+.c5 {
+  background-image: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
+  color: #fafafa;
+  border-radius: 0.4rem;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  padding: 0.8rem 4.8rem;
+  height: 5rem;
+}
+
+.c5:before {
+  background-image: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
+  content: '';
+  border-radius: inherit;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+
+.c5:hover:before {
+  opacity: 1;
+}
+
+.c5 svg {
+  width: 1.8rem;
+}
+
+.c0 {
+  position: relative;
+}
+
+.c1 {
+  width: 100%;
+  height: 23rem;
+  background-color: #eaeaea;
+  background-image: url(https://source.unsplash.com/user/willianjusten/1042x580);
+  background-position: center center;
+  background-size: cover;
+}
+
+.c2 {
+  width: 100%;
+  background: rgba(3,5,23,0.7);
+  padding: 2.4rem;
+}
+
+.c3 {
+  color: #fafafa;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 1.6rem;
+}
+
+.c4 {
+  color: #fafafa;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 1.6rem;
+}
+
+.c4 strong {
+  color: #f231a5;
+  font-weight: 600;
+}
+
+@media (max-width:1170px) {
+  .c0 .sc-fzoXzr {
+    right: 0;
+  }
+
+  .c0 .sc-fzoXzr::after {
+    display: none;
+  }
+}
+
+@media (min-width:768px) {
+  .c0 {
+    box-shadow: 0 0.4rem 0.5rem rgba(3,5,23,0.2);
+  }
+}
+
+@media (min-width:768px) {
+  .c1 {
+    border-radius: 0.4rem;
+    height: 58rem;
+  }
+}
+
+@media (min-width:768px) {
+  .c2 {
+    border-radius: 0 0 0.4rem 0.4rem;
+    padding: 4.0rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+@media (min-width:768px) {
+  .c3 {
+    font-size: 2.8rem;
+  }
+}
+
+@media (min-width:768px) {
+  .c4 {
+    font-size: 1.8rem;
+  }
+}
+
+<section
+  class="c0"
+>
+  <div
+    aria-label="Defy death"
+    class="c1"
+    role="img"
+    src="https://source.unsplash.com/user/willianjusten/1042x580"
+  />
+  <div
+    class="c2"
+  >
+    <h2
+      class="c3"
+    >
+      Defy death
+    </h2>
+    <h3
+      class="c4"
+    >
+      Play the new 
+      <strong>
+        CrashLands
+      </strong>
+       season
+    </h3>
+    <a
+      class="c5"
+      href="/games/defy-death"
+    >
+      <span>
+        Buy now
+      </span>
+    </a>
+  </div>
+</section>
+`
+
+exports[`<Banner /> should render the ribbon 1`] = `
+.c7 {
+  background-image: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
+  color: #fafafa;
+  border-radius: 0.4rem;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  padding: 0.8rem 4.8rem;
+  height: 5rem;
+}
+
+.c7:before {
+  background-image: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
+  content: '';
+  border-radius: inherit;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+
+.c7:hover:before {
+  opacity: 1;
+}
+
+.c7 svg {
+  width: 1.8rem;
+}
+
+.c2 {
+  color: #fafafa;
+  padding: 0 2.4rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  top: 3rem;
+  background-color: #3cd3c1;
+  font-size: 1.2rem;
+  height: 2.6rem;
+  right: -1.6rem;
+}
+
+.c2::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  right: 0;
+  border: 0 solid transparent;
+}
+
+.c2::after {
+  border-left-color: #30a89a;
+}
+
+.c2::after {
+  bottom: -0.8rem;
+  border-bottom-width: 0.8rem;
+  border-left-width: 1.6rem;
+}
+
+.c0 {
+  position: relative;
+}
+
+.c3 {
+  width: 100%;
+  height: 23rem;
+  background-color: #eaeaea;
+  background-image: url(https://source.unsplash.com/user/willianjusten/1042x580);
+  background-position: center center;
+  background-size: cover;
+}
+
+.c4 {
+  width: 100%;
+  background: rgba(3,5,23,0.7);
+  padding: 2.4rem;
+}
+
+.c5 {
+  color: #fafafa;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 1.6rem;
+}
+
+.c6 {
+  color: #fafafa;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 1.6rem;
+}
+
+.c6 strong {
+  color: #f231a5;
+  font-weight: 600;
+}
+
+@media (max-width:1170px) {
+  .c0 .c1 {
+    right: 0;
+  }
+
+  .c0 .c1::after {
+    display: none;
+  }
+}
+
+@media (min-width:768px) {
+  .c0 {
+    box-shadow: 0 0.4rem 0.5rem rgba(3,5,23,0.2);
+  }
+}
+
+@media (min-width:768px) {
+  .c3 {
+    border-radius: 0.4rem;
+    height: 58rem;
+  }
+}
+
+@media (min-width:768px) {
+  .c4 {
+    border-radius: 0 0 0.4rem 0.4rem;
+    padding: 4.0rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+@media (min-width:768px) {
+  .c5 {
+    font-size: 2.8rem;
+  }
+}
+
+@media (min-width:768px) {
+  .c6 {
+    font-size: 1.8rem;
+  }
+}
+
+<section
+  class="c0"
+>
+  <div
+    class="c1 c2"
+    color="secondary"
+  >
+    Best seller
+  </div>
+  <div
+    aria-label="Defy death"
+    class="c3"
+    role="img"
+    src="https://source.unsplash.com/user/willianjusten/1042x580"
+  />
+  <div
+    class="c4"
+  >
+    <h2
+      class="c5"
+    >
+      Defy death
+    </h2>
+    <h3
+      class="c6"
+    >
+      Play the new 
+      <strong>
+        CrashLands
+      </strong>
+       season
+    </h3>
+    <a
+      class="c7"
+      href="/games/defy-death"
+    >
+      <span>
+        Buy now
+      </span>
+    </a>
+  </div>
+</section>
+`
