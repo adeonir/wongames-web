@@ -90,7 +90,7 @@ exports[`<Banner /> should render correctly 1`] = `
   font-weight: 600;
 }
 
-@media (max-width:768px) {
+@media (max-width:1170px) {
   .c0 .sc-fzoXzr {
     right: 0;
   }
@@ -306,7 +306,7 @@ exports[`<Banner /> should render the ribbon 1`] = `
   font-weight: 600;
 }
 
-@media (max-width:768px) {
+@media (max-width:1170px) {
   .c0 .c1 {
     right: 0;
   }

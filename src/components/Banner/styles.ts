@@ -11,7 +11,7 @@ export const BannerContainer = styled.section`
   ${({ theme }) => css`
     position: relative;
 
-    ${media.lessThan('medium')`
+    ${media.lessThan('large')`
       ${RibbonContainer} {
         right: 0;
 
