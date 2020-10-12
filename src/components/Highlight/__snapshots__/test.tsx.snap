@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Highlight /> should render headings and buttons 1`] = `
-.c4 {
+.c5 {
   background-image: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
   color: #fafafa;
   border-radius: 0.4rem;
@@ -28,7 +28,7 @@ exports[`<Highlight /> should render headings and buttons 1`] = `
   height: 4rem;
 }
 
-.c4:before {
+.c5:before {
   background-image: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
   content: '';
   border-radius: inherit;
@@ -44,11 +44,11 @@ exports[`<Highlight /> should render headings and buttons 1`] = `
   transition: opacity 0.2s ease;
 }
 
-.c4:hover:before {
+.c5:hover:before {
   opacity: 1;
 }
 
-.c4 svg {
+.c5 svg {
   width: 1.6rem;
 }
 
@@ -59,6 +59,8 @@ exports[`<Highlight /> should render headings and buttons 1`] = `
   position: relative;
   height: 23rem;
   display: grid;
+  grid-template-areas: 'float-image content';
+  grid-template-columns: 1.3fr 2fr;
 }
 
 .c0::after {
@@ -69,19 +71,23 @@ exports[`<Highlight /> should render headings and buttons 1`] = `
   background-color: rgba(3,5,23,0.6);
 }
 
-.c1 {
+.c0 .c1 {
   text-align: right;
+}
+
+.c2 {
+  grid-area: content;
   padding: 1.6rem;
   z-index: 10;
 }
 
-.c2 {
+.c3 {
   color: #fafafa;
   font-size: 1.8rem;
   font-weight: 600;
 }
 
-.c3 {
+.c4 {
   color: #fafafa;
   font-size: 1.4rem;
   font-weight: 300;
@@ -95,7 +101,7 @@ exports[`<Highlight /> should render headings and buttons 1`] = `
 }
 
 @media (min-width:768px) {
-  .c1 {
+  .c2 {
     -webkit-align-self: end;
     -ms-flex-item-align: end;
     align-self: end;
@@ -104,13 +110,13 @@ exports[`<Highlight /> should render headings and buttons 1`] = `
 }
 
 @media (min-width:768px) {
-  .c2 {
+  .c3 {
     font-size: 2.0rem;
   }
 }
 
 @media (min-width:768px) {
-  .c3 {
+  .c4 {
     font-size: 1.8rem;
   }
 }
@@ -119,20 +125,20 @@ exports[`<Highlight /> should render headings and buttons 1`] = `
   class="c0"
 >
   <div
-    class="c1"
+    class="c1 c2"
   >
     <h2
-      class="c2"
+      class="c3"
     >
       This is the title
     </h2>
     <h3
-      class="c3"
+      class="c4"
     >
       This is the subtitle
     </h3>
     <a
-      class="c4"
+      class="c5"
       href="/rdr2"
     >
       <span>

@@ -2,6 +2,7 @@ import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
 import { Highlight } from '.'
+import { Content } from './styles'
 
 const props = {
   title: 'This is the title',
@@ -37,6 +38,45 @@ describe('<Highlight />', () => {
 
     expect(firstChild).toHaveStyle({
       backgroundImage: `url(${props.backgroundImage})`,
+    })
+  })
+
+  it('should render the float image', () => {
+    renderWithTheme(<Highlight floatImage="/float-image.png" {...props} />)
+
+    expect(screen.getByRole('img', { name: props.title })).toHaveAttribute(
+      'src',
+      '/float-image.png',
+    )
+  })
+
+  it('should render the float image align to the left by default', () => {
+    const {
+      container: { firstChild },
+    } = renderWithTheme(<Highlight {...props} />)
+
+    expect(firstChild).toHaveStyleRule(
+      'grid-template-areas',
+      "'float-image content'",
+    )
+
+    expect(firstChild).toHaveStyleRule('text-align', 'right', {
+      modifier: `${Content}`,
+    })
+  })
+
+  it('should render the float image align to the right when props is passed', () => {
+    const {
+      container: { firstChild },
+    } = renderWithTheme(<Highlight floatPosition="right" {...props} />)
+
+    expect(firstChild).toHaveStyleRule(
+      'grid-template-areas',
+      "'content float-image'",
+    )
+
+    expect(firstChild).toHaveStyleRule('text-align', 'left', {
+      modifier: `${Content}`,
     })
   })
 })

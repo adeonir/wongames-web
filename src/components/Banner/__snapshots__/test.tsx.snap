@@ -91,11 +91,11 @@ exports[`<Banner /> should render correctly 1`] = `
 }
 
 @media (max-width:1170px) {
-  .c0 .vpfzj7-0 {
+  .c0 .sc-iemXMA {
     right: 0;
   }
 
-  .c0 .vpfzj7-0::after {
+  .c0 .sc-iemXMA::after {
     display: none;
   }
 }
