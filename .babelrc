@@ -10,11 +10,23 @@
     ]
   ],
   "env": {
+    "development": {
+      "plugins": [
+        [
+          "styled-components",
+          {
+            "ssr": true,
+            "displayName": true
+          }
+        ]
+      ]
+    },
     "test": {
       "plugins": [
         [
           "styled-components",
           {
+            "ssr": false,
             "displayName": false
           }
         ]
