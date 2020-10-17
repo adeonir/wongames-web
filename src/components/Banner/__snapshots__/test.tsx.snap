@@ -91,11 +91,11 @@ exports[`<Banner /> should render correctly 1`] = `
 }
 
 @media (max-width:1170px) {
-  .c0 .sc-kLokih {
+  .c0 .sc-iklIKw {
     right: 0;
   }
 
-  .c0 .sc-kLokih::after {
+  .c0 .sc-iklIKw::after {
     display: none;
   }
 }
