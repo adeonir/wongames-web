@@ -17,21 +17,24 @@ export default {
 } as Meta
 
 export const Basic: Story = (args) => <Button {...args} />
-
 Basic.args = {
   children: 'Buy now',
 }
 
 export const WithIcon: Story = (args) => <Button {...args} />
-
 WithIcon.args = {
   size: 'small',
   children: 'Buy now',
   icon: <AddShoppingCart />,
 }
 
-export const AsLink: Story = (args) => <Button {...args} />
+export const IconOnly: Story = (args) => <Button {...args} />
+IconOnly.args = {
+  size: 'small',
+  icon: <AddShoppingCart />,
+}
 
+export const AsLink: Story = (args) => <Button {...args} />
 AsLink.args = {
   size: 'large',
   children: 'Buy now',

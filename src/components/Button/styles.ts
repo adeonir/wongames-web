@@ -9,7 +9,7 @@ type ContainerProps = {
 const modifiers = {
   small: (theme: DefaultTheme) => css`
     font-size: ${theme.font.sizes.xsmall};
-    padding: ${theme.spacings.xxsmall} ${theme.spacings.xsmall};
+    padding: ${theme.spacings.xxsmall};
     height: 3rem;
 
     svg {
@@ -22,7 +22,7 @@ const modifiers = {
   `,
   medium: (theme: DefaultTheme) => css`
     font-size: ${theme.font.sizes.small};
-    padding: ${theme.spacings.xxsmall} ${theme.spacings.small};
+    padding: ${theme.spacings.xxsmall};
     height: 4rem;
 
     svg {
@@ -31,7 +31,7 @@ const modifiers = {
   `,
   large: (theme: DefaultTheme) => css`
     font-size: ${theme.font.sizes.medium};
-    padding: ${theme.spacings.xxsmall} ${theme.spacings.xlarge};
+    padding: ${theme.spacings.xxsmall};
     height: 5rem;
 
     svg {
@@ -42,6 +42,10 @@ const modifiers = {
     width: 100%;
   `,
   withIcon: (theme: DefaultTheme) => css`
+    svg {
+      width: 1.5rem;
+    }
+
     svg + span {
       margin-left: ${theme.spacings.xxsmall};
     }
