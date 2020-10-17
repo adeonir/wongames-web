@@ -1,6 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Banner /> should render correctly 1`] = `
+.c0 {
+  position: relative;
+}
+
+.c1 {
+  width: 100%;
+  height: 23rem;
+  background-color: #eaeaea;
+  background-image: url(https://source.unsplash.com/user/willianjusten/1042x580);
+  background-position: center center;
+  background-size: cover;
+}
+
+.c2 {
+  width: 100%;
+  background: rgba(3,5,23,0.7);
+  padding: 2.4rem;
+}
+
+.c3 {
+  color: #fafafa;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 1.6rem;
+}
+
+.c4 {
+  color: #fafafa;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 1.6rem;
+}
+
+.c4 strong {
+  color: #f231a5;
+  font-weight: 600;
+}
+
 .c5 {
   background-image: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
   color: #fafafa;
@@ -52,50 +90,12 @@ exports[`<Banner /> should render correctly 1`] = `
   width: 1.8rem;
 }
 
-.c0 {
-  position: relative;
-}
-
-.c1 {
-  width: 100%;
-  height: 23rem;
-  background-color: #eaeaea;
-  background-image: url(https://source.unsplash.com/user/willianjusten/1042x580);
-  background-position: center center;
-  background-size: cover;
-}
-
-.c2 {
-  width: 100%;
-  background: rgba(3,5,23,0.7);
-  padding: 2.4rem;
-}
-
-.c3 {
-  color: #fafafa;
-  font-size: 1.4rem;
-  font-weight: 400;
-  margin-bottom: 1.6rem;
-}
-
-.c4 {
-  color: #fafafa;
-  font-size: 1.4rem;
-  font-weight: 400;
-  margin-bottom: 1.6rem;
-}
-
-.c4 strong {
-  color: #f231a5;
-  font-weight: 600;
-}
-
 @media (max-width:1170px) {
-  .c0 .sc-iklIKw {
+  .c0 .sc-bdnylx {
     right: 0;
   }
 
-  .c0 .sc-iklIKw::after {
+  .c0 .sc-bdnylx::after {
     display: none;
   }
 }
@@ -174,57 +174,6 @@ exports[`<Banner /> should render correctly 1`] = `
 `
 
 exports[`<Banner /> should render the ribbon 1`] = `
-.c7 {
-  background-image: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
-  color: #fafafa;
-  border-radius: 0.4rem;
-  border: 0;
-  cursor: pointer;
-  position: relative;
-  z-index: 10;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  font-size: 1.6rem;
-  padding: 0.8rem;
-  height: 5rem;
-}
-
-.c7:before {
-  background-image: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
-  content: '';
-  border-radius: inherit;
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  opacity: 0;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
-}
-
-.c7:hover:before {
-  opacity: 1;
-}
-
-.c7 svg {
-  width: 1.8rem;
-}
-
 .c2 {
   color: #fafafa;
   padding: 0 2.4rem;
@@ -304,6 +253,57 @@ exports[`<Banner /> should render the ribbon 1`] = `
 .c6 strong {
   color: #f231a5;
   font-weight: 600;
+}
+
+.c7 {
+  background-image: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
+  color: #fafafa;
+  border-radius: 0.4rem;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  padding: 0.8rem;
+  height: 5rem;
+}
+
+.c7:before {
+  background-image: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
+  content: '';
+  border-radius: inherit;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+
+.c7:hover:before {
+  opacity: 1;
+}
+
+.c7 svg {
+  width: 1.8rem;
 }
 
 @media (max-width:1170px) {
