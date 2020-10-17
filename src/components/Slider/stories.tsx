@@ -19,9 +19,10 @@ const horizontal: Settings = {
 
 const Slide = styled.div`
   background: #eee;
-  border: 1px solid #666;
+  border: 0.1rem solid #666;
   width: 30rem;
-  height: 10rem;
+  padding: 10rem 0;
+  text-align: center;
 `
 
 export const Horizontal: Story = () => (
