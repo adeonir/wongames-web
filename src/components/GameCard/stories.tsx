@@ -15,6 +15,9 @@ export default {
     onFavorite: {
       action: 'favorite clicked',
     },
+    ribbon: {
+      type: 'string',
+    },
   },
 } as Meta
 
@@ -31,4 +34,20 @@ export const PromotionalPrice: Story<GameCardProps> = (args) => (
 )
 PromotionalPrice.args = {
   promoPrice: 'R$ 100,00',
+}
+
+export const WithRibbon: Story<GameCardProps> = (args) => (
+  <div style={{ width: '30rem' }}>
+    <GameCard {...args} />
+  </div>
+)
+WithRibbon.argTypes = {
+  ribbonText: {
+    type: 'string',
+  },
+}
+WithRibbon.args = {
+  ribbonText: '20% OFF',
+  ribbonSize: 'small',
+  ribbonColor: 'primary',
 }

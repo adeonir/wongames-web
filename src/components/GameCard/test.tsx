@@ -72,4 +72,26 @@ describe('<GameCard />', () => {
 
     expect(onFavorite).toBeCalled()
   })
+
+  it('should render the ribbon', () => {
+    renderWithTheme(
+      <GameCard
+        {...props}
+        ribbonText="My ribbon"
+        ribbonSize="small"
+        ribbonColor="secondary"
+      />,
+    )
+
+    expect(screen.getByText(/my ribbon/i)).toBeInTheDocument()
+
+    expect(screen.getByText(/my ribbon/i)).toHaveStyle({
+      backgroundColor: theme.colors.secondary,
+    })
+
+    expect(screen.getByText(/my ribbon/i)).toHaveStyle({
+      height: '2.6rem',
+      fontSize: '1.2rem',
+    })
+  })
 })
