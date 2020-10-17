@@ -11,6 +11,11 @@ export default {
     image: 'https://source.unsplash.com/user/willianjusten/300x140',
     price: 'R$ 235,00',
   },
+  argTypes: {
+    onFavorite: {
+      action: 'favorite clicked',
+    },
+  },
 } as Meta
 
 export const Basic: Story<GameCardProps> = (args) => (
