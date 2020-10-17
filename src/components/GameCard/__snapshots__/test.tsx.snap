@@ -235,6 +235,7 @@ exports[`<GameCard /> should render the card 1`] = `
         R$ 235,00
       </div>
       <button
+        aria-label="Add to cart"
         class="c10"
       >
         <svg
