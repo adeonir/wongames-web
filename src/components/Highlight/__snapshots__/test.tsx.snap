@@ -24,7 +24,7 @@ exports[`<Highlight /> should render headings and buttons 1`] = `
   -ms-flex-pack: center;
   justify-content: center;
   font-size: 1.4rem;
-  padding: 0.8rem 2.4rem;
+  padding: 0.8rem;
   height: 4rem;
 }
 

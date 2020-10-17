@@ -1,12 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Footer /> should render 4 topics columns on footer 1`] = `
-.c1 {
-  color: #030517;
-  width: 11rem;
-  height: 3.3rem;
-}
-
 .c5 {
   color: #030517;
   position: relative;
@@ -27,6 +21,12 @@ exports[`<Footer /> should render 4 topics columns on footer 1`] = `
   bottom: -0.4rem;
   width: 3rem;
   border-bottom-width: 0.4rem;
+}
+
+.c1 {
+  color: #030517;
+  width: 11rem;
+  height: 3.3rem;
 }
 
 .c0 .c4 {
