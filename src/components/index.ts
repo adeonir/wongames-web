@@ -1,6 +1,7 @@
 export { Banner } from './Banner'
 export { BannerSlider } from './BannerSlider'
 export { Button } from './Button'
+export { Container } from './Container'
 export { Footer } from './Footer'
 export { GameCard } from './GameCard'
 export { Heading } from './Heading'
