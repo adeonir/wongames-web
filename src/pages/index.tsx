@@ -1,5 +1,5 @@
-import { Main } from 'components'
+import { Home } from 'containers'
 
-export default function Home() {
-  return <Main />
+export default function Index() {
+  return <Home />
 }
