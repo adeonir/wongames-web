@@ -5,7 +5,7 @@ type FullMenuProps = {
   isOpen: boolean
 }
 
-export const MenuContainer = styled.menu`
+export const MenuContainer = styled.div`
   ${({ theme }) => css`
     display: grid;
     align-items: center;
