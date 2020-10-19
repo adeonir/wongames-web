@@ -5,7 +5,7 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import { Home } from '.'
 
 describe('<Home />', () => {
-  it('should render menu and footer', () => {
+  it.skip('should render menu and footer', () => {
     const { container } = renderWithTheme(<Home />)
 
     expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
@@ -15,7 +15,7 @@ describe('<Home />', () => {
     ).toBeInTheDocument()
   })
 
-  it('should render the sections', () => {
+  it.skip('should render the sections', () => {
     const { container } = renderWithTheme(<Home />)
 
     expect(screen.getByRole('heading', { name: /news/i })).toBeInTheDocument()
