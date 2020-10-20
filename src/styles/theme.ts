@@ -48,4 +48,9 @@ export const theme = {
     modal: 40,
     alwaysOnTop: 50,
   },
+  transition: {
+    slow: '0.5s ease-in-out',
+    default: '0.3s ease-in-out',
+    fast: '0.1s ease-in-out',
+  },
 }
