@@ -6,22 +6,32 @@ import { Checkbox } from '.'
 
 describe('<Checkbox />', () => {
   it('should render with label', () => {
-    renderWithTheme(<Checkbox name="check" labelText="Checkbox label" />)
+    const {
+      container: { firstChild },
+    } = renderWithTheme(
+      <Checkbox labelFor="check" labelText="Checkbox label" />,
+    )
 
     expect(screen.getByRole('checkbox')).toBeInTheDocument()
     expect(screen.getByLabelText(/checkbox label/i)).toBeInTheDocument()
     expect(screen.getByText(/checkbox label/i)).toHaveAttribute('for', 'check')
+
+    expect(firstChild).toMatchSnapshot()
   })
 
   it('should render without label', () => {
-    renderWithTheme(<Checkbox name="check" />)
+    renderWithTheme(<Checkbox labelFor="check" />)
 
     expect(screen.queryByLabelText(/checkbox/i)).not.toBeInTheDocument()
   })
 
   it('should render with black label', () => {
     renderWithTheme(
-      <Checkbox name="check" labelText="Checkbox label" labelColor="black" />,
+      <Checkbox
+        labelText="Checkbox label"
+        labelFor="check"
+        labelColor="black"
+      />,
     )
 
     expect(screen.getByText(/checkbox label/i)).toHaveStyle({
@@ -33,7 +43,7 @@ describe('<Checkbox />', () => {
     const onCheck = jest.fn()
 
     renderWithTheme(
-      <Checkbox name="check" labelText="checkbox" onCheck={onCheck} />,
+      <Checkbox labelText="checkbox" labelFor="check" onCheck={onCheck} />,
     )
 
     expect(onCheck).not.toHaveBeenCalled()
@@ -50,8 +60,8 @@ describe('<Checkbox />', () => {
 
     renderWithTheme(
       <Checkbox
-        name="check"
         labelText="checkbox"
+        labelFor="check"
         onCheck={onCheck}
         isChecked
       />,
@@ -64,5 +74,14 @@ describe('<Checkbox />', () => {
       expect(onCheck).toHaveBeenCalledTimes(1)
     })
     expect(onCheck).toHaveBeenCalledWith(false)
+  })
+
+  it('should be accessible with tab key', () => {
+    renderWithTheme(<Checkbox labelText="Checkbox" labelFor="checkbox" />)
+
+    expect(document.body).toHaveFocus()
+
+    userEvent.tab()
+    expect(screen.getByLabelText(/checkbox/i)).toHaveFocus()
   })
 })
