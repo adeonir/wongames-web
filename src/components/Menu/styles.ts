@@ -5,7 +5,7 @@ type FullMenuProps = {
   isOpen: boolean
 }
 
-export const MenuContainer = styled.menu`
+export const MenuContainer = styled.div`
   ${({ theme }) => css`
     display: grid;
     align-items: center;
@@ -46,7 +46,8 @@ export const FullMenu = styled.nav<FullMenuProps>`
     flex-direction: column;
     justify-content: space-between;
 
-    position: absolute;
+    position: fixed;
+    z-index: ${theme.layers.menu};
     top: 0;
     bottom: 0;
     left: 0;
