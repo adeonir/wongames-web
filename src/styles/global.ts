@@ -65,7 +65,7 @@ export const GlobalStyles: GlobalStyleComponent<
 
       ${!removeBg &&
       css`
-        background: ${theme.colors.darkBlue};
+        background: ${theme.colors.darkBackground};
       `}
     }
 
