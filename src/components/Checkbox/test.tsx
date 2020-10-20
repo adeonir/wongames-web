@@ -5,10 +5,8 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import { Checkbox } from '.'
 
 describe('<Checkbox />', () => {
-  it('should render with label', () => {
-    const {
-      container: { firstChild },
-    } = renderWithTheme(
+  it('should render with white label', () => {
+    const { container } = renderWithTheme(
       <Checkbox labelFor="check" labelText="Checkbox label" />,
     )
 
@@ -16,7 +14,7 @@ describe('<Checkbox />', () => {
     expect(screen.getByLabelText(/checkbox label/i)).toBeInTheDocument()
     expect(screen.getByText(/checkbox label/i)).toHaveAttribute('for', 'check')
 
-    expect(firstChild).toMatchSnapshot()
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render without label', () => {
