@@ -2,10 +2,7 @@
 
 exports[`<GameCard /> should render the card 1`] = `
 .c10 {
-  background-image: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
-  color: #fafafa;
   border-radius: 0.4rem;
-  border: 0;
   cursor: pointer;
   position: relative;
   z-index: 10;
@@ -26,26 +23,9 @@ exports[`<GameCard /> should render the card 1`] = `
   font-size: 1.2rem;
   padding: 0.8rem;
   height: 3rem;
-}
-
-.c10:before {
-  background-image: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
-  content: '';
-  border-radius: inherit;
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  opacity: 0;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
-}
-
-.c10:hover:before {
-  opacity: 1;
+  background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
+  border: 0.1rem solid transparent;
+  color: #fafafa;
 }
 
 .c10 svg {
@@ -54,6 +34,10 @@ exports[`<GameCard /> should render the card 1`] = `
 
 .c10 svg + span {
   margin-left: 0.8rem;
+}
+
+.c10:hover {
+  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
 }
 
 .c10 svg {
