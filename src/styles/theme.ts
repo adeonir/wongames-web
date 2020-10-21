@@ -28,9 +28,15 @@ export const theme = {
     lightBackground: '#f2f2f2',
     white: '#fafafa',
     black: '#030517',
-    lightGray: '#eaeaea',
+    lighterGray: '#eaeaea',
+    lightGray: '#b5b5b5',
     gray: '#8f8f8f',
     darkGray: '#2e2f42',
+    info: '#70a1ff',
+    success: '#27ae60',
+    danger: '#ff4757',
+    alert: '#e67e22',
+    warning: '#f1c40f',
   },
   spacings: {
     xxsmall: '0.8rem',
@@ -48,4 +54,9 @@ export const theme = {
     modal: 40,
     alwaysOnTop: 50,
   },
-}
+  transition: {
+    slow: '0.5s ease-in-out',
+    default: '0.3s ease-in-out',
+    fast: '0.1s ease-in-out',
+  },
+} as const

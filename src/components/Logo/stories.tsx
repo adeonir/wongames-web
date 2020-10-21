@@ -4,7 +4,7 @@ import { Logo } from '.'
 import { LogoProps } from '.'
 
 export default {
-  title: 'Logo',
+  title: 'Components/Logo',
   component: Logo,
 } as Meta
 

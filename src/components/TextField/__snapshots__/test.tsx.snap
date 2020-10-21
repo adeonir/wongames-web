@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextField /> should render with error 1`] = `
+.c7 {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.c2 {
+  cursor: pointer;
+  color: #030517;
+  font-size: 1.4rem;
+}
+
+.c4 {
+  background: #eaeaea;
+  border-radius: 0.2rem;
+  border: 0.2rem solid #eaeaea;
+  padding: 0 1.6rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c4:focus-within {
+  box-shadow: 0 0 0.5rem #f231a5;
+}
+
+.c8 {
+  border: 0;
+  background: transparent;
+  color: #030517;
+  font-size: 1.6rem;
+  padding: 0.8rem 0;
+  width: 100%;
+  padding-left: 0.8rem;
+}
+
+.c8::-webkit-input-placeholder {
+  color: #8f8f8f;
+}
+
+.c8::-moz-placeholder {
+  color: #8f8f8f;
+}
+
+.c8:-ms-input-placeholder {
+  color: #8f8f8f;
+}
+
+.c8::placeholder {
+  color: #8f8f8f;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 2.2rem;
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+}
+
+.c6 > svg {
+  fill: #8f8f8f;
+  width: 100%;
+}
+
+.c9 {
+  color: #ff4757;
+  font-size: 1.2rem;
+}
+
+.c0 .c1 {
+  color: #ff4757;
+}
+
+.c0 .c5 svg {
+  fill: #ff4757;
+}
+
+.c0 .c3 {
+  border-color: #ff4757;
+}
+
+<div
+  class="c0"
+>
+  <label
+    class="c1 c2"
+    for="TextField"
+  >
+    TextField
+     
+  </label>
+  <div
+    class="c3 c4"
+  >
+    <div
+      class="c5 c6"
+    >
+      <svg
+        aria-hidden="true"
+        class="c7"
+        data-testid="icon"
+        fill="currentColor"
+        focusable="false"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0V0z"
+          fill="none"
+        />
+        <path
+          d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"
+        />
+      </svg>
+    </div>
+    <input
+      class="c8"
+      id="TextField"
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    class="c9"
+  >
+    Error message
+  </div>
+</div>
+`
