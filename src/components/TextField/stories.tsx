@@ -36,3 +36,13 @@ export const WithIcon: Story<TextFieldProps> = (args) => (
 WithIcon.args = {
   icon: <Email />,
 }
+
+export const WithError: Story<TextFieldProps> = (args) => (
+  <div style={{ maxWidth: 320, padding: 16 }}>
+    <TextField {...args} />
+  </div>
+)
+WithError.args = {
+  icon: <Email />,
+  error: 'Ops... Something is wrong!',
+}

@@ -4,6 +4,8 @@ import { TextFieldProps } from '.'
 
 type IconPositionProps = Pick<TextFieldProps, 'iconPosition'>
 
+type TextFieldContainer = Pick<TextFieldProps, 'disabled'> & { error?: boolean }
+
 type IconProps = {
   hasIcon?: boolean
 } & IconPositionProps
@@ -64,6 +66,13 @@ export const Icon = styled.div<IconPositionProps>`
   `}
 `
 
+export const ErrorMessage = styled.div`
+  ${({ theme }) => css`
+    color: ${theme.colors.danger};
+    font-size: ${theme.font.sizes.xsmall};
+  `}
+`
+
 const modifier = {
   disabled: (theme: DefaultTheme) => css`
     ${Label},
@@ -81,10 +90,24 @@ const modifier = {
       }
     }
   `,
+  error: (theme: DefaultTheme) => css`
+    ${Label} {
+      color: ${theme.colors.danger};
+    }
+
+    ${Icon} svg {
+      fill: ${theme.colors.danger};
+    }
+
+    ${InputWrapper} {
+      border-color: ${theme.colors.danger};
+    }
+  `,
 }
 
-export const TextFieldContainer = styled.div<Pick<TextFieldProps, 'disabled'>>`
-  ${({ theme, disabled }) => css`
-    ${!!disabled && modifier.disabled(theme)}
+export const TextFieldContainer = styled.div<TextFieldContainer>`
+  ${({ theme, disabled, error }) => css`
+    ${error && modifier.error(theme)}
+    ${disabled && modifier.disabled(theme)}
   `}
 `

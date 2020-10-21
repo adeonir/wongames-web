@@ -1,6 +1,13 @@
 import { InputHTMLAttributes, useState } from 'react'
 
-import { Icon, Input, InputWrapper, Label, TextFieldContainer } from './styles'
+import {
+  ErrorMessage,
+  Icon,
+  Input,
+  InputWrapper,
+  Label,
+  TextFieldContainer,
+} from './styles'
 
 export type TextFieldProps = {
   labelText?: string
@@ -10,6 +17,7 @@ export type TextFieldProps = {
   icon?: React.ReactNode
   iconPosition?: 'left' | 'right'
   disabled?: boolean
+  error?: string
   onInput?: (value: string) => void
 } & InputHTMLAttributes<HTMLInputElement>
 
@@ -21,6 +29,7 @@ export const TextField = ({
   icon,
   iconPosition = 'left',
   disabled = false,
+  error,
   onInput,
   ...props
 }: TextFieldProps) => {
@@ -34,7 +43,7 @@ export const TextField = ({
   }
 
   return (
-    <TextFieldContainer disabled={disabled}>
+    <TextFieldContainer disabled={disabled} error={!!error}>
       {!!labelText && (
         <Label htmlFor={labelFor}>
           {labelText} {required && '*'}
@@ -54,6 +63,7 @@ export const TextField = ({
           {...props}
         />
       </InputWrapper>
+      {!!error && <ErrorMessage>{error}</ErrorMessage>}
     </TextFieldContainer>
   )
 }
