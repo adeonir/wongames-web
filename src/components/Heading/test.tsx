@@ -57,7 +57,7 @@ describe('<Heading />', () => {
     renderWithTheme(
       <Heading lineColor="primary" lineLeft lineBottom>
         Won Games
-      </Heading>,
+      </Heading>
     )
     const heading = screen.getByRole('heading', { name: /Won Games/i })
 
@@ -74,7 +74,7 @@ describe('<Heading />', () => {
     renderWithTheme(
       <Heading lineColor="secondary" lineLeft lineBottom>
         Won Games
-      </Heading>,
+      </Heading>
     )
     const heading = screen.getByRole('heading', { name: /Won Games/i })
 

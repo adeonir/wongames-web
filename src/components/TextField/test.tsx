@@ -32,7 +32,7 @@ describe('<TextField />', () => {
 
   it('should render with an icon on the right side', () => {
     renderWithTheme(
-      <TextField icon={<Email data-testid="icon" />} iconPosition="right" />,
+      <TextField icon={<Email data-testid="icon" />} iconPosition="right" />
     )
 
     expect(screen.getByTestId('icon').parentElement).toHaveStyle({ order: 1 })
@@ -41,11 +41,7 @@ describe('<TextField />', () => {
   it('should changes its value when typing', async () => {
     const onInput = jest.fn()
     renderWithTheme(
-      <TextField
-        labelText="TextField"
-        labelFor="TextField"
-        onInput={onInput}
-      />,
+      <TextField labelText="TextField" labelFor="TextField" onInput={onInput} />
     )
 
     const input = screen.getByRole('textbox')
@@ -67,7 +63,7 @@ describe('<TextField />', () => {
         labelText="TextField"
         labelFor="TextField"
         disabled
-      />,
+      />
     )
 
     const input = screen.getByRole('textbox')
@@ -89,7 +85,7 @@ describe('<TextField />', () => {
         labelFor="TextField"
         icon={<Email data-testid="icon" />}
         error="Error message"
-      />,
+      />
     )
 
     expect(screen.getByText(/error message/i)).toBeInTheDocument()
@@ -109,7 +105,7 @@ describe('<TextField />', () => {
 
   it('should be not accessible by tab when disabled', () => {
     renderWithTheme(
-      <TextField labelText="TextField" labelFor="TextField" disabled />,
+      <TextField labelText="TextField" labelFor="TextField" disabled />
     )
 
     const input = screen.getByLabelText('TextField')

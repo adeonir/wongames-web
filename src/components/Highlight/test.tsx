@@ -19,11 +19,11 @@ describe('<Highlight />', () => {
     } = renderWithTheme(<Highlight {...props} />)
 
     expect(
-      screen.getByRole('heading', { name: /this is the title/i }),
+      screen.getByRole('heading', { name: /this is the title/i })
     ).toBeInTheDocument()
 
     expect(
-      screen.getByRole('heading', { name: /this is the subtitle/i }),
+      screen.getByRole('heading', { name: /this is the subtitle/i })
     ).toBeInTheDocument()
 
     expect(screen.getByRole('link', { name: /buy now/i })).toBeInTheDocument()
@@ -46,7 +46,7 @@ describe('<Highlight />', () => {
 
     expect(screen.getByRole('img', { name: props.title })).toHaveAttribute(
       'src',
-      '/float-image.png',
+      '/float-image.png'
     )
   })
 
@@ -57,7 +57,7 @@ describe('<Highlight />', () => {
 
     expect(firstChild).toHaveStyleRule(
       'grid-template-areas',
-      "'float-image content'",
+      "'float-image content'"
     )
 
     expect(firstChild).toHaveStyleRule('text-align', 'right', {
@@ -72,7 +72,7 @@ describe('<Highlight />', () => {
 
     expect(firstChild).toHaveStyleRule(
       'grid-template-areas',
-      "'content float-image'",
+      "'content float-image'"
     )
 
     expect(firstChild).toHaveStyleRule('text-align', 'left', {

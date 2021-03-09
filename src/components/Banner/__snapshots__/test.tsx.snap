@@ -75,11 +75,11 @@ exports[`<Banner /> should render correctly 1`] = `
 }
 
 @media (max-width:1170px) {
-  .c0 .sc-bdnylx {
+  .c0 .sc-bdfBwQ {
     right: 0;
   }
 
-  .c0 .sc-bdnylx::after {
+  .c0 .sc-bdfBwQ::after {
     display: none;
   }
 }
@@ -155,7 +155,7 @@ exports[`<Banner /> should render correctly 1`] = `
     </a>
   </div>
 </section>
-`
+`;
 
 exports[`<Banner /> should render the ribbon 1`] = `
 .c2 {
@@ -361,4 +361,4 @@ exports[`<Banner /> should render the ribbon 1`] = `
     </a>
   </div>
 </section>
-`
+`;

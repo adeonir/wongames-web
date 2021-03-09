@@ -7,7 +7,7 @@ import { Checkbox } from '.'
 describe('<Checkbox />', () => {
   it('should render with white label', () => {
     const { container } = renderWithTheme(
-      <Checkbox labelFor="check" labelText="Checkbox label" />,
+      <Checkbox labelFor="check" labelText="Checkbox label" />
     )
 
     expect(screen.getByRole('checkbox')).toBeInTheDocument()
@@ -29,7 +29,7 @@ describe('<Checkbox />', () => {
         labelText="Checkbox label"
         labelFor="check"
         labelColor="black"
-      />,
+      />
     )
 
     expect(screen.getByText(/checkbox label/i)).toHaveStyle({
@@ -41,7 +41,7 @@ describe('<Checkbox />', () => {
     const onCheck = jest.fn()
 
     renderWithTheme(
-      <Checkbox labelText="checkbox" labelFor="check" onCheck={onCheck} />,
+      <Checkbox labelText="checkbox" labelFor="check" onCheck={onCheck} />
     )
 
     expect(onCheck).not.toHaveBeenCalled()
@@ -62,7 +62,7 @@ describe('<Checkbox />', () => {
         labelFor="check"
         onCheck={onCheck}
         isChecked
-      />,
+      />
     )
 
     expect(onCheck).not.toHaveBeenCalled()

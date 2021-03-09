@@ -43,7 +43,7 @@ describe('<Button />', () => {
 
   it('should render the a version with icon', () => {
     renderWithTheme(
-      <Button icon={<AddShoppingCart data-testid="icon" />}>Buy now</Button>,
+      <Button icon={<AddShoppingCart data-testid="icon" />}>Buy now</Button>
     )
 
     expect(screen.getByText(/buy now/i)).toBeInTheDocument()
@@ -54,7 +54,7 @@ describe('<Button />', () => {
     renderWithTheme(
       <Button variant="ghost" icon={<AddShoppingCart data-testid="icon" />}>
         Buy now
-      </Button>,
+      </Button>
     )
 
     expect(screen.getByRole('button', { name: /buy now/i })).toHaveStyle({
@@ -67,12 +67,12 @@ describe('<Button />', () => {
     renderWithTheme(
       <Button as="a" href="/link">
         Buy now
-      </Button>,
+      </Button>
     )
 
     expect(screen.getByRole('link', { name: /buy now/i })).toHaveAttribute(
       'href',
-      '/link',
+      '/link'
     )
   })
 })

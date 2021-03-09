@@ -18,16 +18,16 @@ describe('<GameCard />', () => {
     } = renderWithTheme(<GameCard {...props} />)
 
     expect(
-      screen.getByRole('heading', { name: /population zero/i }),
+      screen.getByRole('heading', { name: /population zero/i })
     ).toBeInTheDocument()
 
     expect(
-      screen.getByRole('heading', { name: /rockstart games/i }),
+      screen.getByRole('heading', { name: /rockstart games/i })
     ).toBeInTheDocument()
 
     expect(screen.getByRole('img', { name: props.title })).toHaveAttribute(
       'src',
-      props.image,
+      props.image
     )
 
     expect(screen.getByLabelText(/add to wishlist/i)).toBeInTheDocument()
@@ -80,7 +80,7 @@ describe('<GameCard />', () => {
         ribbonText="My ribbon"
         ribbonSize="small"
         ribbonColor="secondary"
-      />,
+      />
     )
 
     expect(screen.getByText(/my ribbon/i)).toBeInTheDocument()

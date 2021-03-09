@@ -8,7 +8,7 @@ import { Radio } from '.'
 describe('<Radio />', () => {
   it('should render with white label', () => {
     const { container } = renderWithTheme(
-      <Radio labelText="Radio" labelFor="check" value="anyValue" />,
+      <Radio labelText="Radio" labelFor="check" value="anyValue" />
     )
 
     const label = screen.getByText('Radio')
@@ -41,7 +41,7 @@ describe('<Radio />', () => {
         labelFor="radio"
         onCheck={onCheck}
         value="anyValue"
-      />,
+      />
     )
 
     expect(onCheck).not.toHaveBeenCalled()

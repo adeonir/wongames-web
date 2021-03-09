@@ -18,13 +18,13 @@ describe('<Banner />', () => {
     } = renderWithTheme(<Banner {...props} />)
 
     expect(
-      screen.getByRole('heading', { name: /defy death/i }),
+      screen.getByRole('heading', { name: /defy death/i })
     ).toBeInTheDocument()
 
     expect(
       screen.getByRole('heading', {
         name: /Play the new CrashLands season/i,
-      }),
+      })
     ).toBeInTheDocument()
 
     expect(screen.getByRole('img')).toBeInTheDocument()
@@ -41,7 +41,7 @@ describe('<Banner />', () => {
         ribbonText="Best seller"
         ribbonSize="small"
         ribbonColor="secondary"
-      />,
+      />
     )
 
     expect(screen.getByText(/best seller/i)).toBeInTheDocument()

@@ -16,7 +16,7 @@ describe('<MediaMatch />', () => {
         <MediaMatch greaterThan="medium">
           <h1 data-testid="desktop">Desktop</h1>
         </MediaMatch>
-      </>,
+      </>
     )
 
     desktopHeading = screen.getByTestId('desktop')

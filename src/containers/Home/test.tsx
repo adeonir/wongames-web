@@ -27,7 +27,7 @@ describe('<Home />', () => {
 
     // footer
     expect(
-      screen.getByRole('heading', { name: /follow us/i }),
+      screen.getByRole('heading', { name: /follow us/i })
     ).toBeInTheDocument()
 
     // logos
@@ -36,13 +36,13 @@ describe('<Home />', () => {
     // sections
     expect(screen.getByRole('heading', { name: /news/i })).toBeInTheDocument()
     expect(
-      screen.getByRole('heading', { name: /most popular/i }),
+      screen.getByRole('heading', { name: /most popular/i })
     ).toBeInTheDocument()
     expect(
-      screen.getByRole('heading', { name: /upcomming/i }),
+      screen.getByRole('heading', { name: /upcomming/i })
     ).toBeInTheDocument()
     expect(
-      screen.getByRole('heading', { name: /free games/i }),
+      screen.getByRole('heading', { name: /free games/i })
     ).toBeInTheDocument()
 
     // banners

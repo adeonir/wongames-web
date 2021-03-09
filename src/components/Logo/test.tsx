@@ -39,7 +39,7 @@ describe('<Logo />', () => {
       '5.8rem',
       {
         media: '(max-width: 768px)',
-      },
+      }
     )
   })
 })
