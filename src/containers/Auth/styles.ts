@@ -52,6 +52,11 @@ export const BannerWrapper = styled.div`
     ${HeadingStyles.HeadingContainer} {
       line-height: calc(${theme.font.sizes.huge} + 1rem);
     }
+
+    a {
+      width: fit-content;
+      height: fit-content;
+    }
   `}
 `
 
