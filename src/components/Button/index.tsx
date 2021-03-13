@@ -1,6 +1,6 @@
-import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, forwardRef } from 'react'
 
-import { ButtonContainer } from './styles'
+import * as S from './styles'
 
 type ButtonTypes =
   | ButtonHTMLAttributes<HTMLButtonElement>
@@ -14,22 +14,28 @@ export type ButtonProps = {
   as?: React.ElementType
 } & ButtonTypes
 
-export const Button = ({
-  children,
-  icon,
-  size = 'medium',
-  variant = 'normal',
-  fullWidth = false,
-  ...props
-}: ButtonProps) => (
-  <ButtonContainer
-    size={size}
-    variant={variant}
-    fullWidth={fullWidth}
-    hasIcon={!!icon}
-    {...props}
-  >
-    {!!icon && icon}
-    {!!children && <span>{children}</span>}
-  </ButtonContainer>
+export const Button = forwardRef<S.ContainerProps, ButtonProps>(
+  (
+    {
+      children,
+      icon,
+      size = 'medium',
+      variant = 'normal',
+      fullWidth = false,
+      ...props
+    },
+    ref
+  ) => (
+    <S.ButtonContainer
+      ref={ref}
+      size={size}
+      variant={variant}
+      fullWidth={fullWidth}
+      hasIcon={!!icon}
+      {...props}
+    >
+      {!!icon && icon}
+      {!!children && <span>{children}</span>}
+    </S.ButtonContainer>
+  )
 )
