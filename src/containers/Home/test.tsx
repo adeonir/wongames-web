@@ -8,50 +8,59 @@ import { Home } from '.'
 
 const props = {
   banners: bannersMock,
-  newGames: [gamesMock[0]],
+  newGames: gamesMock,
   mostPopularHighlight: highlightsMock,
-  mostPopularGames: [gamesMock[0]],
-  upCommingGames: [gamesMock[0]],
+  mostPopularGames: gamesMock,
+  upCommingGames: gamesMock,
   upCommingHighlight: highlightsMock,
-  upCommingMoreGames: [gamesMock[0]],
+  upCommingMoreGames: gamesMock,
   freeGamesHighlight: highlightsMock,
-  freeGames: [gamesMock[0]],
+  freeGames: gamesMock,
 }
 
+jest.mock('components/Menu', () => {
+  return {
+    __esModule: true,
+    Menu: function Mock() {
+      return <div data-testid="Mock menu"></div>
+    },
+  }
+})
+
+jest.mock('components/Footer', () => {
+  return {
+    __esModule: true,
+    Footer: function Mock() {
+      return <div data-testid="Mock footer"></div>
+    },
+  }
+})
+
+jest.mock('components/ShowCase', () => {
+  return {
+    __esModule: true,
+    ShowCase: function Mock() {
+      return <div data-testid="Mock showcase"></div>
+    },
+  }
+})
+
+jest.mock('components/BannerSlider', () => {
+  return {
+    __esModule: true,
+    BannerSlider: function Mock() {
+      return <div data-testid="Mock banner slider"></div>
+    },
+  }
+})
+
 describe('<Home />', () => {
-  it('should render menu and footer', () => {
+  it('should render menu, slider, showcase and footer', () => {
     renderWithTheme(<Home {...props} />)
 
-    // menu
-    expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
-
-    // footer
-    expect(
-      screen.getByRole('heading', { name: /follow us/i })
-    ).toBeInTheDocument()
-
-    // logos
-    expect(screen.getAllByRole('img', { name: /won games/i })).toHaveLength(2)
-
-    // sections
-    expect(screen.getByRole('heading', { name: /news/i })).toBeInTheDocument()
-    expect(
-      screen.getByRole('heading', { name: /most popular/i })
-    ).toBeInTheDocument()
-    expect(
-      screen.getByRole('heading', { name: /upcomming/i })
-    ).toBeInTheDocument()
-    expect(
-      screen.getByRole('heading', { name: /free games/i })
-    ).toBeInTheDocument()
-
-    // banners
-    expect(screen.getAllByText(/defy death 1/i)).toHaveLength(1)
-
-    // game cards
-    expect(screen.getAllByText(/population zero/i)).toHaveLength(5)
-
-    // highlights
-    expect(screen.getAllByText(/red dead is back/i)).toHaveLength(3)
+    expect(screen.getByTestId(/mock menu/i)).toBeInTheDocument()
+    expect(screen.getByTestId(/banner slider/i)).toBeInTheDocument()
+    expect(screen.getAllByTestId(/mock showcase/i)).toHaveLength(5)
+    expect(screen.getByTestId(/mock footer/i)).toBeInTheDocument()
   })
 })
