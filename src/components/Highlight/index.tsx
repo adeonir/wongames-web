@@ -1,4 +1,4 @@
-import { Button } from 'components'
+import * as S from 'components'
 
 import {
   Content,
@@ -35,9 +35,9 @@ export const Highlight = ({
     <Content>
       <Title>{title}</Title>
       <Subtitle>{subtitle}</Subtitle>
-      <Button as="a" href={buttonLink}>
+      <S.Button as="a" href={buttonLink}>
         {buttonLabel}
-      </Button>
+      </S.Button>
     </Content>
   </HighlightContainer>
 )

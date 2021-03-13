@@ -1,6 +1,6 @@
 import { default as Slick, Settings } from 'react-slick'
 
-import { SliderContainer } from './styles'
+import * as S from './styles'
 
 export type SliderSettings = Settings
 
@@ -10,7 +10,7 @@ export type SliderProps = {
 }
 
 export const Slider = ({ children, settings }: SliderProps) => (
-  <SliderContainer>
+  <S.SliderContainer>
     <Slick {...settings}>{children}</Slick>
-  </SliderContainer>
+  </S.SliderContainer>
 )

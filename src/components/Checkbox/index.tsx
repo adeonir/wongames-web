@@ -1,6 +1,6 @@
 import { InputHTMLAttributes, useState } from 'react'
 
-import { CheckboxContainer, Input, Label } from './styles'
+import * as S from './styles'
 
 type CheckboxValue = string | ReadonlyArray<string> | number
 
@@ -32,8 +32,8 @@ export const Checkbox = ({
   }
 
   return (
-    <CheckboxContainer>
-      <Input
+    <S.CheckboxContainer>
+      <S.Input
         type="checkbox"
         id={labelFor}
         onChange={onChange}
@@ -42,10 +42,10 @@ export const Checkbox = ({
         {...props}
       />
       {!!labelText && (
-        <Label htmlFor={labelFor} labelColor={labelColor}>
+        <S.Label htmlFor={labelFor} labelColor={labelColor}>
           {labelText}
-        </Label>
+        </S.Label>
       )}
-    </CheckboxContainer>
+    </S.CheckboxContainer>
   )
 }

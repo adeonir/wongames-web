@@ -1,13 +1,6 @@
 import { InputHTMLAttributes, useState } from 'react'
 
-import {
-  ErrorMessage,
-  Icon,
-  Input,
-  InputWrapper,
-  Label,
-  TextFieldContainer,
-} from './styles'
+import * as S from './styles'
 
 export type TextFieldProps = {
   labelText?: string
@@ -43,15 +36,15 @@ export const TextField = ({
   }
 
   return (
-    <TextFieldContainer disabled={disabled} error={!!error}>
+    <S.TextFieldContainer disabled={disabled} error={!!error}>
       {!!labelText && (
-        <Label htmlFor={labelFor}>
+        <S.Label htmlFor={labelFor}>
           {labelText} {required && '*'}
-        </Label>
+        </S.Label>
       )}
-      <InputWrapper>
-        {!!icon && <Icon iconPosition={iconPosition}>{icon}</Icon>}
-        <Input
+      <S.InputWrapper>
+        {!!icon && <S.Icon iconPosition={iconPosition}>{icon}</S.Icon>}
+        <S.Input
           type="text"
           id={labelFor}
           onChange={onChange}
@@ -62,8 +55,8 @@ export const TextField = ({
           hasIcon={!!icon}
           {...props}
         />
-      </InputWrapper>
-      {!!error && <ErrorMessage>{error}</ErrorMessage>}
-    </TextFieldContainer>
+      </S.InputWrapper>
+      {!!error && <S.ErrorMessage>{error}</S.ErrorMessage>}
+    </S.TextFieldContainer>
   )
 }

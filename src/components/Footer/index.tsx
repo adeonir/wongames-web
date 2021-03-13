@@ -1,23 +1,23 @@
 import { Heading, Logo } from 'components'
 import Link from 'next/link'
 
-import { Column, Content, Copy, FooterContainer } from './styles'
+import * as S from './styles'
 
 export const Footer = () => (
-  <FooterContainer>
+  <S.FooterContainer>
     <Logo color="black" />
 
-    <Content>
-      <Column>
+    <S.Content>
+      <S.Column>
         <Heading color="black" size="small" lineColor="secondary" lineBottom>
           Contact
         </Heading>
 
         <a href="mailto:sac@example.com">sac@example.com</a>
         <a href="+551122223333">+55 11 2222-3333</a>
-      </Column>
+      </S.Column>
 
-      <Column>
+      <S.Column>
         <Heading color="black" size="small" lineColor="secondary" lineBottom>
           Links
         </Heading>
@@ -27,9 +27,9 @@ export const Footer = () => (
           <Link href="#">Store</Link>
           <Link href="#">Search</Link>
         </nav>
-      </Column>
+      </S.Column>
 
-      <Column>
+      <S.Column>
         <Heading color="black" size="small" lineColor="secondary" lineBottom>
           Follow us
         </Heading>
@@ -48,9 +48,9 @@ export const Footer = () => (
             Facebook
           </a>
         </nav>
-      </Column>
+      </S.Column>
 
-      <Column>
+      <S.Column>
         <Heading color="black" size="small" lineColor="secondary" lineBottom>
           Location
         </Heading>
@@ -60,9 +60,9 @@ export const Footer = () => (
           <span>587 - 11222-000</span>
           <span>Lorem Ipsum/Brasil</span>
         </nav>
-      </Column>
-    </Content>
+      </S.Column>
+    </S.Content>
 
-    <Copy>Won Games 2020 © All rights reserved</Copy>
-  </FooterContainer>
+    <S.Copy>Won Games 2020 © All rights reserved</S.Copy>
+  </S.FooterContainer>
 )

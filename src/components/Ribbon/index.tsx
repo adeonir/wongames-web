@@ -1,4 +1,4 @@
-import { RibbonContainer } from './styles'
+import * as S from './styles'
 
 export type RibbonColors = 'primary' | 'secondary'
 
@@ -15,7 +15,7 @@ export const Ribbon = ({
   color = 'primary',
   size = 'normal',
 }: RibbonProps) => (
-  <RibbonContainer color={color} size={size}>
+  <S.RibbonContainer color={color} size={size}>
     {children}
-  </RibbonContainer>
+  </S.RibbonContainer>
 )

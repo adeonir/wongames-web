@@ -1,6 +1,6 @@
 import { InputHTMLAttributes } from 'react'
 
-import { Input, Label, RadioContainer } from './styles'
+import * as S from './styles'
 
 type RadioValue = string | ReadonlyArray<string> | number
 
@@ -25,8 +25,8 @@ export const Radio = ({
   }
 
   return (
-    <RadioContainer>
-      <Input
+    <S.RadioContainer>
+      <S.Input
         type="radio"
         id={labelFor}
         onChange={onChange}
@@ -34,10 +34,10 @@ export const Radio = ({
         {...props}
       />
       {!!labelText && (
-        <Label htmlFor={labelFor} labelColor={labelColor}>
+        <S.Label htmlFor={labelFor} labelColor={labelColor}>
           {labelText}
-        </Label>
+        </S.Label>
       )}
-    </RadioContainer>
+    </S.RadioContainer>
   )
 }

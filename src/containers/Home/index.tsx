@@ -10,15 +10,7 @@ import { BannerProps } from 'components/Banner'
 import { GameCardProps } from 'components/GameCard'
 import { Highlight, HighlightProps } from 'components/Highlight'
 
-import {
-  HomeContainer,
-  SectionBanner,
-  SectionFooter,
-  SectionFreeGames,
-  SectionMostPopular,
-  SectionNews,
-  SectionUpcoming,
-} from './styles'
+import * as S from './styles'
 
 export type HomeContainerProps = {
   banners: BannerProps[]
@@ -43,54 +35,54 @@ export const Home = ({
   freeGamesHighlight,
   freeGames,
 }: HomeContainerProps) => (
-  <HomeContainer>
+  <S.HomeContainer>
     <Container>
       <Menu />
-      <SectionBanner>
+      <S.SectionBanner>
         <BannerSlider items={banners} />
-      </SectionBanner>
+      </S.SectionBanner>
     </Container>
 
-    <SectionNews>
+    <S.SectionNews>
       <Container>
         <Heading lineLeft lineColor="secondary" color="black">
           News
         </Heading>
         <GameCardSlider items={newGames} color="black" />
       </Container>
-    </SectionNews>
+    </S.SectionNews>
 
     <Container>
-      <SectionMostPopular>
+      <S.SectionMostPopular>
         <Heading lineLeft lineColor="secondary">
           Most Popular
         </Heading>
         <Highlight {...mostPopularHighlight} />
         <GameCardSlider items={mostPopularGames} />
-      </SectionMostPopular>
+      </S.SectionMostPopular>
 
-      <SectionUpcoming>
+      <S.SectionUpcoming>
         <Heading lineLeft lineColor="secondary">
           Upcomming
         </Heading>
         <GameCardSlider items={upCommingGames} />
         <Highlight {...upCommingHighlight} />
         <GameCardSlider items={upCommingMoreGames} />
-      </SectionUpcoming>
+      </S.SectionUpcoming>
 
-      <SectionFreeGames>
+      <S.SectionFreeGames>
         <Heading lineLeft lineColor="secondary">
           Free Games
         </Heading>
         <Highlight {...freeGamesHighlight} />
         <GameCardSlider items={freeGames} />
-      </SectionFreeGames>
+      </S.SectionFreeGames>
     </Container>
 
-    <SectionFooter>
+    <S.SectionFooter>
       <Container>
         <Footer />
       </Container>
-    </SectionFooter>
-  </HomeContainer>
+    </S.SectionFooter>
+  </S.HomeContainer>
 )

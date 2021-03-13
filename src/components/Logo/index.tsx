@@ -1,4 +1,4 @@
-import { LogoContainer } from './styles'
+import * as S from './styles'
 
 export type LogoProps = {
   color?: 'white' | 'black'
@@ -13,7 +13,7 @@ export const Logo = ({
   hideLabel = false,
   id = 'logo',
 }: LogoProps) => (
-  <LogoContainer color={color} size={size} hideLabel={hideLabel}>
+  <S.LogoContainer color={color} size={size} hideLabel={hideLabel}>
     <svg
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -87,5 +87,5 @@ export const Logo = ({
         </linearGradient>
       </defs>
     </svg>
-  </LogoContainer>
+  </S.LogoContainer>
 )

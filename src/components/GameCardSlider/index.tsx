@@ -6,7 +6,7 @@ import {
   ArrowForwardIos as ArrowRight,
 } from 'styled-icons/material-outlined'
 
-import { GameCardSliderContainer } from './styles'
+import * as S from './styles'
 
 const settings: SliderSettings = {
   slidesToShow: 4,
@@ -55,11 +55,11 @@ export const GameCardSlider = ({
   items,
   color = 'white',
 }: GameCardSliderProps) => (
-  <GameCardSliderContainer color={color}>
+  <S.GameCardSliderContainer color={color}>
     <Slider settings={settings}>
       {items.map((item) => (
         <GameCard key={item.title} {...item} />
       ))}
     </Slider>
-  </GameCardSliderContainer>
+  </S.GameCardSliderContainer>
 )

@@ -1,4 +1,4 @@
-import { HeadingContainer } from './styles'
+import * as S from './styles'
 
 export type LineColors = 'primary' | 'secondary'
 
@@ -19,7 +19,7 @@ export const Heading = ({
   lineLeft = false,
   lineBottom = false,
 }: HeadingProps) => (
-  <HeadingContainer
+  <S.HeadingContainer
     color={color}
     size={size}
     lineColor={lineColor}
@@ -27,5 +27,5 @@ export const Heading = ({
     lineBottom={lineBottom}
   >
     {children}
-  </HeadingContainer>
+  </S.HeadingContainer>
 )
