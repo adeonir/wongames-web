@@ -11,9 +11,9 @@ const props = {
   newGames: gamesMock,
   mostPopularHighlight: highlightsMock,
   mostPopularGames: gamesMock,
-  upCommingGames: gamesMock,
-  upCommingHighlight: highlightsMock,
-  upCommingMoreGames: gamesMock,
+  upComingGames: gamesMock,
+  upComingHighlight: highlightsMock,
+  upComingMoreGames: gamesMock,
   freeGamesHighlight: highlightsMock,
   freeGames: gamesMock,
 }
@@ -22,7 +22,7 @@ jest.mock('components/Menu', () => {
   return {
     __esModule: true,
     Menu: function Mock() {
-      return <div data-testid="Mock menu"></div>
+      return <div data-testid="Mock menu" />
     },
   }
 })
@@ -31,7 +31,7 @@ jest.mock('components/Footer', () => {
   return {
     __esModule: true,
     Footer: function Mock() {
-      return <div data-testid="Mock footer"></div>
+      return <div data-testid="Mock footer" />
     },
   }
 })
@@ -40,7 +40,7 @@ jest.mock('components/ShowCase', () => {
   return {
     __esModule: true,
     ShowCase: function Mock() {
-      return <div data-testid="Mock showcase"></div>
+      return <div data-testid="Mock showcase" />
     },
   }
 })
@@ -49,7 +49,7 @@ jest.mock('components/BannerSlider', () => {
   return {
     __esModule: true,
     BannerSlider: function Mock() {
-      return <div data-testid="Mock banner slider"></div>
+      return <div data-testid="Mock banner slider" />
     },
   }
 })

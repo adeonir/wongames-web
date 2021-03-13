@@ -10,9 +10,9 @@ export type HomeContainerProps = {
   newGames: GameCardProps[]
   mostPopularHighlight: HighlightProps
   mostPopularGames: GameCardProps[]
-  upCommingGames: GameCardProps[]
-  upCommingHighlight: HighlightProps
-  upCommingMoreGames: GameCardProps[]
+  upComingGames: GameCardProps[]
+  upComingHighlight: HighlightProps
+  upComingMoreGames: GameCardProps[]
   freeGamesHighlight: HighlightProps
   freeGames: GameCardProps[]
 }
@@ -22,9 +22,9 @@ export const Home = ({
   newGames,
   mostPopularHighlight,
   mostPopularGames,
-  upCommingGames,
-  upCommingHighlight,
-  upCommingMoreGames,
+  upComingGames,
+  upComingHighlight,
+  upComingMoreGames,
   freeGamesHighlight,
   freeGames,
 }: HomeContainerProps) => (
@@ -47,8 +47,8 @@ export const Home = ({
     />
 
     <S.SectionUpcoming>
-      <ShowCase heading="Upcomming" games={upCommingGames} />
-      <ShowCase highlight={upCommingHighlight} games={upCommingMoreGames} />
+      <ShowCase heading="Upcomming" games={upComingGames} />
+      <ShowCase highlight={upComingHighlight} games={upComingMoreGames} />
     </S.SectionUpcoming>
 
     <ShowCase
