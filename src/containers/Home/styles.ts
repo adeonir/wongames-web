@@ -3,8 +3,6 @@ import { HighlightContainer } from 'components/Highlight/styles'
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-export const HomeContainer = styled.main``
-
 export const SectionBanner = styled.section`
   ${({ theme }) => css`
     margin: ${theme.spacings.large} calc(-${theme.grid.gutter} / 2);
@@ -44,20 +42,5 @@ export const SectionUpcoming = styled.div`
     ${HighlightContainer} {
       margin-top: calc(${theme.spacings.xlarge} * 2);
     }
-  `}
-`
-
-export const SectionFooter = styled.section`
-  ${({ theme }) => css`
-    margin-top: ${theme.spacings.large};
-    padding-bottom: ${theme.spacings.xsmall};
-    padding-top: ${theme.spacings.xxlarge};
-    background-color: ${theme.colors.white};
-    clip-path: polygon(0 5%, 100% 0%, 100% 100%, 0 100%);
-
-    ${media.greaterThan('medium')`
-      padding-top: calc(${theme.spacings.xxlarge} * 2);
-      clip-path: polygon(0 15%, 100% 0%, 100% 100%, 0 100%);
-    `}
   `}
 `

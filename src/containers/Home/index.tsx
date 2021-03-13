@@ -1,7 +1,8 @@
-import { BannerSlider, Container, Footer, Menu, ShowCase } from 'components'
+import { BannerSlider, Container, ShowCase } from 'components'
 import { BannerProps } from 'components/Banner'
 import { GameCardProps } from 'components/GameCard'
 import { HighlightProps } from 'components/Highlight'
+import { Base } from 'templates/Base'
 
 import * as S from './styles'
 
@@ -28,9 +29,8 @@ export const Home = ({
   freeGamesHighlight,
   freeGames,
 }: HomeContainerProps) => (
-  <S.HomeContainer>
+  <Base>
     <Container>
-      <Menu />
       <S.SectionBanner>
         <BannerSlider items={banners} />
       </S.SectionBanner>
@@ -47,7 +47,7 @@ export const Home = ({
     />
 
     <S.SectionUpcoming>
-      <ShowCase heading="Upcomming" games={upComingGames} />
+      <ShowCase heading="Upcoming" games={upComingGames} />
       <ShowCase highlight={upComingHighlight} games={upComingMoreGames} />
     </S.SectionUpcoming>
 
@@ -56,11 +56,5 @@ export const Home = ({
       highlight={freeGamesHighlight}
       games={freeGames}
     />
-
-    <S.SectionFooter>
-      <Container>
-        <Footer />
-      </Container>
-    </S.SectionFooter>
-  </S.HomeContainer>
+  </Base>
 )
