@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Checkbox /> should render with white label 1`] = `
+exports[`<Checkbox /> should render with label 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -88,7 +88,7 @@ exports[`<Checkbox /> should render with white label 1`] = `
     class="c2"
     for="check"
   >
-    Checkbox label
+    checkbox label
   </label>
 </div>
-`
+`;

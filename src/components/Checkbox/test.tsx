@@ -1,13 +1,14 @@
 import { screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { theme } from 'styles/theme'
 import { renderWithTheme } from 'utils/tests/helpers'
 
 import { Checkbox } from '.'
 
 describe('<Checkbox />', () => {
-  it('should render with white label', () => {
+  it('should render with label', () => {
     const { container } = renderWithTheme(
-      <Checkbox labelFor="check" labelText="Checkbox label" />
+      <Checkbox labelText="checkbox label" labelFor="check" />
     )
 
     expect(screen.getByRole('checkbox')).toBeInTheDocument()
@@ -18,7 +19,7 @@ describe('<Checkbox />', () => {
   })
 
   it('should render without label', () => {
-    renderWithTheme(<Checkbox labelFor="check" />)
+    renderWithTheme(<Checkbox />)
 
     expect(screen.queryByLabelText(/checkbox/i)).not.toBeInTheDocument()
   })
@@ -33,16 +34,14 @@ describe('<Checkbox />', () => {
     )
 
     expect(screen.getByText(/checkbox label/i)).toHaveStyle({
-      color: '#030517',
+      color: theme.colors.black,
     })
   })
 
-  it('should dispatch onCheck when status change', async () => {
+  it('should dispatch onCheck when status changes', async () => {
     const onCheck = jest.fn()
 
-    renderWithTheme(
-      <Checkbox labelText="checkbox" labelFor="check" onCheck={onCheck} />
-    )
+    renderWithTheme(<Checkbox labelText="Checkbox" onCheck={onCheck} />)
 
     expect(onCheck).not.toHaveBeenCalled()
 
@@ -53,19 +52,12 @@ describe('<Checkbox />', () => {
     expect(onCheck).toHaveBeenCalledWith(true)
   })
 
-  it('should dispatch onCheck when status change', async () => {
+  it('should dispatch onCheck when status changes', async () => {
     const onCheck = jest.fn()
 
     renderWithTheme(
-      <Checkbox
-        labelText="checkbox"
-        labelFor="check"
-        onCheck={onCheck}
-        isChecked
-      />
+      <Checkbox labelText="Checkbox" onCheck={onCheck} isChecked />
     )
-
-    expect(onCheck).not.toHaveBeenCalled()
 
     userEvent.click(screen.getByRole('checkbox'))
     await waitFor(() => {
@@ -74,7 +66,7 @@ describe('<Checkbox />', () => {
     expect(onCheck).toHaveBeenCalledWith(false)
   })
 
-  it('should be accessible with tab key', () => {
+  it('should be accessible with tab', () => {
     renderWithTheme(<Checkbox labelText="Checkbox" labelFor="checkbox" />)
 
     expect(document.body).toHaveFocus()
