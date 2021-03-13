@@ -1,4 +1,4 @@
-import { Email } from '@styled-icons/material-outlined/Email'
+import { Email } from '@styled-icons/material-outlined'
 import { screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { renderWithTheme } from 'utils/tests/helpers'
@@ -6,13 +6,19 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import { TextField } from '.'
 
 describe('<TextField />', () => {
-  it('should render with Label', () => {
+  it('should render with label', () => {
     renderWithTheme(<TextField labelText="Label" labelFor="Field" />)
 
     expect(screen.getByLabelText('Label')).toBeInTheDocument()
   })
 
-  it('should render without Label', () => {
+  it('should render as required', () => {
+    renderWithTheme(<TextField labelText="Label" labelFor="Field" required />)
+
+    expect(screen.getByLabelText('Label *')).toBeInTheDocument()
+  })
+
+  it('should render without label', () => {
     renderWithTheme(<TextField />)
 
     expect(screen.queryByLabelText('Label')).not.toBeInTheDocument()
@@ -41,7 +47,12 @@ describe('<TextField />', () => {
   it('should changes its value when typing', async () => {
     const onInput = jest.fn()
     renderWithTheme(
-      <TextField labelText="TextField" labelFor="TextField" onInput={onInput} />
+      <TextField
+        onInput={onInput}
+        labelText="TextField"
+        labelFor="TextField"
+        id="TextField"
+      />
     )
 
     const input = screen.getByRole('textbox')
@@ -62,6 +73,7 @@ describe('<TextField />', () => {
         onInput={onInput}
         labelText="TextField"
         labelFor="TextField"
+        id="TextField"
         disabled
       />
     )
@@ -81,14 +93,14 @@ describe('<TextField />', () => {
   it('should render with error', () => {
     const { container } = renderWithTheme(
       <TextField
+        icon={<Email data-testid="icon" />}
         labelText="TextField"
         labelFor="TextField"
-        icon={<Email data-testid="icon" />}
         error="Error message"
       />
     )
 
-    expect(screen.getByText(/error message/i)).toBeInTheDocument()
+    expect(screen.getByText('Error message')).toBeInTheDocument()
 
     expect(container.firstChild).toMatchSnapshot()
   })
@@ -105,7 +117,12 @@ describe('<TextField />', () => {
 
   it('should be not accessible by tab when disabled', () => {
     renderWithTheme(
-      <TextField labelText="TextField" labelFor="TextField" disabled />
+      <TextField
+        labelText="TextField"
+        labelFor="TextField"
+        id="TextField"
+        disabled
+      />
     )
 
     const input = screen.getByLabelText('TextField')
