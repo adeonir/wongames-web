@@ -5,16 +5,16 @@ import { HighlightProps } from 'components/Highlight'
 import * as S from './styles'
 
 export type ShowCaseProps = {
-  title?: string
+  heading?: string
   highlight?: HighlightProps
   games?: GameCardProps[]
 }
 
-export const ShowCase = ({ title, highlight, games }: ShowCaseProps) => (
+export const ShowCase = ({ heading, highlight, games }: ShowCaseProps) => (
   <S.ShowCaseContainer>
-    {!!title && (
+    {!!heading && (
       <Heading lineLeft lineColor="secondary">
-        {title}
+        {heading}
       </Heading>
     )}
     {!!highlight && <Highlight {...highlight} />}

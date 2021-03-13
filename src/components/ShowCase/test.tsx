@@ -8,7 +8,7 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import { ShowCase } from '.'
 
 const props = {
-  title: 'Most Popular',
+  heading: 'Most Popular',
   highlight: highlightMock,
   games: gamesMock.slice(0, 1),
 }
@@ -25,7 +25,7 @@ describe('<ShowCase />', () => {
     ).toBeInTheDocument()
   })
 
-  it('should render without title', () => {
+  it('should render without heading', () => {
     renderWithTheme(
       <ShowCase highlight={props.highlight} games={props.games} />
     )
@@ -39,7 +39,7 @@ describe('<ShowCase />', () => {
   })
 
   it('should render without highlight', () => {
-    renderWithTheme(<ShowCase title={props.title} games={props.games} />)
+    renderWithTheme(<ShowCase heading={props.heading} games={props.games} />)
 
     screen.getByRole('heading', { name: /most popular/i })
     screen.getByRole('heading', { name: gamesMock[0].title })
@@ -51,7 +51,7 @@ describe('<ShowCase />', () => {
 
   it('should render without games', () => {
     renderWithTheme(
-      <ShowCase title={props.title} highlight={props.highlight} />
+      <ShowCase heading={props.heading} highlight={props.highlight} />
     )
 
     screen.getByRole('heading', { name: /most popular/i })
