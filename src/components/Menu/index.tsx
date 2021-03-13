@@ -3,6 +3,7 @@ import { Search as SearchIcon } from '@styled-icons/material-outlined/Search'
 import { ShoppingCart as ShoppingCartIcon } from '@styled-icons/material-outlined/ShoppingCart'
 import { Menu2 as MenuIcon } from '@styled-icons/remix-line/Menu2'
 import { Button, Logo, MediaMatch } from 'components'
+import Link from 'next/link'
 import React, { useState } from 'react'
 
 import {
@@ -50,7 +51,9 @@ export const Menu = ({ username }: MenuProps) => {
 
         {!username && (
           <MediaMatch greaterThan="medium">
-            <Button>Sign in</Button>
+            <Link href="/sign-in" passHref>
+              <Button as="a">Sign in</Button>
+            </Link>
           </MediaMatch>
         )}
       </MenuGroup>
@@ -72,13 +75,15 @@ export const Menu = ({ username }: MenuProps) => {
 
         {!username && (
           <RegisterBox>
-            <Button size="large" fullWidth>
-              Sign in now
-            </Button>
+            <Link href="/sign-in" passHref>
+              <Button as="a" size="large" fullWidth>
+                Sign in
+              </Button>
+            </Link>
             <span>or</span>
-            <SignUpLink href="#" title="Sign up">
-              Sign up
-            </SignUpLink>
+            <Link href="/sign-up">
+              <SignUpLink title="Sign up">Sign up</SignUpLink>
+            </Link>
           </RegisterBox>
         )}
       </FullMenu>

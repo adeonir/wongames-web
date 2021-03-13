@@ -69,6 +69,7 @@ export const FullMenu = styled.nav<FullMenuProps>`
       width: 2.4rem;
       height: 2.4rem;
       margin-top: 3.6rem;
+      margin-left: calc(${theme.grid.gutter} / 2);
     }
 
     ${MenuNav} {
