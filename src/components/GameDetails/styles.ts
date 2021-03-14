@@ -22,15 +22,15 @@ export const Content = styled.div`
   `}
 `
 
-export const Title = styled.h3`
+export const Label = styled.h3`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.small};
     font-weight: ${theme.font.light};
-    color: ${theme.colors.white};
+    color: ${theme.colors.lightGray};
   `}
 `
 
-export const Description = styled.p`
+export const Title = styled.p`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.medium};
     font-weight: ${theme.font.bold};
