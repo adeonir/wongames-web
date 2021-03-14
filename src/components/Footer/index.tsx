@@ -1,5 +1,6 @@
-import { Heading, Logo } from 'components'
 import Link from 'next/link'
+
+import { Heading, Logo } from 'components'
 
 import * as S from './styles'
 

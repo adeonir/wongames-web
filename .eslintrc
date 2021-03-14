@@ -29,7 +29,6 @@
     "react",
     "react-hooks",
     "@typescript-eslint",
-    "simple-import-sort",
     "import"
   ],
   "rules": {
@@ -51,8 +50,6 @@
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
     "react/require-default-props": "off",
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
     "import/first": "error",
     "no-console": [
       2,

@@ -1,8 +1,9 @@
-import { ApolloProvider } from '@apollo/client'
-import { AppProps } from 'next/app'
 import Head from 'next/head'
+import { AppProps } from 'next/app'
+import { ApolloProvider } from '@apollo/client'
 import { useApollo } from 'services/apollo'
 import { ThemeProvider } from 'styled-components'
+
 import { GlobalStyles, theme } from 'styles'
 
 function App({ Component, pageProps }: AppProps) {

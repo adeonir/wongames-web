@@ -1,5 +1,6 @@
-import { Container, Footer, Menu } from 'components'
 import { ReactNode } from 'react'
+
+import { Container, Footer, Menu } from 'components'
 
 import * as S from './styles'
 

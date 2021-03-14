@@ -1,6 +1,8 @@
-import { AccountCircle, Email, Lock } from '@styled-icons/material-outlined'
-import { Button, FormContainer, FormLink, TextField } from 'components'
 import Link from 'next/link'
+
+import { AccountCircle, Email, Lock } from '@styled-icons/material-outlined'
+
+import { Button, FormContainer, FormLink, TextField } from 'components'
 
 export const FormSignUp = () => (
   <FormContainer>
