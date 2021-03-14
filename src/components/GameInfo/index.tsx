@@ -7,7 +7,7 @@ import {
 
 import * as S from './styles'
 
-type GameInfoProps = {
+export type GameInfoProps = {
   title: string
   description: string
   price: string
@@ -15,7 +15,7 @@ type GameInfoProps = {
 
 export const GameInfo = ({ title, description, price }: GameInfoProps) => (
   <S.GameInfoContainer>
-    <Heading lineColor="secondary" lineBottom>
+    <Heading color="black" lineColor="secondary" lineBottom>
       {title}
     </Heading>
 
