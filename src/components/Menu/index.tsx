@@ -6,7 +6,7 @@ import {
   Search as SearchIcon,
   ShoppingCart as ShoppingCartIcon,
 } from '@styled-icons/material-outlined'
-import { Menu2 as MenuIcon } from '@styled-icons/remix-line/Menu2'
+import { Menu2 as MenuIcon } from '@styled-icons/remix-line'
 
 import { Button, Logo, MediaMatch } from 'components'
 
