@@ -1,5 +1,6 @@
 import { Meta, Story } from '@storybook/react/types-6-0'
-import { Email } from '@styled-icons/material-outlined/Email'
+
+import { Email } from '@styled-icons/material-outlined'
 
 import { TextField, TextFieldProps } from '.'
 

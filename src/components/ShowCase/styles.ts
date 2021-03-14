@@ -1,9 +1,11 @@
+import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
+
 import { Container } from 'components'
+
 import { GameCardSliderContainer } from 'components/GameCardSlider/styles'
 import { HeadingContainer } from 'components/Heading/styles'
 import { HighlightContainer } from 'components/Highlight/styles'
-import styled, { css } from 'styled-components'
-import media from 'styled-media-query'
 
 export const ShowCaseContainer = styled(Container).attrs({ as: 'section' })`
   ${({ theme }) => css`

@@ -1,7 +1,9 @@
 import { Button, Heading, Ribbon } from 'components'
 
-import { AddShoppingCart } from '@styled-icons/material-outlined/AddShoppingCart'
-import { FavoriteBorder } from '@styled-icons/material-outlined/FavoriteBorder'
+import {
+  AddShoppingCart,
+  FavoriteBorder,
+} from '@styled-icons/material-outlined'
 
 import * as S from './styles'
 

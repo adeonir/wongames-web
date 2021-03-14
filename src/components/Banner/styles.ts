@@ -1,7 +1,8 @@
-import { RibbonContainer } from 'components/Ribbon/styles'
 import { rgba } from 'polished'
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
+
+import { RibbonContainer } from 'components/Ribbon/styles'
 
 type ImageProps = {
   src: string

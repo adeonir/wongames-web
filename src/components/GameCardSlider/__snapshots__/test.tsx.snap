@@ -1,6 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<GameCardSlider /> should render correctly 1`] = `
+.c2 {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
 .c13 {
   border-radius: 0.4rem;
   cursor: pointer;
@@ -46,12 +52,6 @@ exports[`<GameCardSlider /> should render correctly 1`] = `
 
 .c13 svg + span {
   margin-left: 0.8rem;
-}
-
-.c2 {
-  display: inline-block;
-  vertical-align: middle;
-  overflow: hidden;
 }
 
 .c3 {

@@ -1,7 +1,7 @@
-import { screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { theme } from 'styles/theme'
+import { screen, waitFor } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
+import { theme } from 'styles/theme'
 
 import { Checkbox } from '.'
 

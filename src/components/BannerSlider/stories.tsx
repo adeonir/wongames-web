@@ -1,6 +1,7 @@
 import { Meta, Story } from '@storybook/react/types-6-0'
 
 import { BannerSlider, BannerSliderProps } from '.'
+
 import items from './mock'
 
 export default {

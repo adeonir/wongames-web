@@ -1,10 +1,11 @@
-import { Button, Ribbon } from 'components'
-import { RibbonColors, RibbonSizes } from 'components/Ribbon'
 import {
   AddShoppingCart,
   Favorite,
   FavoriteBorder,
-} from 'styled-icons/material-outlined'
+} from '@styled-icons/material-outlined'
+
+import { Button, Ribbon } from 'components'
+import { RibbonColors, RibbonSizes } from 'components/Ribbon'
 
 import * as S from './styles'
 

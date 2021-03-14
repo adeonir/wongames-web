@@ -1,7 +1,8 @@
-import * as ButtonStyles from 'components/Button/styles'
-import * as TextFieldStyles from 'components/TextField/styles'
 import { darken } from 'polished'
 import styled, { css } from 'styled-components'
+
+import * as ButtonStyles from 'components/Button/styles'
+import * as TextFieldStyles from 'components/TextField/styles'
 
 export const FormContainer = styled.div`
   ${({ theme }) => css`

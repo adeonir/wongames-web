@@ -1,6 +1,7 @@
-import { HeadingContainer } from 'components/Heading/styles'
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
+
+import { HeadingContainer } from 'components/Heading/styles'
 
 export const FooterContainer = styled.footer`
   ${HeadingContainer} {

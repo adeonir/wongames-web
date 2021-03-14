@@ -1,6 +1,7 @@
-import { BannerContainer } from 'components/Banner/styles'
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
+
+import { BannerContainer } from 'components/Banner/styles'
 
 export const BannerSliderContainer = styled.div`
   ${({ theme }) => css`
