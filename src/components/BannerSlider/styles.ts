@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-import { BannerContainer } from 'components/Banner/styles'
+import * as BannerStyles from 'components/Banner/styles'
 
 export const BannerSliderContainer = styled.div`
   ${({ theme }) => css`
@@ -35,7 +35,7 @@ export const BannerSliderContainer = styled.div`
       }
     }
     ${media.greaterThan('large')`
-      ${BannerContainer} {
+      ${BannerStyles.BannerContainer} {
         max-width: 104rem;
         margin: 0 auto;
       }

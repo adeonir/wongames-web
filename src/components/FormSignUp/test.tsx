@@ -5,9 +5,7 @@ import { FormSignUp } from '.'
 
 describe('<FormSignUp />', () => {
   it('should render the form', () => {
-    const {
-      container: { firstChild },
-    } = renderWithTheme(<FormSignUp />)
+    const { container } = renderWithTheme(<FormSignUp />)
 
     expect(screen.getByPlaceholderText(/name/i)).toBeInTheDocument()
     expect(screen.getByPlaceholderText(/email/i)).toBeInTheDocument()
@@ -17,7 +15,7 @@ describe('<FormSignUp />', () => {
       screen.getByRole('button', { name: /sign up now/i })
     ).toBeInTheDocument()
 
-    expect(firstChild).toMatchSnapshot()
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render the text and link to sign in', () => {

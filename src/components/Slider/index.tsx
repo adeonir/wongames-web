@@ -1,4 +1,4 @@
-import { default as Slick, Settings } from 'react-slick'
+import Slick, { Settings } from 'react-slick'
 
 import * as S from './styles'
 

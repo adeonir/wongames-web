@@ -5,9 +5,7 @@ import { Footer } from '.'
 
 describe('<Footer />', () => {
   it('should render 4 topics columns on footer', () => {
-    const {
-      container: { firstChild },
-    } = renderWithTheme(<Footer />)
+    const { container } = renderWithTheme(<Footer />)
 
     expect(
       screen.getByRole('heading', { name: /contact/i })
@@ -23,6 +21,6 @@ describe('<Footer />', () => {
       screen.getByRole('heading', { name: /location/i })
     ).toBeInTheDocument()
 
-    expect(firstChild).toMatchSnapshot()
+    expect(container.firstChild).toMatchSnapshot()
   })
 })

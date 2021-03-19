@@ -1,8 +1,9 @@
 import { screen } from '@testing-library/react'
+import { renderWithTheme } from 'utils/tests/helpers'
+
 import bannersMock from 'components/BannerSlider/mock'
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightsMock from 'components/Highlight/mock'
-import { renderWithTheme } from 'utils/tests/helpers'
 
 import { Home } from '.'
 

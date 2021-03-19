@@ -7,16 +7,20 @@ import { useMemo } from 'react'
 
 type Platform = 'linux' | 'mac' | 'windows'
 
+type Rating = 'BR0' | 'BR10' | 'BR12' | 'BR14' | 'BR16' | 'BR18'
+
 export type GameDetailsProps = {
   developer: string
   releaseDate: string
   platforms: Platform[]
+  rating: Rating
 }
 
 export const GameDetails = ({
   developer,
   releaseDate,
   platforms,
+  rating,
 }: GameDetailsProps) => {
   const platformIcon = {
     linux: <Linux title="Linux" size={18} />,
@@ -31,6 +35,10 @@ export const GameDetails = ({
       year: 'numeric',
     }).format(new Date(releaseDate))
   }, [releaseDate])
+
+  const formattedRating = useMemo(() => {
+    return rating === 'BR0' ? 'FREE' : `${rating.replace('BR', '')}+`
+  }, [rating])
 
   return (
     <S.GameDetailsContainer>
@@ -67,7 +75,7 @@ export const GameDetails = ({
 
         <div>
           <S.Label>Rating</S.Label>
-          <S.Title>18+</S.Title>
+          <S.Title>{formattedRating}</S.Title>
         </div>
 
         <div>

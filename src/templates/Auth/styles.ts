@@ -1,7 +1,8 @@
-import * as HeadingStyles from 'components/Heading/styles'
-import * as LogoStyles from 'components/Logo/styles'
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
+
+import * as HeadingStyles from 'components/Heading/styles'
+import * as LogoStyles from 'components/Logo/styles'
 
 export const AuthContainer = styled.div`
   display: grid;

@@ -1,12 +1,11 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithTheme } from 'utils/tests/helpers'
 
 import { Slider } from '.'
 
 describe('<Slider />', () => {
   it('should render the children as slider item', () => {
-    const {
-      container: { firstChild },
-    } = render(
+    const { container } = renderWithTheme(
       <Slider settings={{ slidesToShow: 1, infinite: false }}>
         <p>item 1</p>
         <p>item 2</p>
@@ -21,6 +20,6 @@ describe('<Slider />', () => {
       screen.getByText(/item 2/i).parentElement?.parentElement
     ).toHaveClass('slick-slide')
 
-    expect(firstChild).toMatchSnapshot()
+    expect(container.firstChild).toMatchSnapshot()
   })
 })

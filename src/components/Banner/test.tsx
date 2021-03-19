@@ -13,9 +13,7 @@ const props = {
 
 describe('<Banner />', () => {
   it('should render correctly', () => {
-    const {
-      container: { firstChild },
-    } = renderWithTheme(<Banner {...props} />)
+    const { container } = renderWithTheme(<Banner {...props} />)
 
     expect(
       screen.getByRole('heading', { name: /defy death/i })
@@ -23,19 +21,17 @@ describe('<Banner />', () => {
 
     expect(
       screen.getByRole('heading', {
-        name: /Play the new CrashLands season/i,
+        name: /play the new CrashLands season/i,
       })
     ).toBeInTheDocument()
 
     expect(screen.getByRole('img')).toBeInTheDocument()
 
-    expect(firstChild).toMatchSnapshot()
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render the ribbon', () => {
-    const {
-      container: { firstChild },
-    } = renderWithTheme(
+    const { container } = renderWithTheme(
       <Banner
         {...props}
         ribbonText="Best seller"
@@ -44,17 +40,17 @@ describe('<Banner />', () => {
       />
     )
 
-    expect(screen.getByText(/best seller/i)).toBeInTheDocument()
+    const ribbon = screen.getByText(/best seller/i)
 
-    expect(screen.getByText(/best seller/i)).toHaveStyle({
+    expect(ribbon).toBeInTheDocument()
+    expect(ribbon).toHaveStyle({
       backgroundColor: '#3cd3c1',
     })
-
-    expect(screen.getByText(/best seller/i)).toHaveStyle({
+    expect(ribbon).toHaveStyle({
       height: '2.6rem',
       fontSize: '1.2rem',
     })
 
-    expect(firstChild).toMatchSnapshot()
+    expect(container.firstChild).toMatchSnapshot()
   })
 })
