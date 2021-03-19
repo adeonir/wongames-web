@@ -2,6 +2,8 @@ import { rgba } from 'polished'
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
+import { theme } from 'styles'
+
 import { HighlightProps } from '.'
 
 type ContainerProps = Pick<HighlightProps, 'backgroundImage' | 'floatPosition'>
@@ -30,7 +32,7 @@ const modifiers = {
 }
 
 export const HighlightContainer = styled.section<ContainerProps>`
-  ${({ theme, backgroundImage, floatPosition }) => css`
+  ${({ backgroundImage, floatPosition }) => css`
     background-image: url(${backgroundImage});
     background-position: center center;
     background-size: cover;
@@ -55,55 +57,47 @@ export const HighlightContainer = styled.section<ContainerProps>`
 `
 
 export const FloatImage = styled.img`
-  ${({ theme }) => css`
-    grid-area: float-image;
-    align-self: end;
-    padding: 0 ${theme.spacings.xxsmall};
-    max-width: 100%;
-    max-height: 23rem;
-    z-index: ${theme.layers.base};
+  grid-area: float-image;
+  align-self: end;
+  padding: 0 ${theme.spacings.xxsmall};
+  max-width: 100%;
+  max-height: 23rem;
+  z-index: ${theme.layers.base};
 
-    ${media.greaterThan('medium')`
-      padding: 0 ${theme.spacings.small};
-      max-height: 32rem;
-    `}
+  ${media.greaterThan('medium')`
+    padding: 0 ${theme.spacings.small};
+    max-height: 32rem;
   `}
 `
 
 export const Content = styled.div`
-  ${({ theme }) => css`
-    grid-area: content;
-    padding: ${theme.spacings.xsmall};
-    z-index: ${theme.layers.base};
+  grid-area: content;
+  padding: ${theme.spacings.xsmall};
+  z-index: ${theme.layers.base};
 
-    ${media.greaterThan('medium')`
-      align-self: end;
-      padding: ${theme.spacings.large};
-    `}
+  ${media.greaterThan('medium')`
+    align-self: end;
+    padding: ${theme.spacings.large};
   `}
 `
 
 export const Title = styled.h2`
-  ${({ theme }) => css`
-    color: ${theme.colors.white};
-    font-size: ${theme.font.sizes.large};
-    font-weight: ${theme.font.bold};
+  color: ${theme.colors.white};
+  font-size: ${theme.font.sizes.large};
+  font-weight: ${theme.font.bold};
 
-    ${media.greaterThan('medium')`
+  ${media.greaterThan('medium')`
     font-size: ${theme.font.sizes.xlarge};
-    `}
   `}
 `
 
 export const Subtitle = styled.h3`
-  ${({ theme }) => css`
-    color: ${theme.colors.white};
-    font-size: ${theme.font.sizes.small};
-    font-weight: ${theme.font.light};
-    margin-bottom: ${theme.spacings.medium};
+  color: ${theme.colors.white};
+  font-size: ${theme.font.sizes.small};
+  font-weight: ${theme.font.light};
+  margin-bottom: ${theme.spacings.medium};
 
-    ${media.greaterThan('medium')`
+  ${media.greaterThan('medium')`
     font-size: ${theme.font.sizes.large};
-    `}
   `}
 `

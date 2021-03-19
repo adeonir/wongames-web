@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
+import { theme } from 'styles'
+
 import { LogoProps } from '.'
 
 const modifiers = {
@@ -30,7 +32,7 @@ const modifiers = {
 }
 
 export const LogoContainer = styled.div<LogoProps>`
-  ${({ theme, color, size, hideLabel }) => css`
+  ${({ color, size, hideLabel }) => css`
     color: ${theme.colors[color!]};
 
     ${!!size && modifiers[size]};

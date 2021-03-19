@@ -1,5 +1,7 @@
 import styled, { css, DefaultTheme } from 'styled-components'
 
+import { theme } from 'styles'
+
 import { TextFieldProps } from '.'
 
 type IconPositionProps = Pick<TextFieldProps, 'iconPosition'>
@@ -11,30 +13,26 @@ type IconProps = {
 } & IconPositionProps
 
 export const Label = styled.label`
-  ${({ theme }) => css`
-    cursor: pointer;
-    color: ${theme.colors.black};
-    font-size: ${theme.font.sizes.small};
-  `}
+  cursor: pointer;
+  color: ${theme.colors.black};
+  font-size: ${theme.font.sizes.small};
 `
 
 export const InputWrapper = styled.div`
-  ${({ theme }) => css`
-    background: ${theme.colors.lighterGray};
-    border-radius: 0.2rem;
-    border: 0.2rem solid ${theme.colors.lighterGray};
-    padding: 0 ${theme.spacings.xsmall};
-    display: flex;
-    align-items: center;
+  background: ${theme.colors.lighterGray};
+  border-radius: 0.2rem;
+  border: 0.2rem solid ${theme.colors.lighterGray};
+  padding: 0 ${theme.spacings.xsmall};
+  display: flex;
+  align-items: center;
 
-    &:focus-within {
-      box-shadow: 0 0 0.5rem ${theme.colors.primary};
-    }
-  `}
+  &:focus-within {
+    box-shadow: 0 0 0.5rem ${theme.colors.primary};
+  }
 `
 
 export const Input = styled.input<IconProps>`
-  ${({ theme, hasIcon, iconPosition }) => css`
+  ${({ hasIcon, iconPosition }) => css`
     border: 0;
     background: transparent;
     color: ${theme.colors.black};
@@ -54,7 +52,7 @@ export const Input = styled.input<IconProps>`
 `
 
 export const Icon = styled.div<IconPositionProps>`
-  ${({ theme, iconPosition }) => css`
+  ${({ iconPosition }) => css`
     display: flex;
     width: 2.2rem;
     order: ${iconPosition === 'left' ? 0 : 1};
@@ -67,10 +65,8 @@ export const Icon = styled.div<IconPositionProps>`
 `
 
 export const ErrorMessage = styled.div`
-  ${({ theme }) => css`
-    color: ${theme.colors.danger};
-    font-size: ${theme.font.sizes.xsmall};
-  `}
+  color: ${theme.colors.danger};
+  font-size: ${theme.font.sizes.xsmall};
 `
 
 const modifier = {
@@ -106,7 +102,7 @@ const modifier = {
 }
 
 export const TextFieldContainer = styled.div<TextFieldContainer>`
-  ${({ theme, disabled, error }) => css`
+  ${({ disabled, error }) => css`
     ${error && modifier.error(theme)}
     ${disabled && modifier.disabled(theme)}
   `}
