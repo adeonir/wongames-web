@@ -1,9 +1,11 @@
-import { Heading, MediaMatch } from 'components'
+import { useMemo } from 'react'
 
 import { Apple, Linux, Windows } from '@styled-icons/fa-brands'
 
+import { Heading } from 'components/Heading'
+import { MediaMatch } from 'components/MediaMatch'
+
 import * as S from './styles'
-import { useMemo } from 'react'
 
 type Platform = 'linux' | 'mac' | 'windows'
 
@@ -14,6 +16,7 @@ export type GameDetailsProps = {
   releaseDate: string
   platforms: Platform[]
   rating: Rating
+  genres: string[]
 }
 
 export const GameDetails = ({
@@ -21,6 +24,7 @@ export const GameDetails = ({
   releaseDate,
   platforms,
   rating,
+  genres,
 }: GameDetailsProps) => {
   const platformIcon = {
     linux: <Linux title="Linux" size={18} />,
@@ -39,6 +43,10 @@ export const GameDetails = ({
   const formattedRating = useMemo(() => {
     return rating === 'BR0' ? 'FREE' : `${rating.replace('BR', '')}+`
   }, [rating])
+
+  const formattedGenres = useMemo(() => {
+    return genres.join(' / ')
+  }, [genres])
 
   return (
     <S.GameDetailsContainer>
@@ -80,7 +88,7 @@ export const GameDetails = ({
 
         <div>
           <S.Label>Genres</S.Label>
-          <S.Title>Action / Adventure</S.Title>
+          <S.Title>{formattedGenres}</S.Title>
         </div>
       </S.Content>
     </S.GameDetailsContainer>

@@ -3,9 +3,8 @@ import {
   ArrowForwardIos as ArrowRight,
 } from '@styled-icons/material-outlined'
 
-import { Slider } from 'components'
 import { GameCard, GameCardProps } from 'components/GameCard'
-import { SliderSettings } from 'components/Slider'
+import { Slider, SliderSettings } from 'components/Slider'
 
 import * as S from './styles'
 

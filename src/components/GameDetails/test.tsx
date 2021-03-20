@@ -1,3 +1,4 @@
+import 'match-media.mock'
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
@@ -8,6 +9,7 @@ const props: GameDetailsProps = {
   releaseDate: '2020-11-21T23:00:00',
   platforms: ['linux', 'mac', 'windows'],
   rating: 'BR0',
+  genres: ['Role-playing', 'Narrative'],
 }
 
 describe('<GameDetails />', () => {
@@ -59,5 +61,11 @@ describe('<GameDetails />', () => {
     renderWithTheme(<GameDetails {...props} rating="BR18" />)
 
     expect(screen.getByText(/18\+/i)).toBeInTheDocument()
+  })
+
+  it('should render a list of genres', () => {
+    renderWithTheme(<GameDetails {...props} />)
+
+    expect(screen.getByText('Role-playing / Narrative')).toBeInTheDocument()
   })
 })

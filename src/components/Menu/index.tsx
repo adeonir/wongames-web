@@ -8,7 +8,9 @@ import {
 } from '@styled-icons/material-outlined'
 import { Menu2 as MenuIcon } from '@styled-icons/remix-line'
 
-import { Button, Logo, MediaMatch } from 'components'
+import { Button } from 'components/Button'
+import { Logo } from 'components/Logo'
+import { MediaMatch } from 'components/MediaMatch'
 
 import * as S from './styles'
 

@@ -3,7 +3,7 @@ import media from 'styled-media-query'
 
 import { theme } from 'styles'
 
-import { Container } from 'components'
+import { Container } from 'components/Container'
 
 import { GameCardSliderContainer } from 'components/GameCardSlider/styles'
 import { HeadingContainer } from 'components/Heading/styles'

@@ -1,10 +1,10 @@
 import { darken } from 'polished'
 import styled from 'styled-components'
 
-import { theme } from 'styles'
-
 import { ButtonContainer } from 'components/Button/styles'
 import { TextFieldContainer } from 'components/TextField/styles'
+
+import { theme } from 'styles'
 
 export const FormContainer = styled.div`
   ${TextFieldContainer} {

@@ -1,6 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Banner /> should render correctly 1`] = `
+.c5 {
+  border-radius: 0.4rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  padding: 0.8rem 2.4rem;
+  height: 5rem;
+  background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
+  border: 0.1rem solid transparent;
+  color: #fafafa;
+}
+
+.c5 svg {
+  width: 1.8rem;
+}
+
+.c5:hover {
+  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
+}
+
 .c0 {
   position: relative;
 }
@@ -39,47 +74,12 @@ exports[`<Banner /> should render correctly 1`] = `
   font-weight: 600;
 }
 
-.c5 {
-  border-radius: 0.4rem;
-  cursor: pointer;
-  position: relative;
-  z-index: 10;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  font-size: 1.6rem;
-  padding: 0.8rem 2.4rem;
-  height: 5rem;
-  background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
-  border: 0.1rem solid transparent;
-  color: #fafafa;
-}
-
-.c5 svg {
-  width: 1.8rem;
-}
-
-.c5:hover {
-  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
-}
-
 @media (max-width:1170px) {
-  .c0 .sc-bdfBwQ {
+  .c0 .sc-gsTCUz {
     right: 0;
   }
 
-  .c0 .sc-bdfBwQ::after {
+  .c0 .sc-gsTCUz::after {
     display: none;
   }
 }
@@ -158,6 +158,41 @@ exports[`<Banner /> should render correctly 1`] = `
 `;
 
 exports[`<Banner /> should render the ribbon 1`] = `
+.c7 {
+  border-radius: 0.4rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  padding: 0.8rem 2.4rem;
+  height: 5rem;
+  background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
+  border: 0.1rem solid transparent;
+  color: #fafafa;
+}
+
+.c7 svg {
+  width: 1.8rem;
+}
+
+.c7:hover {
+  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
+}
+
 .c2 {
   color: #fafafa;
   padding: 0 2.4rem;
@@ -237,41 +272,6 @@ exports[`<Banner /> should render the ribbon 1`] = `
 .c6 strong {
   color: #f231a5;
   font-weight: 600;
-}
-
-.c7 {
-  border-radius: 0.4rem;
-  cursor: pointer;
-  position: relative;
-  z-index: 10;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  font-size: 1.6rem;
-  padding: 0.8rem 2.4rem;
-  height: 5rem;
-  background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
-  border: 0.1rem solid transparent;
-  color: #fafafa;
-}
-
-.c7 svg {
-  width: 1.8rem;
-}
-
-.c7:hover {
-  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
 }
 
 @media (max-width:1170px) {

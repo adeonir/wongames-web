@@ -1,5 +1,4 @@
-import { Home } from 'containers'
-import { HomeContainerProps } from 'containers/Home'
+import { Home, HomeContainerProps } from 'containers/Home'
 
 import bannersMock from 'components/BannerSlider/mock'
 import gamesMock from 'components/GameCardSlider/mock'
