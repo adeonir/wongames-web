@@ -1,6 +1,7 @@
 import { fireEvent, screen } from '@testing-library/react'
-import { theme } from 'styles'
 import { renderWithTheme } from 'utils/tests/helpers'
+
+import { theme } from 'styles'
 
 import { GameCard } from '.'
 
@@ -13,9 +14,7 @@ const props = {
 
 describe('<GameCard />', () => {
   it('should render the card', () => {
-    const {
-      container: { firstChild },
-    } = renderWithTheme(<GameCard {...props} />)
+    const { container } = renderWithTheme(<GameCard {...props} />)
 
     expect(
       screen.getByRole('heading', { name: /population zero/i })
@@ -32,7 +31,7 @@ describe('<GameCard />', () => {
 
     expect(screen.getByLabelText(/add to wishlist/i)).toBeInTheDocument()
 
-    expect(firstChild).toMatchSnapshot()
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render price in label', () => {

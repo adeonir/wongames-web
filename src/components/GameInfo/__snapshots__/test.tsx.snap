@@ -1,47 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<GameInfo /> should render game informations 1`] = `
-.c4 {
-  color: #fafafa;
-  padding: 0 2.4rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  position: absolute;
-  top: 3rem;
-  background-color: #3cd3c1;
-  font-size: 1.4rem;
-  height: 3.6rem;
-  right: -2rem;
-}
-
-.c4::after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 0;
-  position: absolute;
-  right: 0;
-  border: 0 solid transparent;
-}
-
-.c4::after {
-  border-left-color: #30a89a;
-}
-
-.c4::after {
-  bottom: -1rem;
-  border-bottom-width: 1rem;
-  border-left-width: 2rem;
+.c8 {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
 }
 
 .c7 {
@@ -147,10 +110,47 @@ exports[`<GameInfo /> should render game informations 1`] = `
   border-bottom: 0.5rem solid #3cd3c1;
 }
 
-.c8 {
-  display: inline-block;
-  vertical-align: middle;
-  overflow: hidden;
+.c4 {
+  color: #fafafa;
+  padding: 0 2.4rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  top: 3rem;
+  background-color: #3cd3c1;
+  font-size: 1.4rem;
+  height: 3.6rem;
+  right: -2rem;
+}
+
+.c4::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  right: 0;
+  border: 0 solid transparent;
+}
+
+.c4::after {
+  border-left-color: #30a89a;
+}
+
+.c4::after {
+  bottom: -1rem;
+  border-bottom-width: 1rem;
+  border-left-width: 2rem;
 }
 
 .c0 {

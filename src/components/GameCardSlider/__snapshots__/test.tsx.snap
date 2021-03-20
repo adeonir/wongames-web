@@ -177,54 +177,6 @@ exports[`<GameCardSlider /> should render correctly 1`] = `
   margin-right: calc(0.8rem / 2);
 }
 
-.c0 .slick-track,
-.c0 .slick-list {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.c0 .slick-slide > div {
-  margin: 0 0.8rem;
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
-  height: 100%;
-}
-
-.c0 .slick-list {
-  margin: 0 -0.8rem;
-}
-
-.c0 .slick-prev,
-.c0 .slick-next {
-  display: block;
-  color: #fafafa;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: 2.5rem;
-  height: 2.5rem;
-  padding: 0;
-  -webkit-transform: translate(0,-50%);
-  -ms-transform: translate(0,-50%);
-  transform: translate(0,-50%);
-}
-
-.c0 .slick-prev {
-  left: -5.6rem;
-}
-
-.c0 .slick-next {
-  right: -5.6rem;
-}
-
-.c0 .slick-prev.slick-disabled,
-.c0 .slick-next.slick-disabled {
-  visibility: hidden;
-}
-
 .c1 .slick-slider {
   position: relative;
   display: block;
@@ -320,6 +272,54 @@ exports[`<GameCardSlider /> should render correctly 1`] = `
 
 .c1 .slick-arrow.slick-hidden {
   display: none;
+}
+
+.c0 .slick-track,
+.c0 .slick-list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c0 .slick-slide > div {
+  margin: 0 0.8rem;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  height: 100%;
+}
+
+.c0 .slick-list {
+  margin: 0 -0.8rem;
+}
+
+.c0 .slick-prev,
+.c0 .slick-next {
+  display: block;
+  color: #fafafa;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  -webkit-transform: translate(0,-50%);
+  -ms-transform: translate(0,-50%);
+  transform: translate(0,-50%);
+}
+
+.c0 .slick-prev {
+  left: -5.6rem;
+}
+
+.c0 .slick-next {
+  right: -5.6rem;
+}
+
+.c0 .slick-prev.slick-disabled,
+.c0 .slick-next.slick-disabled {
+  visibility: hidden;
 }
 
 @media (max-width:1440px) {

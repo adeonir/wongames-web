@@ -3,7 +3,7 @@ import { renderWithTheme } from 'utils/tests/helpers'
 
 import { Highlight } from '.'
 
-import { Content } from './styles'
+import * as S from './styles'
 
 const props = {
   title: 'This is the title',
@@ -15,9 +15,7 @@ const props = {
 
 describe('<Highlight />', () => {
   it('should render headings and buttons', () => {
-    const {
-      container: { firstChild },
-    } = renderWithTheme(<Highlight {...props} />)
+    const { container } = renderWithTheme(<Highlight {...props} />)
 
     expect(
       screen.getByRole('heading', { name: /this is the title/i })
@@ -29,15 +27,13 @@ describe('<Highlight />', () => {
 
     expect(screen.getByRole('link', { name: /buy now/i })).toBeInTheDocument()
 
-    expect(firstChild).toMatchSnapshot()
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render the background image', () => {
-    const {
-      container: { firstChild },
-    } = renderWithTheme(<Highlight {...props} />)
+    const { container } = renderWithTheme(<Highlight {...props} />)
 
-    expect(firstChild).toHaveStyle({
+    expect(container.firstChild).toHaveStyle({
       backgroundImage: `url(${props.backgroundImage})`,
     })
   })
@@ -52,32 +48,30 @@ describe('<Highlight />', () => {
   })
 
   it('should render the float image align to the left by default', () => {
-    const {
-      container: { firstChild },
-    } = renderWithTheme(<Highlight {...props} />)
+    const { container } = renderWithTheme(<Highlight {...props} />)
 
-    expect(firstChild).toHaveStyleRule(
+    expect(container.firstChild).toHaveStyleRule(
       'grid-template-areas',
       "'float-image content'"
     )
 
-    expect(firstChild).toHaveStyleRule('text-align', 'right', {
-      modifier: `${Content}`,
+    expect(container.firstChild).toHaveStyleRule('text-align', 'right', {
+      modifier: `${S.Content}`,
     })
   })
 
   it('should render the float image align to the right when props is passed', () => {
-    const {
-      container: { firstChild },
-    } = renderWithTheme(<Highlight floatPosition="right" {...props} />)
+    const { container } = renderWithTheme(
+      <Highlight floatPosition="right" {...props} />
+    )
 
-    expect(firstChild).toHaveStyleRule(
+    expect(container.firstChild).toHaveStyleRule(
       'grid-template-areas',
       "'content float-image'"
     )
 
-    expect(firstChild).toHaveStyleRule('text-align', 'left', {
-      modifier: `${Content}`,
+    expect(container.firstChild).toHaveStyleRule('text-align', 'left', {
+      modifier: `${S.Content}`,
     })
   })
 })

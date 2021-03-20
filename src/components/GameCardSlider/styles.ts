@@ -1,12 +1,14 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
+import { theme } from 'styles'
+
 import { GameCardSliderProps } from '.'
 
 type ContainerProps = Pick<GameCardSliderProps, 'color'>
 
 export const GameCardSliderContainer = styled.section<ContainerProps>`
-  ${({ theme, color }) => css`
+  ${({ color }) => css`
     ${media.lessThan('huge')`
       overflow-x: hidden;
     `}

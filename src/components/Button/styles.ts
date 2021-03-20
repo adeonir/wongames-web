@@ -1,6 +1,8 @@
 import { darken, rgba } from 'polished'
 import styled, { css, DefaultTheme } from 'styled-components'
 
+import { theme } from 'styles'
+
 import { ButtonProps } from '.'
 
 export type ContainerProps = {
@@ -73,7 +75,7 @@ const modifiers = {
 }
 
 export const ButtonContainer = styled.button<ContainerProps>`
-  ${({ theme, size, variant, fullWidth, hasIcon }) => css`
+  ${({ size, variant, fullWidth, hasIcon }) => css`
     border-radius: ${theme.border.radius};
     cursor: pointer;
     position: relative;

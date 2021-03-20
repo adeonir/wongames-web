@@ -1,12 +1,6 @@
-import * as S from 'components'
+import { Button } from 'components/Button'
 
-import {
-  Content,
-  FloatImage,
-  HighlightContainer,
-  Subtitle,
-  Title,
-} from './styles'
+import * as S from './styles'
 
 export type HighlightProps = {
   title: string
@@ -27,17 +21,17 @@ export const Highlight = ({
   buttonLabel,
   buttonLink,
 }: HighlightProps) => (
-  <HighlightContainer
+  <S.HighlightContainer
     backgroundImage={backgroundImage}
     floatPosition={floatPosition}
   >
-    {!!floatImage && <FloatImage src={floatImage} alt={title} />}
-    <Content>
-      <Title>{title}</Title>
-      <Subtitle>{subtitle}</Subtitle>
-      <S.Button as="a" href={buttonLink}>
+    {!!floatImage && <S.FloatImage src={floatImage} alt={title} />}
+    <S.Content>
+      <S.Title>{title}</S.Title>
+      <S.Subtitle>{subtitle}</S.Subtitle>
+      <Button as="a" href={buttonLink}>
         {buttonLabel}
-      </S.Button>
-    </Content>
-  </HighlightContainer>
+      </Button>
+    </S.Content>
+  </S.HighlightContainer>
 )

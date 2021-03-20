@@ -1,6 +1,8 @@
 import { shade } from 'polished'
 import styled, { css, DefaultTheme } from 'styled-components'
 
+import { theme } from 'styles'
+
 import { RibbonColors, RibbonProps } from '.'
 
 const modifiers = {
@@ -36,7 +38,7 @@ const modifiers = {
 }
 
 export const RibbonContainer = styled.div<Omit<RibbonProps, 'children'>>`
-  ${({ theme, color, size }) => css`
+  ${({ color, size }) => css`
     color: ${theme.colors.white};
     padding: 0 ${theme.spacings.small};
     display: flex;

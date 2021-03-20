@@ -5,13 +5,11 @@ import { Ribbon } from '.'
 
 describe('<Ribbon />', () => {
   it('should render the text correctly', () => {
-    const {
-      container: { firstChild },
-    } = renderWithTheme(<Ribbon>Best seller</Ribbon>)
+    const { container } = renderWithTheme(<Ribbon>Best seller</Ribbon>)
 
     expect(screen.getByText(/best seller/i)).toBeInTheDocument()
 
-    expect(firstChild).toMatchSnapshot()
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render with the primary color', () => {

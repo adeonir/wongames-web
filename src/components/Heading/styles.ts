@@ -1,6 +1,8 @@
 import styled, { css, DefaultTheme } from 'styled-components'
 import media from 'styled-media-query'
 
+import { theme } from 'styles'
+
 import { HeadingProps, LineColors } from '.'
 
 const modifiers = {
@@ -43,7 +45,7 @@ const modifiers = {
 }
 
 export const HeadingContainer = styled.h2<HeadingProps>`
-  ${({ theme, color, size, lineColor, lineLeft, lineBottom }) => css`
+  ${({ color, size, lineColor, lineLeft, lineBottom }) => css`
     color: ${theme.colors[color!]};
 
     ${lineLeft && modifiers.lineLeft(theme, lineColor!)};

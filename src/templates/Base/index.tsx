@@ -1,11 +1,11 @@
-import { ReactNode } from 'react'
-
-import { Container, Footer, Menu } from 'components'
+import { Container } from 'components/Container'
+import { Footer } from 'components/Footer'
+import { Menu } from 'components/Menu'
 
 import * as S from './styles'
 
 export type BaseProps = {
-  children: ReactNode
+  children: React.ReactNode
 }
 
 export const Base = ({ children }: BaseProps) => (
