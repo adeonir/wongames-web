@@ -25,7 +25,7 @@
     "src/**/*.{ts,tsx}": [
       "yarn lint --fix",
       "yarn prettier --write",
-      "yarn test --findRelatedTests --bail"
+      "yarn jest --findRelatedTests --bail"
     ]
   },
   "dependencies": {
@@ -34,7 +34,7 @@
     "@styled-icons/material-outlined": "^10.28.0",
     "@styled-icons/remix-line": "^10.18.0",
     "graphql": "^15.5.0",
-    "next": "10.0.8",
+    "next": "10.0.9",
     "next-pwa": "5.0.6",
     "polished": "^4.1.1",
     "react": "17.0.1",
@@ -50,7 +50,7 @@
     "@storybook/react": "^6.1.21",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.8.3",
+    "@testing-library/user-event": "^13.0.6",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.34",
     "@types/react": "^17.0.3",
