@@ -5,6 +5,8 @@ import {
   GlobalStyleComponent,
 } from 'styled-components'
 
+import { theme } from 'styles'
+
 type GlobalStylesProps = {
   removeBg?: boolean
 }
@@ -52,7 +54,7 @@ export const GlobalStyles: GlobalStyleComponent<
     box-sizing: border-box;
   }
 
-  ${({ theme, removeBg }) => css`
+  ${({ removeBg }) => css`
     html {
       font-size: 62.5%;
       min-width: 320px;
