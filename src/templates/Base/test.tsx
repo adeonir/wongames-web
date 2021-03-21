@@ -26,7 +26,7 @@ describe('<Base />', () => {
   it('should render menu, children and footer', () => {
     renderWithTheme(
       <Base>
-        <h1>Heading</h1>
+        <h1>Base template</h1>
       </Base>
     )
 
@@ -34,7 +34,7 @@ describe('<Base />', () => {
     expect(screen.getByTestId(/mock footer/i)).toBeInTheDocument()
 
     expect(
-      screen.getByRole('heading', { name: /heading/i })
+      screen.getByRole('heading', { name: /base template/i })
     ).toBeInTheDocument()
   })
 })

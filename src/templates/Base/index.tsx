@@ -9,17 +9,17 @@ export type BaseProps = {
 }
 
 export const Base = ({ children }: BaseProps) => (
-  <main>
+  <S.BaseContainer>
     <Container>
       <Menu />
     </Container>
 
-    {children}
+    <S.Content>{children}</S.Content>
 
-    <S.SectionFooter>
+    <S.Footer>
       <Container>
         <Footer />
       </Container>
-    </S.SectionFooter>
-  </main>
+    </S.Footer>
+  </S.BaseContainer>
 )
