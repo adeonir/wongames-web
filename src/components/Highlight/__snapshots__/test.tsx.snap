@@ -37,7 +37,7 @@ exports[`<Highlight /> should render headings and buttons 1`] = `
 }
 
 .c0 {
-  background-image: url(/assets/red-dead-image.jpg);
+  background-image: url(/img/red-dead-image.jpg);
   background-position: center center;
   background-size: cover;
   position: relative;

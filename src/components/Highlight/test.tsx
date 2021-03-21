@@ -8,7 +8,7 @@ import * as S from './styles'
 const props = {
   title: 'This is the title',
   subtitle: 'This is the subtitle',
-  backgroundImage: '/assets/red-dead-image.jpg',
+  backgroundImage: '/img/red-dead-image.jpg',
   buttonLabel: 'Buy now',
   buttonLink: '/rdr2',
 }

@@ -7,8 +7,8 @@
     "build": "next build",
     "serve": "next start",
     "export": "next build && next export",
-    "lint": "eslint src --max-warnings=0 --fix",
-    "test": "yarn jest --watch --onlyChanged",
+    "lint": "eslint src --max-warnings=0",
+    "test": "yarn jest --watch",
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "generate": "yarn plop --plopfile ./generators/plopfile.js",
     "storybook": "start-storybook -s ./public -p 6006",
@@ -22,7 +22,7 @@
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
-      "yarn lint --fix",
+      "yarn eslint --fix",
       "yarn prettier --write",
       "yarn jest --findRelatedTests --bail"
     ]
