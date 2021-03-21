@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import {
   ArrowBackIos as ArrowLeft,
   ArrowForwardIos as ArrowRight,
@@ -51,17 +53,28 @@ type ImageProps = {
   alt: string
 }
 
-export const Gallery = ({ items }: GalleryProps) => (
-  <S.GalleryContainer>
-    <Slider settings={settings}>
-      {items.map((item, index) => (
-        <img
-          role="button"
-          key={`thumb-${index}`}
-          src={item.src}
-          alt={`Thumbnail - ${item.alt}`}
-        />
-      ))}
-    </Slider>
-  </S.GalleryContainer>
-)
+export const Gallery = ({ items }: GalleryProps) => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <S.GalleryContainer>
+      <Slider settings={settings}>
+        {items.map((item, index) => (
+          <img
+            role="button"
+            key={`thumb-${index}`}
+            src={item.src}
+            alt={`Thumbnail - ${item.alt}`}
+            onClick={() => setIsOpen(true)}
+          />
+        ))}
+      </Slider>
+
+      <S.Modal
+        aria-label="modal"
+        aria-hidden={!isOpen}
+        isOpen={isOpen}
+      ></S.Modal>
+    </S.GalleryContainer>
+  )
+}

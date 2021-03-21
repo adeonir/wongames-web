@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
 import { theme } from 'styles'
@@ -41,5 +41,26 @@ export const GalleryContainer = styled.div`
 
   ${media.lessThan('huge')`
     overflow-x: hidden;
+  `}
+`
+
+type ModalProps = {
+  isOpen: boolean
+}
+
+const modifiers = {
+  open: () => css`
+    opacity: 1;
+  `,
+  close: () => css`
+    opacity: 0;
+    pointer-events: none;
+  `,
+}
+
+export const Modal = styled.div<ModalProps>`
+  ${({ isOpen }) => css`
+    ${isOpen && modifiers.open}
+    ${!isOpen && modifiers.close}
   `}
 `
