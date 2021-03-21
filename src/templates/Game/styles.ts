@@ -6,6 +6,7 @@ import { Container } from 'components/Container'
 import * as HeadingStyles from 'components/Heading/styles'
 
 import { theme } from 'styles'
+import { rgba } from 'polished'
 
 export const GameContainer = styled.main`
   margin-top: 20rem;
@@ -47,7 +48,7 @@ const Section = styled(Container).attrs({ as: 'section' })`
   `}
 `
 
-export const GameInfoSection = styled(Section)``
+export const InfoSection = styled(Section)``
 
 export const GallerySection = styled(Section)`
   display: none;
@@ -67,4 +68,13 @@ export const DescriptionSection = styled(Section)`
     font-size: ${theme.font.sizes.xsmall};
     margin-top: ${theme.spacings.medium};
   }
+`
+
+export const DetailsSection = styled(Section)`
+  padding-bottom: ${theme.spacings.large};
+  border-bottom: 0.1rem solid ${rgba(theme.colors.darkGray, 0.7)};
+
+  ${media.greaterThan('medium')`
+    padding-bottom: ${theme.spacings.xxlarge};
+  `}
 `
