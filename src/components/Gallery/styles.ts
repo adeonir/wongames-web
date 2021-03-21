@@ -66,12 +66,12 @@ export const Modal = styled.div<ModalProps>`
     right: 0;
     bottom: 0;
     left: 0;
-    background: ${rgba(theme.colors.black, 0.5)};
+    background: ${rgba(theme.colors.black, 0.7)};
     backdrop-filter: blur(5px);
     display: flex;
     align-items: center;
     justify-content: center;
-    index: ${theme.layers.modal};
+    z-index: ${theme.layers.modal};
     transition: opacity ${theme.transition.default};
 
     ${isOpen && modifiers.open}

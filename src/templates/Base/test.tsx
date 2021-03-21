@@ -4,29 +4,25 @@ import { renderWithTheme } from 'utils/tests/helpers'
 
 import { Base } from '.'
 
-jest.mock('components/Menu', () => {
-  return {
-    __esModule: true,
-    Menu: function Mock() {
-      return <div data-testid="Mock menu" />
-    },
-  }
-})
+jest.mock('components/Menu', () => ({
+  __esModule: true,
+  Menu: function Mock() {
+    return <div data-testid="Mock menu" />
+  },
+}))
 
-jest.mock('components/Footer', () => {
-  return {
-    __esModule: true,
-    Footer: function Mock() {
-      return <div data-testid="Mock footer" />
-    },
-  }
-})
+jest.mock('components/Footer', () => ({
+  __esModule: true,
+  Footer: function Mock() {
+    return <div data-testid="Mock footer" />
+  },
+}))
 
 describe('<Base />', () => {
   it('should render menu, children and footer', () => {
     renderWithTheme(
       <Base>
-        <h1>Heading</h1>
+        <h1>Base template</h1>
       </Base>
     )
 
@@ -34,7 +30,7 @@ describe('<Base />', () => {
     expect(screen.getByTestId(/mock footer/i)).toBeInTheDocument()
 
     expect(
-      screen.getByRole('heading', { name: /heading/i })
+      screen.getByRole('heading', { name: /base template/i })
     ).toBeInTheDocument()
   })
 })

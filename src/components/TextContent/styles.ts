@@ -38,7 +38,7 @@ export const TextContentContainer = styled.div`
   }
 
   img {
-    max-width: min(70rem, 100%);
+    max-width: min(60rem, 100%);
     margin-bottom: ${theme.spacings.xsmall};
   }
 

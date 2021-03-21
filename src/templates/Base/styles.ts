@@ -3,7 +3,18 @@ import media from 'styled-media-query'
 
 import { theme } from 'styles'
 
-export const SectionFooter = styled.section`
+export const BaseContainer = styled.main`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`
+
+export const Content = styled.div`
+  flex: 1;
+`
+
+export const Footer = styled.section`
   margin-top: ${theme.spacings.large};
   padding-bottom: ${theme.spacings.xsmall};
   padding-top: ${theme.spacings.xxlarge};

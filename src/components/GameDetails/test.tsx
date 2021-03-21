@@ -6,6 +6,7 @@ import { GameDetails, GameDetailsProps } from '.'
 
 const props: GameDetailsProps = {
   developer: 'Different Tales',
+  publisher: 'Walkabout',
   releaseDate: '2020-11-21T23:00:00',
   platforms: ['linux', 'mac', 'windows'],
   rating: 'BR0',
@@ -21,6 +22,10 @@ describe('<GameDetails />', () => {
     ).toBeInTheDocument()
 
     expect(
+      screen.getByRole('heading', { name: /publisher/i })
+    ).toBeInTheDocument()
+
+    expect(
       screen.getByRole('heading', { name: /release date/i })
     ).toBeInTheDocument()
 
@@ -28,13 +33,21 @@ describe('<GameDetails />', () => {
       screen.getByRole('heading', { name: /platforms/i })
     ).toBeInTheDocument()
 
-    expect(
-      screen.getByRole('heading', { name: /publisher/i })
-    ).toBeInTheDocument()
-
     expect(screen.getByRole('heading', { name: /rating/i })).toBeInTheDocument()
 
     expect(screen.getByRole('heading', { name: /genres/i })).toBeInTheDocument()
+  })
+
+  it('should render the developer', () => {
+    renderWithTheme(<GameDetails {...props} />)
+
+    expect(screen.getByText(/different tales/i)).toBeInTheDocument()
+  })
+
+  it('should render the publisher', () => {
+    renderWithTheme(<GameDetails {...props} />)
+
+    expect(screen.getByText(/walkabout/i)).toBeInTheDocument()
   })
 
   it('should render the formatted date', () => {

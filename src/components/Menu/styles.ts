@@ -12,6 +12,8 @@ export const MenuContainer = styled.div`
   align-items: center;
   grid-template-columns: 1fr auto 1fr;
   padding: ${theme.spacings.small} 0;
+  z-index: ${theme.layers.menu};
+  position: relative;
 
   ${media.greaterThan('medium')`
     grid-template-columns: auto auto 1fr;

@@ -4,22 +4,22 @@ import { Menu } from 'components/Menu'
 
 import * as S from './styles'
 
-export type BaseProps = {
+export type BaseTemplateProps = {
   children: React.ReactNode
 }
 
-export const Base = ({ children }: BaseProps) => (
-  <main>
+export const Base = ({ children }: BaseTemplateProps) => (
+  <S.BaseContainer>
     <Container>
       <Menu />
     </Container>
 
-    {children}
+    <S.Content>{children}</S.Content>
 
-    <S.SectionFooter>
+    <S.Footer>
       <Container>
         <Footer />
       </Container>
-    </S.SectionFooter>
-  </main>
+    </S.Footer>
+  </S.BaseContainer>
 )
