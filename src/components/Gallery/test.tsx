@@ -34,6 +34,19 @@ describe('<Gallery />', () => {
     expect(modal).toHaveStyle({ opacity: 1 })
   })
 
+  it('should open modal with selected image', async () => {
+    renderWithTheme(<Gallery items={mock.slice(0, 2)} />)
+
+    fireEvent.click(
+      screen.getByRole('button', { name: /thumbnail - gallery image 2/i })
+    )
+
+    const img = await screen.findByRole('img', {
+      name: /gallery image 2/i,
+    })
+    expect(img.parentElement?.parentElement).toHaveClass('slick-active')
+  })
+
   it('should handle close modal when button or overlay is clicked', () => {
     renderWithTheme(<Gallery items={mock.slice(0, 2)} />)
 

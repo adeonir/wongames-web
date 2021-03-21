@@ -90,3 +90,12 @@ export const Close = styled.div`
   padding: ${theme.spacings.xsmall};
   text-align: right;
 `
+
+export const Content = styled.div`
+  max-width: min(120rem, 90%);
+  max-height: min(80rem, 100%);
+
+  img {
+    cursor: default;
+  }
+`

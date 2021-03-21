@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import SlickSlider from 'react-slick'
 
 import {
   ArrowBackIos as ArrowLeft,
@@ -12,9 +13,15 @@ import * as S from './styles'
 
 const settings: SliderSettings = {
   arrows: true,
-  slidesToShow: 4,
   infinite: false,
   lazyLoad: 'ondemand',
+  nextArrow: <ArrowRight aria-label="Next image" />,
+  prevArrow: <ArrowLeft aria-label="Previous image" />,
+}
+
+const thumbSettings: SliderSettings = {
+  ...settings,
+  slidesToShow: 4,
   responsive: [
     {
       breakpoint: 1375,
@@ -41,8 +48,11 @@ const settings: SliderSettings = {
       },
     },
   ],
-  nextArrow: <ArrowRight aria-label="Next image" />,
-  prevArrow: <ArrowLeft aria-label="Previous image" />,
+}
+
+const modalSettings: SliderSettings = {
+  ...settings,
+  slidesToShow: 1,
 }
 
 export type GalleryProps = {
@@ -55,6 +65,7 @@ type ImageProps = {
 }
 
 export const Gallery = ({ items }: GalleryProps) => {
+  const sliderRef = useRef<SlickSlider>(null)
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
@@ -69,14 +80,17 @@ export const Gallery = ({ items }: GalleryProps) => {
 
   return (
     <S.GalleryContainer>
-      <Slider settings={settings}>
+      <Slider settings={thumbSettings} ref={sliderRef}>
         {items.map((item, index) => (
           <img
             role="button"
             key={`thumb-${index}`}
             src={item.src}
             alt={`Thumbnail - ${item.alt}`}
-            onClick={() => setIsOpen(true)}
+            onClick={() => {
+              setIsOpen(true)
+              sliderRef.current!.slickGoTo(index, true)
+            }}
           />
         ))}
       </Slider>
@@ -89,6 +103,14 @@ export const Gallery = ({ items }: GalleryProps) => {
         >
           <Close size={28} />
         </S.Close>
+
+        <S.Content>
+          <Slider settings={modalSettings} ref={sliderRef}>
+            {items.map((item, index) => (
+              <img key={`slide-${index}`} src={item.src} alt={`${item.alt}`} />
+            ))}
+          </Slider>
+        </S.Content>
       </S.Modal>
     </S.GalleryContainer>
   )
