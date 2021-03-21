@@ -6,7 +6,7 @@ import { ThemeProvider } from 'styled-components'
 
 import { GlobalStyles, theme } from 'styles'
 
-function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: AppProps) {
   const client = useApollo(pageProps.initialApolloState)
 
   return (
@@ -25,5 +25,3 @@ function App({ Component, pageProps }: AppProps) {
     </ApolloProvider>
   )
 }
-
-export default App
