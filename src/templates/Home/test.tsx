@@ -13,30 +13,26 @@ const props = {
   newGames: gamesMock,
   mostPopularHighlight: highlightsMock,
   mostPopularGames: gamesMock,
-  upComingGames: gamesMock,
-  upComingHighlight: highlightsMock,
-  upComingMoreGames: gamesMock,
+  upcomingGames: gamesMock,
+  upcomingHighlight: highlightsMock,
+  upcomingMoreGames: gamesMock,
   freeGamesHighlight: highlightsMock,
   freeGames: gamesMock,
 }
 
-jest.mock('components/ShowCase', () => {
-  return {
-    __esModule: true,
-    ShowCase: function Mock() {
-      return <div data-testid="Mock showcase" />
-    },
-  }
-})
+jest.mock('components/ShowCase', () => ({
+  __esModule: true,
+  ShowCase: function Mock() {
+    return <div data-testid="Mock showcase" />
+  },
+}))
 
-jest.mock('components/BannerSlider', () => {
-  return {
-    __esModule: true,
-    BannerSlider: function Mock() {
-      return <div data-testid="Mock banner slider" />
-    },
-  }
-})
+jest.mock('components/BannerSlider', () => ({
+  __esModule: true,
+  BannerSlider: function Mock() {
+    return <div data-testid="Mock banner slider" />
+  },
+}))
 
 describe('<Home />', () => {
   it('should render slider and showcase', () => {
