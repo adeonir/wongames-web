@@ -17,7 +17,7 @@ export const AuthContainer = styled.div`
 `
 
 export const Banner = styled.div`
-  background-image: url(/assets/auth-banner.png);
+  background-image: url(/img/auth-banner.png);
   background-size: cover;
   background-position: center;
   position: relative;

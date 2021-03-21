@@ -33,24 +33,12 @@ module.exports = (plop) => {
         path: '../src/components/{{pascalCase name}}/test.tsx',
         templateFile: 'templates/test.tsx.hbs',
       },
-      {
-        type: 'append',
-        path: '../src/components/index.ts',
-        pattern: /export.*.*\n(?!export)/g,
-        template:
-          "export { {{pascalCase name}} } from './{{pascalCase name}}'\n",
-        separator: '',
-      },
-      {
-        type: 'lint',
-      },
     ],
   })
 
   plop.setActionType('lint', (answers) => {
     const srcPath = path.join(__dirname, '../src/')
     const componentName = plop.getHelper('pascalCase')(answers.name)
-    const componentsIndex = path.join(srcPath, 'components', 'index.ts')
     const componentsFiles = path.join(
       srcPath,
       'components',
@@ -59,7 +47,6 @@ module.exports = (plop) => {
     )
 
     execSync(`prettier --write "${componentsFiles}"`)
-    execSync(`eslint ${componentsIndex} --fix`)
     execSync(`eslint ${componentsFiles} --fix --ext .ts,.tsx`)
 
     return `\n\n ${chalk.bold.green(
