@@ -56,10 +56,10 @@ const modalSettings: SliderSettings = {
 }
 
 export type GalleryProps = {
-  items: ImageProps[]
+  items: GalleryImageProps[]
 }
 
-type ImageProps = {
+export type GalleryImageProps = {
   src: string
   alt: string
 }
