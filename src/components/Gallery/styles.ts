@@ -1,3 +1,4 @@
+import { rgba } from 'polished'
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
@@ -60,7 +61,32 @@ const modifiers = {
 
 export const Modal = styled.div<ModalProps>`
   ${({ isOpen }) => css`
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: ${rgba(theme.colors.black, 0.5)};
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    index: ${theme.layers.modal};
+    transition: opacity ${theme.transition.default};
+
     ${isOpen && modifiers.open}
     ${!isOpen && modifiers.close}
   `}
+`
+
+export const Close = styled.div`
+  color: ${theme.colors.white};
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+  padding: ${theme.spacings.xsmall};
+  text-align: right;
 `
