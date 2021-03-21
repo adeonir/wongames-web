@@ -1,3 +1,13 @@
+import { Game } from 'templates/Game'
+
+import { Container } from 'components/Container'
+
 export default function Index() {
-  return <h1>Game</h1>
+  return (
+    <Game>
+      <Container>
+        <h1 style={{ color: '#fff' }}>Game page</h1>
+      </Container>
+    </Game>
+  )
 }
