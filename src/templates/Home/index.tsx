@@ -9,7 +9,7 @@ import { ShowCase } from 'components/ShowCase'
 
 import * as S from './styles'
 
-export type HomeContainerProps = {
+export type HomeTemplateProps = {
   banners: BannerProps[]
   newGames: GameCardProps[]
   mostPopularHighlight: HighlightProps
@@ -31,7 +31,7 @@ export const Home = ({
   upComingMoreGames,
   freeGamesHighlight,
   freeGames,
-}: HomeContainerProps) => (
+}: HomeTemplateProps) => (
   <Base>
     <Container>
       <S.SectionBanner>

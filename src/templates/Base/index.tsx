@@ -4,11 +4,11 @@ import { Menu } from 'components/Menu'
 
 import * as S from './styles'
 
-export type BaseProps = {
+export type BaseTemplateProps = {
   children: React.ReactNode
 }
 
-export const Base = ({ children }: BaseProps) => (
+export const Base = ({ children }: BaseTemplateProps) => (
   <S.BaseContainer>
     <Container>
       <Menu />
