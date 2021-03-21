@@ -1,4 +1,5 @@
-import Slick, { Settings } from 'react-slick'
+import { forwardRef } from 'react'
+import SlickSlider, { Settings } from 'react-slick'
 
 import * as S from './styles'
 
@@ -9,8 +10,12 @@ export type SliderProps = {
   settings: SliderSettings
 }
 
-export const Slider = ({ children, settings }: SliderProps) => (
-  <S.SliderContainer>
-    <Slick {...settings}>{children}</Slick>
-  </S.SliderContainer>
+export const Slider = forwardRef<SlickSlider, SliderProps>(
+  ({ children, settings }, ref) => (
+    <S.SliderContainer>
+      <SlickSlider {...settings} ref={ref}>
+        {children}
+      </SlickSlider>
+    </S.SliderContainer>
+  )
 )
