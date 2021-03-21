@@ -5,7 +5,7 @@ import { theme } from 'styles'
 
 import { HeadingProps, LineColors } from '.'
 
-const modifiers = {
+export const modifiers = {
   small: (theme: DefaultTheme) => css`
     font-size: ${theme.font.sizes.medium};
 
