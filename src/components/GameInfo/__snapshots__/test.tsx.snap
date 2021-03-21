@@ -107,7 +107,7 @@ exports[`<GameInfo /> should render game informations 1`] = `
   left: 0;
   bottom: -0.3rem;
   width: 5rem;
-  border-bottom: 0.5rem solid #3cd3c1;
+  border-bottom: 0.5rem solid #f231a5;
 }
 
 .c4 {

@@ -3,6 +3,8 @@ import media from 'styled-media-query'
 
 import { Container } from 'components/Container'
 
+import * as HeadingStyles from 'components/Heading/styles'
+
 import { theme } from 'styles'
 
 export const GameContainer = styled.main`
@@ -53,4 +55,16 @@ export const GallerySection = styled(Section)`
   ${media.greaterThan('medium')`
     display: block;
   `}
+`
+
+export const DescriptionSection = styled(Section)`
+  ${HeadingStyles.HeadingContainer} {
+    margin-bottom: ${theme.spacings.medium};
+  }
+
+  .description__copyrights {
+    color: ${theme.colors.gray};
+    font-size: ${theme.font.sizes.xsmall};
+    margin-top: ${theme.spacings.medium};
+  }
 `
