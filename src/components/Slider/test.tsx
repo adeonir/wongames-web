@@ -1,15 +1,14 @@
-import 'match-media.mock'
-import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import 'match-media-mock'
+import { render, screen } from '@testing-library/react'
 
-import { Slider } from '.'
+import Slider from '.'
 
 describe('<Slider />', () => {
-  it('should render the children as slider item', () => {
-    const { container } = renderWithTheme(
+  it('should render children as slider item', () => {
+    const { container } = render(
       <Slider settings={{ slidesToShow: 1, infinite: false }}>
-        <p>item 1</p>
-        <p>item 2</p>
+        <p>Item 1</p>
+        <p>Item 2</p>
       </Slider>
     )
 

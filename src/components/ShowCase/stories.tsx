@@ -1,16 +1,14 @@
-import { Meta, Story } from '@storybook/react/types-6-0'
-
-import gamesMock from 'components/GameCardSlider/mock'
+import { Story, Meta } from '@storybook/react/types-6-0'
+import Showcase, { ShowcaseProps } from '.'
 import highlightMock from 'components/Highlight/mock'
-
-import { ShowCase, ShowCaseProps } from '.'
+import gamesMock from 'components/GameCardSlider/mock'
 
 export default {
-  title: 'Components/ShowCase',
-  component: ShowCase,
+  title: 'Showcase',
+  component: Showcase,
   decorators: [
     (Story) => (
-      <div style={{ margin: '0 auto', maxWidth: '130rem' }}>
+      <div style={{ margin: '0 auto' }}>
         <Story />
       </div>
     ),
@@ -18,38 +16,33 @@ export default {
   parameters: {
     layout: 'fullscreen',
     backgrounds: {
-      default: 'dark',
-    },
-  },
-  argTypes: {
-    highlight: {
-      type: '',
-    },
-    games: {
-      type: '',
+      default: 'won-dark',
     },
   },
 } as Meta
 
-export const Basic: Story<ShowCaseProps> = (args) => <ShowCase {...args} />
-Basic.args = {
-  heading: 'Most Popular',
+export const Default: Story<ShowcaseProps> = (args) => <Showcase {...args} />
+
+Default.args = {
+  title: 'Most Popular',
   highlight: highlightMock,
   games: gamesMock,
 }
 
-export const WithoutHighlight: Story<ShowCaseProps> = (args) => (
-  <ShowCase {...args} />
+export const WithoutHighlight: Story<ShowcaseProps> = (args) => (
+  <Showcase {...args} />
 )
+
 WithoutHighlight.args = {
-  heading: 'Most Popular',
+  title: 'Most Popular',
   games: gamesMock,
 }
 
-export const WithoutGames: Story<ShowCaseProps> = (args) => (
-  <ShowCase {...args} />
+export const WithoutGames: Story<ShowcaseProps> = (args) => (
+  <Showcase {...args} />
 )
+
 WithoutGames.args = {
-  heading: 'Most Popular',
+  title: 'Most Popular',
   highlight: highlightMock,
 }

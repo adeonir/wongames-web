@@ -1,11 +1,11 @@
-import { Base } from 'templates/Base'
+import Base from 'templates/Base'
 
 import { BannerProps } from 'components/Banner'
-import { BannerSlider } from 'components/BannerSlider'
-import { Container } from 'components/Container'
 import { GameCardProps } from 'components/GameCard'
 import { HighlightProps } from 'components/Highlight'
-import { ShowCase } from 'components/ShowCase'
+import { Container } from 'components/Container'
+import BannerSlider from 'components/BannerSlider'
+import Showcase from 'components/Showcase'
 
 import * as S from './styles'
 
@@ -17,11 +17,11 @@ export type HomeTemplateProps = {
   upcomingGames: GameCardProps[]
   upcomingHighlight: HighlightProps
   upcomingMoreGames: GameCardProps[]
-  freeGamesHighlight: HighlightProps
   freeGames: GameCardProps[]
+  freeHighlight: HighlightProps
 }
 
-export const Home = ({
+const Home = ({
   banners,
   newGames,
   mostPopularHighlight,
@@ -29,8 +29,8 @@ export const Home = ({
   upcomingGames,
   upcomingHighlight,
   upcomingMoreGames,
-  freeGamesHighlight,
   freeGames,
+  freeHighlight,
 }: HomeTemplateProps) => (
   <Base>
     <Container>
@@ -40,24 +40,22 @@ export const Home = ({
     </Container>
 
     <S.SectionNews>
-      <ShowCase heading="News" games={newGames} />
+      <Showcase title="News" games={newGames} />
     </S.SectionNews>
 
-    <ShowCase
-      heading="Most Popular"
+    <Showcase
+      title="Most Popular"
       highlight={mostPopularHighlight}
       games={mostPopularGames}
     />
 
     <S.SectionUpcoming>
-      <ShowCase heading="Upcoming" games={upcomingGames} />
-      <ShowCase highlight={upcomingHighlight} games={upcomingMoreGames} />
+      <Showcase title="Upcoming" games={upcomingGames} />
+      <Showcase highlight={upcomingHighlight} games={upcomingMoreGames} />
     </S.SectionUpcoming>
 
-    <ShowCase
-      heading="Free Games"
-      highlight={freeGamesHighlight}
-      games={freeGames}
-    />
+    <Showcase title="Free games" highlight={freeHighlight} games={freeGames} />
   </Base>
 )
+
+export default Home

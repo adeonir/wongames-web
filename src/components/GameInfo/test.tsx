@@ -1,11 +1,11 @@
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
-import { GameInfo } from '.'
+import GameInfo from '.'
 
 const props = {
-  title: 'My game title',
-  description: 'Game description',
+  title: 'My Game Title',
+  description: 'Game Description',
   price: '210,00',
 }
 
@@ -16,8 +16,8 @@ describe('<GameInfo />', () => {
     expect(
       screen.getByRole('heading', { name: /my game title/i })
     ).toBeInTheDocument()
-    expect(screen.getByText(/game description/i)).toBeInTheDocument()
     expect(screen.getByText(/\$210,00/)).toBeInTheDocument()
+    expect(screen.getByText(/game description/i)).toBeInTheDocument()
 
     expect(container.firstChild).toMatchSnapshot()
   })

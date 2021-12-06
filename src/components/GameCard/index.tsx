@@ -4,67 +4,63 @@ import {
   FavoriteBorder,
 } from '@styled-icons/material-outlined'
 
-import { Button } from 'components/Button'
-import { Ribbon, RibbonColors, RibbonSizes } from 'components/Ribbon'
-
+import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
+import Button from 'components/Button'
 import * as S from './styles'
 
 export type GameCardProps = {
   title: string
   developer: string
-  image: string
+  img: string
   price: string
-  promoPrice?: string
-  isFavorite?: boolean
-  onFavorite?: () => void
-  ribbonText?: React.ReactNode
-  ribbonSize?: RibbonSizes
+  promotionalPrice?: string
+  favorite?: boolean
+  ribbon?: React.ReactNode
   ribbonColor?: RibbonColors
+  ribbonSize?: RibbonSizes
+  onFav?: () => void
 }
 
-export const GameCard = ({
+const GameCard = ({
   title,
   developer,
-  image,
+  img,
   price,
-  promoPrice,
-  isFavorite = false,
-  onFavorite,
-  ribbonText,
-  ribbonSize = 'small',
+  promotionalPrice,
+  favorite = false,
+  ribbon,
   ribbonColor = 'primary',
+  ribbonSize = 'small',
+  onFav,
 }: GameCardProps) => (
-  <S.GameCardContainer>
-    {!!ribbonText && (
-      <Ribbon size={ribbonSize} color={ribbonColor}>
-        {ribbonText}
+  <S.Wrapper>
+    {!!ribbon && (
+      <Ribbon color={ribbonColor} size={ribbonSize}>
+        {ribbon}
       </Ribbon>
     )}
-
     <S.ImageBox>
-      <img src={image} alt={title} />
+      <img src={img} alt={title} />
     </S.ImageBox>
     <S.Content>
       <S.Info>
         <S.Title>{title}</S.Title>
         <S.Developer>{developer}</S.Developer>
       </S.Info>
-      <S.FavButton role="button" onClick={onFavorite}>
-        {isFavorite ? (
-          <Favorite aria-label="Remove from wishlist" />
+      <S.FavButton onClick={onFav} role="button">
+        {favorite ? (
+          <Favorite aria-label="Remove from Wishlist" />
         ) : (
-          <FavoriteBorder aria-label="Add to wishlist" />
+          <FavoriteBorder aria-label="Add to Wishlist" />
         )}
       </S.FavButton>
-      <S.PriceBox>
-        {!!promoPrice && <S.Price isPromotional>{price}</S.Price>}
-        <S.Price>{promoPrice || price}</S.Price>
-        <Button
-          icon={<AddShoppingCart />}
-          size="small"
-          aria-label="Add to cart"
-        />
-      </S.PriceBox>
+      <S.BuyBox>
+        {!!promotionalPrice && <S.Price isPromotional>{price}</S.Price>}
+        <S.Price>{promotionalPrice || price}</S.Price>
+        <Button icon={<AddShoppingCart />} size="small" />
+      </S.BuyBox>
     </S.Content>
-  </S.GameCardContainer>
+  </S.Wrapper>
 )
+
+export default GameCard

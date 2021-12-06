@@ -1,33 +1,32 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-import { theme } from 'styles'
-
 import { Container } from 'components/Container'
+import * as HeadingStyles from 'components/Heading/styles'
+import * as GameCardSliderStyles from 'components/GameCardSlider/styles'
+import * as HighlightStyles from 'components/Highlight/styles'
 
-import { GameCardSliderContainer } from 'components/GameCardSlider/styles'
-import { HeadingContainer } from 'components/Heading/styles'
-import { HighlightContainer } from 'components/Highlight/styles'
+export const Wrapper = styled(Container).attrs({ as: 'section' })`
+  ${({ theme }) => css`
+    ${HeadingStyles.Wrapper},
+    ${HighlightStyles.Wrapper},
+    ${GameCardSliderStyles.Wrapper} {
+      margin-bottom: ${theme.spacings.medium};
+    }
 
-export const ShowCaseContainer = styled(Container).attrs({ as: 'section' })`
-  margin-bottom: calc(${theme.spacings.large} * 2);
+    ${HighlightStyles.Wrapper} {
+      ${media.lessThan('medium')`
+        margin-right: calc(-${theme.grid.gutter} / 2);
+        margin-left: calc(-${theme.grid.gutter} / 2);
+      `}
+    }
 
-  ${HeadingContainer},
-  ${HighlightContainer},
-  ${GameCardSliderContainer} {
-    margin-bottom: ${theme.spacings.medium};
-  }
+    ${GameCardSliderStyles.Wrapper} {
+      ${media.lessThan('huge')`
+        margin-right: calc(-${theme.grid.gutter} / 2);
+      `}
+    }
 
-  ${HighlightContainer} {
-    ${media.lessThan('medium')`
-      margin-right: calc(-${theme.grid.gutter} / 2);
-      margin-left: calc(-${theme.grid.gutter} / 2);
-    `}
-  }
-
-  ${GameCardSliderContainer} {
-    ${media.lessThan('huge')`
-      margin-right: calc(-${theme.grid.gutter} / 2);
-    `}
-  }
+    margin-bottom: calc(${theme.spacings.large} * 2);
+  `}
 `

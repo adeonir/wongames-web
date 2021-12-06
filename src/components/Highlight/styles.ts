@@ -1,24 +1,20 @@
-import { rgba } from 'polished'
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
-
-import { theme } from 'styles'
-
 import { HighlightProps } from '.'
 
-type ContainerProps = Pick<HighlightProps, 'backgroundImage' | 'floatPosition'>
+type WrapperProps = Pick<HighlightProps, 'backgroundImage' | 'alignment'>
 
-const modifiers = {
-  left: () => css`
-    grid-template-areas: 'float-image content';
+const wrapperModifiers = {
+  right: () => css`
+    grid-template-areas: 'floatimage content';
     grid-template-columns: 1.3fr 2fr;
 
     ${Content} {
       text-align: right;
     }
   `,
-  right: () => css`
-    grid-template-areas: 'content float-image';
+  left: () => css`
+    grid-template-areas: 'content floatimage';
     grid-template-columns: 2fr 1.3fr;
 
     ${Content} {
@@ -31,12 +27,12 @@ const modifiers = {
   `,
 }
 
-export const HighlightContainer = styled.section<ContainerProps>`
-  ${({ backgroundImage, floatPosition }) => css`
+export const Wrapper = styled.section<WrapperProps>`
+  ${({ backgroundImage, alignment }) => css`
+    position: relative;
     background-image: url(${backgroundImage});
     background-position: center center;
     background-size: cover;
-    position: relative;
     height: 23rem;
     display: grid;
 
@@ -45,59 +41,65 @@ export const HighlightContainer = styled.section<ContainerProps>`
       position: absolute;
       width: 100%;
       height: 100%;
-      background-color: ${rgba(theme.colors.black, 0.6)};
+      background-color: rgba(0, 0, 0, 0.6);
     }
 
     ${media.greaterThan('medium')`
       height: 32rem;
     `}
 
-    ${modifiers[floatPosition!]()}
+    ${wrapperModifiers[alignment!]()}
   `}
 `
 
 export const FloatImage = styled.img`
-  grid-area: float-image;
-  align-self: end;
-  padding: 0 ${theme.spacings.xxsmall};
-  max-width: 100%;
-  max-height: 23rem;
-  z-index: ${theme.layers.base};
+  ${({ theme }) => css`
+    grid-area: floatimage;
+    z-index: ${theme.layers.base};
+    max-height: 23rem;
+    max-width: 100%;
+    align-self: end;
 
-  ${media.greaterThan('medium')`
-    padding: 0 ${theme.spacings.small};
-    max-height: 32rem;
+    ${media.greaterThan('medium')`
+      max-height: 32rem;
+    `}
   `}
 `
 
 export const Content = styled.div`
-  grid-area: content;
-  padding: ${theme.spacings.xsmall};
-  z-index: ${theme.layers.base};
+  ${({ theme }) => css`
+    grid-area: content;
+    z-index: ${theme.layers.base};
+    padding: ${theme.spacings.xsmall};
 
-  ${media.greaterThan('medium')`
-    align-self: end;
-    padding: ${theme.spacings.large};
+    ${media.greaterThan('medium')`
+      align-self: end;
+      padding: ${theme.spacings.large};
+    `}
   `}
 `
 
 export const Title = styled.h2`
-  color: ${theme.colors.white};
-  font-size: ${theme.font.sizes.large};
-  font-weight: ${theme.font.bold};
+  ${({ theme }) => css`
+    font-size: ${theme.font.sizes.large};
+    font-weight: ${theme.font.bold};
+    color: ${theme.colors.white};
 
-  ${media.greaterThan('medium')`
-    font-size: ${theme.font.sizes.xlarge};
+    ${media.greaterThan('medium')`
+      font-size: ${theme.font.sizes.xxlarge};
+    `}
   `}
 `
 
-export const Subtitle = styled.h3`
-  color: ${theme.colors.white};
-  font-size: ${theme.font.sizes.small};
-  font-weight: ${theme.font.light};
-  margin-bottom: ${theme.spacings.medium};
+export const SubTitle = styled.h3`
+  ${({ theme }) => css`
+    font-size: ${theme.font.sizes.small};
+    font-weight: ${theme.font.light};
+    color: ${theme.colors.white};
+    margin-bottom: ${theme.spacings.medium};
 
-  ${media.greaterThan('medium')`
-    font-size: ${theme.font.sizes.large};
+    ${media.greaterThan('medium')`
+      font-size: ${theme.font.sizes.large};
+    `}
   `}
 `

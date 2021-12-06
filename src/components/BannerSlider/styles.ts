@@ -1,58 +1,58 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
+import * as BannerStyles from 'components/Banner/styles'
 
-import { theme } from 'styles'
-
-import { BannerContainer } from 'components/Banner/styles'
-
-export const BannerSliderContainer = styled.div`
-  .slick-dots {
-    list-style: none;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    margin-top: ${theme.spacings.small};
-
-    li {
-      background: ${theme.colors.white};
-      margin: 0 ${theme.spacings.xxsmall};
-      width: 1.2rem;
-      height: 1.2rem;
-      border-radius: 100%;
-      display: flex;
+export const Wrapper = styled.section`
+  ${({ theme }) => css`
+    .slick-dots {
+      list-style: none;
+      display: flex !important;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-
-      &.slick-active {
-        background: ${theme.colors.primary};
-      }
-    }
-
-    button {
-      width: 1.2rem;
-      height: 1.2rem;
-      opacity: 0;
-      cursor: pointer;
-    }
-  }
-
-  ${media.greaterThan('large')`
-    ${BannerContainer} {
-      max-width: 104rem;
-      margin: 0 auto;
-    }
-    .slick-dots {
-      flex-direction: column;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      right: 0;
-      margin: 0;
+      margin-top: ${theme.spacings.small};
 
       li {
-        margin: ${theme.spacings.xxsmall} 0;
+        background: ${theme.colors.white};
+        width: 1.2rem;
+        height: 1.2rem;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 ${theme.spacings.xxsmall};
+        cursor: pointer;
+
+        &.slick-active {
+          background: ${theme.colors.primary};
+        }
+      }
+
+      button {
+        opacity: 0;
+        width: 1.2rem;
+        height: 1.2rem;
+        cursor: pointer;
       }
     }
+
+    ${media.greaterThan('large')`
+      ${BannerStyles.Wrapper} {
+        max-width: 104rem;
+        margin: 0 auto;
+      }
+
+      .slick-dots {
+        position: absolute;
+        right: 0;
+        flex-direction: column;
+        height: 100%;
+        top: 0;
+        margin: 0;
+
+        li {
+          margin: ${theme.spacings.xxsmall} 0;
+        }
+      }
+    `}
   `}
 `

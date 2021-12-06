@@ -1,7 +1,7 @@
 export default {
-  title: 'Red Dead is back',
-  subtitle: 'Come see John’s new adventure',
-  backgroundImage: '/img/red-dead-image.jpg',
+  title: 'Read Dead is back!',
+  subtitle: 'Come see John’s new adventures',
+  backgroundImage: '/img/red-dead-img.jpg',
   buttonLabel: 'Buy now',
   buttonLink: '/games/rdr2',
 }

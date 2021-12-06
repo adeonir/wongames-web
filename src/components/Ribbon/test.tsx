@@ -1,46 +1,45 @@
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
-import { Ribbon } from '.'
+import Ribbon from '.'
 
 describe('<Ribbon />', () => {
   it('should render the text correctly', () => {
-    const { container } = renderWithTheme(<Ribbon>Best seller</Ribbon>)
+    const { container } = renderWithTheme(<Ribbon>Best Seller</Ribbon>)
 
-    expect(screen.getByText(/best seller/i)).toBeInTheDocument()
-
+    expect(screen.getByText(/Best Seller/i)).toBeInTheDocument()
     expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render with the primary color', () => {
-    renderWithTheme(<Ribbon>Best seller</Ribbon>)
+    renderWithTheme(<Ribbon>Best Seller</Ribbon>)
 
-    expect(screen.getByText(/best seller/i)).toHaveStyle({
-      backgroundColor: '#f231a5',
+    expect(screen.getByText(/Best Seller/i)).toHaveStyle({
+      backgroundColor: '#F231A5',
     })
   })
 
-  it('should render with the secondary color if color is passed', () => {
-    renderWithTheme(<Ribbon color="secondary">Best seller</Ribbon>)
+  it('should render with the secondary color', () => {
+    renderWithTheme(<Ribbon color="secondary">Best Seller</Ribbon>)
 
-    expect(screen.getByText(/best seller/i)).toHaveStyle({
-      backgroundColor: '#3cd3c1',
+    expect(screen.getByText(/Best Seller/i)).toHaveStyle({
+      backgroundColor: '#3CD3C1',
     })
   })
 
-  it('should render the normal size as default', () => {
-    renderWithTheme(<Ribbon>Best seller</Ribbon>)
+  it('should render with the normal size as default', () => {
+    renderWithTheme(<Ribbon>Best Seller</Ribbon>)
 
-    expect(screen.getByText(/best seller/i)).toHaveStyle({
+    expect(screen.getByText(/Best Seller/i)).toHaveStyle({
       height: '3.6rem',
       fontSize: '1.4rem',
     })
   })
 
-  it('should render the small size if size is passed', () => {
-    renderWithTheme(<Ribbon size="small">Best seller</Ribbon>)
+  it('should render with the small size', () => {
+    renderWithTheme(<Ribbon size="small">Best Seller</Ribbon>)
 
-    expect(screen.getByText(/best seller/i)).toHaveStyle({
+    expect(screen.getByText(/Best Seller/i)).toHaveStyle({
       height: '2.6rem',
       fontSize: '1.2rem',
     })

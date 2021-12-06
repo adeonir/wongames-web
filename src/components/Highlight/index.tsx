@@ -1,5 +1,4 @@
-import { Button } from 'components/Button'
-
+import Button from 'components/Button'
 import * as S from './styles'
 
 export type HighlightProps = {
@@ -7,31 +6,30 @@ export type HighlightProps = {
   subtitle: string
   backgroundImage: string
   floatImage?: string
-  floatPosition?: 'left' | 'right'
   buttonLabel: string
   buttonLink: string
+  alignment?: 'right' | 'left'
 }
 
-export const Highlight = ({
+const Highlight = ({
   title,
   subtitle,
   backgroundImage,
   floatImage,
-  floatPosition = 'left',
   buttonLabel,
   buttonLink,
+  alignment = 'right',
 }: HighlightProps) => (
-  <S.HighlightContainer
-    backgroundImage={backgroundImage}
-    floatPosition={floatPosition}
-  >
+  <S.Wrapper alignment={alignment} backgroundImage={backgroundImage}>
     {!!floatImage && <S.FloatImage src={floatImage} alt={title} />}
     <S.Content>
       <S.Title>{title}</S.Title>
-      <S.Subtitle>{subtitle}</S.Subtitle>
+      <S.SubTitle>{subtitle}</S.SubTitle>
       <Button as="a" href={buttonLink}>
         {buttonLabel}
       </Button>
     </S.Content>
-  </S.HighlightContainer>
+  </S.Wrapper>
 )
+
+export default Highlight

@@ -1,36 +1,35 @@
 import Link from 'next/link'
-
 import { AccountCircle, Email, Lock } from '@styled-icons/material-outlined'
 
-import { Button } from 'components/Button'
-import { FormContainer, FormLink } from 'components/Form'
-import { TextField } from 'components/TextField'
+import { FormWrapper, FormLink } from 'components/Form'
+import Button from 'components/Button'
+import TextField from 'components/TextField'
 
-export const FormSignUp = () => (
-  <FormContainer>
+const FormSignUp = () => (
+  <FormWrapper>
     <form>
       <TextField
-        type="name"
         name="name"
         placeholder="Name"
+        type="name"
         icon={<AccountCircle />}
       />
       <TextField
-        type="email"
         name="email"
         placeholder="Email"
+        type="email"
         icon={<Email />}
       />
       <TextField
-        type="password"
         name="password"
         placeholder="Password"
+        type="password"
         icon={<Lock />}
       />
       <TextField
-        type="confirm-password"
         name="confirm-password"
-        placeholder="Confirm Password"
+        placeholder="Confirm password"
+        type="password"
         icon={<Lock />}
       />
 
@@ -45,5 +44,7 @@ export const FormSignUp = () => (
         </Link>
       </FormLink>
     </form>
-  </FormContainer>
+  </FormWrapper>
 )
+
+export default FormSignUp

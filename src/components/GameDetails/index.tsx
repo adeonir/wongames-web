@@ -1,26 +1,24 @@
-import { useMemo } from 'react'
+import { Apple, Windows, Linux } from '@styled-icons/fa-brands'
 
-import { Apple, Linux, Windows } from '@styled-icons/fa-brands'
-
-import { Heading } from 'components/Heading'
-import { MediaMatch } from 'components/MediaMatch'
+import Heading from 'components/Heading'
+import MediaMatch from 'components/MediaMatch'
 
 import * as S from './styles'
 
-type Platform = 'linux' | 'mac' | 'windows'
+type Platform = 'windows' | 'linux' | 'mac'
 
 type Rating = 'BR0' | 'BR10' | 'BR12' | 'BR14' | 'BR16' | 'BR18'
 
 export type GameDetailsProps = {
   developer: string
   publisher: string
-  releaseDate: string
   platforms: Platform[]
+  releaseDate: string
   rating: Rating
   genres: string[]
 }
 
-export const GameDetails = ({
+const GameDetails = ({
   developer,
   publisher,
   releaseDate,
@@ -28,71 +26,65 @@ export const GameDetails = ({
   rating,
   genres,
 }: GameDetailsProps) => {
-  const platformIcon = {
+  const platformIcons = {
     linux: <Linux title="Linux" size={18} />,
     mac: <Apple title="Mac" size={18} />,
     windows: <Windows title="Windows" size={18} />,
   }
 
-  const formattedDate = useMemo(() => {
-    return new Intl.DateTimeFormat('en-US', {
-      day: 'numeric',
-      month: 'short',
-      year: 'numeric',
-    }).format(new Date(releaseDate))
-  }, [releaseDate])
-
-  const formattedRating = useMemo(() => {
-    return rating === 'BR0' ? 'FREE' : `${rating.replace('BR', '')}+`
-  }, [rating])
-
-  const formattedGenres = useMemo(() => {
-    return genres.join(' / ')
-  }, [genres])
-
   return (
-    <S.GameDetailsContainer>
+    <S.Wrapper>
       <MediaMatch greaterThan="small">
-        <Heading lineColor="secondary" lineLeft>
+        <Heading lineLeft lineColor="secondary">
           Game Details
         </Heading>
       </MediaMatch>
 
       <S.Content>
-        <div>
+        <S.Block>
           <S.Label>Developer</S.Label>
-          <S.Title>{developer}</S.Title>
-        </div>
+          <S.Description>{developer}</S.Description>
+        </S.Block>
 
-        <div>
+        <S.Block>
           <S.Label>Release Date</S.Label>
-          <S.Title>{formattedDate}</S.Title>
-        </div>
+          <S.Description>
+            {new Intl.DateTimeFormat('en-US', {
+              day: 'numeric',
+              month: 'short',
+              year: 'numeric',
+            }).format(new Date(releaseDate))}
+          </S.Description>
+        </S.Block>
 
-        <div>
+        <S.Block>
           <S.Label>Platforms</S.Label>
-          <S.IconGroup>
+          <S.IconsWrapper>
             {platforms.map((icon: Platform) => (
-              <S.Icon key={icon}>{platformIcon[icon]}</S.Icon>
+              <S.Icon key={icon}>{platformIcons[icon]}</S.Icon>
             ))}
-          </S.IconGroup>
-        </div>
+          </S.IconsWrapper>
+        </S.Block>
 
-        <div>
+        <S.Block>
           <S.Label>Publisher</S.Label>
-          <S.Title>{publisher}</S.Title>
-        </div>
+          <S.Description>{publisher}</S.Description>
+        </S.Block>
 
-        <div>
+        <S.Block>
           <S.Label>Rating</S.Label>
-          <S.Title>{formattedRating}</S.Title>
-        </div>
+          <S.Description>
+            {rating === 'BR0' ? 'FREE' : `${rating.replace('BR', '')}+`}
+          </S.Description>
+        </S.Block>
 
-        <div>
+        <S.Block>
           <S.Label>Genres</S.Label>
-          <S.Title>{formattedGenres}</S.Title>
-        </div>
+          <S.Description>{genres.join(' / ')}</S.Description>
+        </S.Block>
       </S.Content>
-    </S.GameDetailsContainer>
+    </S.Wrapper>
   )
 }
+
+export default GameDetails

@@ -38,6 +38,8 @@ export const theme = {
     danger: '#ff4757',
     alert: '#e67e22',
     warning: '#f1c40f',
+    mainBg: '#06092b',
+    lightBg: '#f2f2f2',
   },
   spacings: {
     xxsmall: '0.8rem',

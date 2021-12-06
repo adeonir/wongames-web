@@ -1,64 +1,26 @@
-import { darken, rgba } from 'polished'
 import styled, { css, DefaultTheme } from 'styled-components'
-
-import { theme } from 'styles'
+import { darken } from 'polished'
 
 import { ButtonProps } from '.'
 
-export type ContainerProps = {
+export type WrapperProps = {
   hasIcon: boolean
-} & Pick<ButtonProps, 'size' | 'variant' | 'fullWidth'>
+} & Pick<ButtonProps, 'size' | 'fullWidth' | 'minimal'>
 
-const modifiers = {
+const wrapperModifiers = {
   small: (theme: DefaultTheme) => css`
-    font-size: ${theme.font.sizes.xsmall};
-    padding: ${theme.spacings.xxsmall};
     height: 3rem;
-
-    svg {
-      width: ${theme.font.sizes.small};
-
-      & + span {
-        margin-left: ${theme.spacings.xxsmall};
-      }
-    }
+    font-size: ${theme.font.sizes.xsmall};
   `,
   medium: (theme: DefaultTheme) => css`
-    font-size: ${theme.font.sizes.small};
-    padding: ${theme.spacings.xxsmall} ${theme.spacings.xsmall};
     height: 4rem;
-
-    svg {
-      width: ${theme.font.sizes.medium};
-    }
+    font-size: ${theme.font.sizes.small};
+    padding: ${theme.spacings.xxsmall} ${theme.spacings.medium};
   `,
   large: (theme: DefaultTheme) => css`
-    font-size: ${theme.font.sizes.medium};
-    padding: ${theme.spacings.xxsmall} ${theme.spacings.small};
     height: 5rem;
-
-    svg {
-      width: ${theme.font.sizes.large};
-    }
-  `,
-  normal: (theme: DefaultTheme) => css`
-    background: linear-gradient(180deg, #ff5f5f 0%, #f062c0 50%);
-    border: 0.1rem solid transparent;
-    color: ${theme.colors.white};
-
-    &:hover {
-      background: linear-gradient(180deg, #e35565 0%, #d958a6 50%);
-    }
-  `,
-  ghost: (theme: DefaultTheme) => css`
-    background: none;
-    border: 0.1rem solid transparent;
-    color: ${theme.colors.primary};
-
-    &:hover {
-      border: 0.1rem solid ${rgba(theme.colors.primary, 0.1)};
-      color: ${darken(0.1, theme.colors.primary)};
-    }
+    font-size: ${theme.font.sizes.medium};
+    padding: ${theme.spacings.xxsmall} ${theme.spacings.xlarge};
   `,
   fullWidth: () => css`
     width: 100%;
@@ -66,29 +28,52 @@ const modifiers = {
   withIcon: (theme: DefaultTheme) => css`
     svg {
       width: 1.5rem;
-    }
 
-    svg + span {
-      margin-left: ${theme.spacings.xxsmall};
+      & + span {
+        margin-left: ${theme.spacings.xxsmall};
+      }
+    }
+  `,
+  minimal: (theme: DefaultTheme) => css`
+    background: none;
+    color: ${theme.colors.primary};
+
+    &:hover {
+      color: ${darken(0.1, theme.colors.primary)};
+    }
+  `,
+  disabled: () => css`
+    &:disabled {
+      cursor: not-allowed;
+      filter: saturate(30%);
     }
   `,
 }
 
-export const ButtonContainer = styled.button<ContainerProps>`
-  ${({ size, variant, fullWidth, hasIcon }) => css`
-    border-radius: ${theme.border.radius};
-    cursor: pointer;
-    position: relative;
-    z-index: ${theme.layers.base};
-    text-decoration: none;
-
+export const Wrapper = styled.button<WrapperProps>`
+  ${({ theme, size, fullWidth, hasIcon, minimal, disabled }) => css`
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(180deg, #ff5f5f 0%, #f062c0 50%);
+    color: ${theme.colors.white};
+    font-family: ${theme.font.family};
+    border: 0;
+    cursor: pointer;
+    border-radius: ${theme.border.radius};
+    padding: ${theme.spacings.xxsmall};
+    text-decoration: none;
 
-    ${!!size && modifiers[size](theme)}
-    ${!!variant && modifiers[variant](theme)}
-    ${!!fullWidth && modifiers.fullWidth}
-    ${!!hasIcon && modifiers.withIcon(theme)}
-  `};
+    &:hover {
+      background: ${minimal
+        ? 'none'
+        : `linear-gradient(180deg, #e35565 0%, #d958a6 50%)`};
+    }
+
+    ${!!size && wrapperModifiers[size](theme)};
+    ${!!fullWidth && wrapperModifiers.fullWidth()};
+    ${!!hasIcon && wrapperModifiers.withIcon(theme)};
+    ${!!minimal && wrapperModifiers.minimal(theme)};
+    ${disabled && wrapperModifiers.disabled()};
+  `}
 `

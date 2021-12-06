@@ -1,59 +1,105 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-import { theme } from 'styles'
+export const Wrapper = styled.menu`
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    padding: ${theme.spacings.small} 0;
+    position: relative;
+    z-index: ${theme.layers.menu};
+  `}
+`
 
-type FullMenuProps = {
-  isOpen: boolean
-}
+export const LogoWrapper = styled.div`
+  ${media.lessThan('medium')`
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  `}
+`
 
-export const MenuContainer = styled.div`
-  display: grid;
-  align-items: center;
-  grid-template-columns: 1fr auto 1fr;
-  padding: ${theme.spacings.small} 0;
-  z-index: ${theme.layers.menu};
-  position: relative;
-
-  ${media.greaterThan('medium')`
-    grid-template-columns: auto auto 1fr;
+export const IconWrapper = styled.div`
+  ${({ theme }) => css`
+    color: ${theme.colors.white};
+    cursor: pointer;
+    width: 2.4rem;
+    height: 2.4rem;
   `}
 `
 
 export const MenuGroup = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  ${({ theme }) => css`
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    align-items: center;
 
-  > div {
-    margin-left: ${theme.spacings.xsmall};
-  }
+    > div {
+      margin-left: ${theme.spacings.xsmall};
+    }
+  `}
 `
 
-export const IconWrapper = styled.div`
-  color: ${theme.colors.white};
-  cursor: pointer;
-  width: 2.4rem;
-  height: 2.4rem;
+export const MenuNav = styled.div`
+  ${({ theme }) => css`
+    ${media.greaterThan('medium')`
+			margin-left: ${theme.spacings.small};
+		`}
+  `}
 `
 
-export const FullMenu = styled.nav<FullMenuProps>`
-  ${({ isOpen }) => css`
-    background: ${theme.colors.white};
+export const MenuLink = styled.a`
+  ${({ theme }) => css`
+    position: relative;
+    color: ${theme.colors.white};
+    font-size: ${theme.font.sizes.medium};
+    margin: 0.3rem ${theme.spacings.small} 0;
+    text-decoration: none;
+    text-align: center;
+
+    &:hover {
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 0.3rem;
+        background-color: ${theme.colors.primary};
+        animation: hoverAnimation 0.2s forwards;
+      }
+
+      @keyframes hoverAnimation {
+        from {
+          width: 0;
+          left: 50%;
+        }
+        to {
+          width: 100%;
+          left: 0;
+        }
+      }
+    }
+  `}
+`
+
+type MenuFullProps = {
+  isOpen: boolean
+}
+
+export const MenuFull = styled.nav<MenuFullProps>`
+  ${({ theme, isOpen }) => css`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
+    background: ${theme.colors.white};
     position: fixed;
     z-index: ${theme.layers.menu};
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-
     height: 100vh;
     overflow: hidden;
-
     transition: opacity 0.3s ease-in-out;
     opacity: ${isOpen ? 1 : 0};
     pointer-events: ${isOpen ? 'all' : 'none'};
@@ -61,13 +107,11 @@ export const FullMenu = styled.nav<FullMenuProps>`
     > svg {
       position: absolute;
       top: 0;
-      left: 0;
-
+      right: 0;
+      margin: ${theme.spacings.xsmall};
       cursor: pointer;
       width: 2.4rem;
       height: 2.4rem;
-      margin-top: 3.6rem;
-      margin-left: calc(${theme.grid.gutter} / 2);
     }
 
     ${MenuNav} {
@@ -80,74 +124,39 @@ export const FullMenu = styled.nav<FullMenuProps>`
 
     ${MenuLink} {
       color: ${theme.colors.black};
-      font-size: ${theme.font.sizes.xlarge};
       font-weight: ${theme.font.bold};
+      font-size: ${theme.font.sizes.xlarge};
       margin-bottom: ${theme.spacings.small};
-
       transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
       transition: transform 0.3s ease-in-out;
     }
 
     ${RegisterBox} {
       transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
-      opacity: ${isOpen ? 1 : 0};
-      transition: all 0.3s 0.2s ease;
+      transition: transform 0.3s ease-in-out;
     }
   `}
-`
-
-export const MenuNav = styled.div`
-  ${media.greaterThan('medium')`
-    margin-left: ${theme.spacings.small};
-  `}
-`
-
-export const MenuLink = styled.a`
-  position: relative;
-  color: ${theme.colors.white};
-  font-size: ${theme.font.sizes.medium};
-  margin: 0.3rem ${theme.spacings.small} 0;
-  text-decoration: none;
-  text-align: center;
-
-  &:hover {
-    &::after {
-      content: '';
-      position: absolute;
-      display: block;
-      height: 0.3rem;
-      background: ${theme.colors.primary};
-      animation: hover 0.2s forwards;
-    }
-
-    @keyframes hover {
-      from {
-        width: 0;
-        left: 50%;
-      }
-      to {
-        width: 100%;
-        left: 0;
-      }
-    }
-  }
 `
 
 export const RegisterBox = styled.div`
-  padding: 0 ${theme.spacings.xlarge} ${theme.spacings.xlarge};
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  > span {
+  ${({ theme }) => css`
     display: flex;
-    font-size: ${theme.font.sizes.xsmall};
-    margin: ${theme.spacings.xxsmall} 0;
-  }
+    flex-direction: column;
+    align-items: center;
+    padding: 0 ${theme.spacings.xlarge} ${theme.spacings.xlarge};
+
+    > span {
+      display: block;
+      margin: ${theme.spacings.xxsmall} 0;
+      font-size: ${theme.font.sizes.xsmall};
+    }
+  `}
 `
 
-export const SignUpLink = styled.a`
-  text-decoration: none;
-  color: ${theme.colors.primary};
-  border-bottom: 0.2rem solid ${theme.colors.primary};
+export const CreateAccount = styled.a`
+  ${({ theme }) => css`
+    text-decoration: none;
+    color: ${theme.colors.primary};
+    border-bottom: 0.2rem solid ${theme.colors.primary};
+  `}
 `

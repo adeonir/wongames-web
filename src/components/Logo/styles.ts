@@ -1,20 +1,20 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-import { theme } from 'styles'
-
 import { LogoProps } from '.'
 
-const modifiers = {
+const wrapperModifiers = {
   normal: () => css`
     width: 11rem;
     height: 3.3rem;
   `,
+
   large: () => css`
     width: 20rem;
     height: 5.9rem;
   `,
-  hideLabel: () => css`
+
+  hideOnMobile: () => css`
     ${media.lessThan('medium')`
       width: 5.8rem;
       height: 4.5rem;
@@ -31,11 +31,11 @@ const modifiers = {
   `,
 }
 
-export const LogoContainer = styled.div<LogoProps>`
-  ${({ color, size, hideLabel }) => css`
+export const Wrapper = styled.div<LogoProps>`
+  ${({ theme, color, size, hideOnMobile }) => css`
     color: ${theme.colors[color!]};
 
-    ${!!size && modifiers[size]};
-    ${!!hideLabel && modifiers.hideLabel};
-  `};
+    ${!!size && wrapperModifiers[size]}
+    ${!!hideOnMobile && wrapperModifiers.hideOnMobile}
+  `}
 `

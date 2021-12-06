@@ -1,26 +1,25 @@
 import Link from 'next/link'
-
 import { Email, Lock } from '@styled-icons/material-outlined'
 
-import { Button } from 'components/Button'
-import { FormContainer, FormLink } from 'components/Form'
-import { TextField } from 'components/TextField'
+import { FormLink, FormWrapper } from 'components/Form'
+import Button from 'components/Button'
+import TextField from 'components/TextField'
 
 import * as S from './styles'
 
-export const FormSignIn = () => (
-  <FormContainer>
+const FormSignIn = () => (
+  <FormWrapper>
     <form>
       <TextField
-        type="email"
         name="email"
         placeholder="Email"
+        type="email"
         icon={<Email />}
       />
       <TextField
-        type="password"
         name="password"
         placeholder="Password"
+        type="password"
         icon={<Lock />}
       />
       <S.ForgotPassword href="#">Forgot your password?</S.ForgotPassword>
@@ -36,5 +35,7 @@ export const FormSignIn = () => (
         </Link>
       </FormLink>
     </form>
-  </FormContainer>
+  </FormWrapper>
 )
+
+export default FormSignIn

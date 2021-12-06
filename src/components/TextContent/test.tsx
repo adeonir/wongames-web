@@ -1,9 +1,7 @@
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
-import { theme } from 'styles'
-
-import { TextContent } from '.'
+import TextContent from '.'
 
 const props = {
   title: 'Description',
@@ -23,7 +21,7 @@ describe('<TextContent />', () => {
     ).toBeInTheDocument()
   })
 
-  it('should render without the title', () => {
+  it('should render without title', () => {
     renderWithTheme(<TextContent content={props.content} />)
 
     expect(
@@ -31,28 +29,18 @@ describe('<TextContent />', () => {
     ).not.toBeInTheDocument()
   })
 
-  it('should render text in white when smaller then 768px', () => {
+  it('should render the title and content', () => {
     renderWithTheme(<TextContent {...props} />)
 
-    const container = screen.queryByRole('heading', { name: /description/i })
-      ?.parentElement
+    const wrapper = screen.getByRole('heading', {
+      name: /description/i,
+    }).parentElement
 
-    expect(container).toHaveStyle({
-      color: theme.colors.white,
+    expect(wrapper).toHaveStyle({
+      color: '#FAFAFA', // theme.colors.white
     })
 
-    expect(container).toHaveStyleRule('color', theme.colors.black, {
-      media: '(min-width: 768px)',
-    })
-  })
-
-  it('should render background in blue when smaller then 768px', () => {
-    renderWithTheme(<TextContent {...props} />)
-
-    const container = screen.queryByRole('heading', { name: /description/i })
-      ?.parentElement
-
-    expect(container).toHaveStyleRule('background', theme.colors.white, {
+    expect(wrapper).toHaveStyleRule('color', '#030517', {
       media: '(min-width: 768px)',
     })
   })

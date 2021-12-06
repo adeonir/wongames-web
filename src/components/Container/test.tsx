@@ -1,6 +1,5 @@
-import { renderWithTheme } from 'utils/tests/helpers'
 import { theme } from 'styles'
-
+import { renderWithTheme } from 'utils/tests/helpers'
 import { Container } from '.'
 
 describe('<Container />', () => {

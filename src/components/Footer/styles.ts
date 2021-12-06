@@ -1,46 +1,53 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-import { theme } from 'styles'
+import * as HeadingStyles from 'components/Heading/styles'
 
-import { HeadingContainer } from 'components/Heading/styles'
-
-export const FooterContainer = styled.footer`
-  ${HeadingContainer} {
+export const Wrapper = styled.footer`
+  ${HeadingStyles.Wrapper} {
     text-transform: uppercase;
   }
 `
 
 export const Content = styled.div`
-  display: grid;
-  gap: ${theme.grid.gutter};
-  margin-top: ${theme.spacings.medium};
-  grid-template-columns: repeat(2, 1fr);
+  ${({ theme }) => css`
+    display: grid;
+    grid-template-columns: minmax(auto, 50%) 1fr;
+    gap: ${theme.grid.gutter};
+    margin-top: ${theme.spacings.medium};
 
-  ${media.greaterThan('medium')`
-    grid-template-columns: repeat(4, 1fr);
+    ${media.greaterThan('medium')`
+      grid-template-columns: repeat(4, 1fr)
     `}
+  `}
 `
 
 export const Column = styled.div`
-  a,
-  span {
-    display: block;
-    color: ${theme.colors.gray};
-    margin-bottom: ${theme.spacings.xxsmall};
-    font-size: ${theme.font.sizes.small};
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
+  ${({ theme }) => css`
+    a,
+    span {
+      display: block;
+      color: ${theme.colors.gray};
+      text-decoration: none;
+      margin-bottom: ${theme.spacings.xxsmall};
+      font-size: ${theme.font.sizes.small};
+    }
+    a {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  `}
 `
 
-export const Copy = styled.div`
-  color: ${theme.colors.gray};
-  margin-top: ${theme.spacings.large};
-  margin-bottom: ${theme.spacings.medium};
-  font-size: ${theme.font.sizes.xsmall};
-  text-align: center;
+export const Copyright = styled.div`
+  ${({ theme }) => css`
+    color: ${theme.colors.gray};
+    font-size: ${theme.font.sizes.xsmall};
+    margin-top: ${theme.spacings.large};
+    margin-bottom: ${theme.spacings.medium};
+    text-align: center;
+  `}
 `

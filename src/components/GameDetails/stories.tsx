@@ -1,17 +1,16 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
-import { GameDetails, GameDetailsProps } from '.'
-
-import mock from './mock'
+import GameDetails, { GameDetailsProps } from '.'
+import mockGame from './mock'
 
 export default {
   title: 'Game/GameDetails',
   component: GameDetails,
   parameters: {
     backgrounds: {
-      default: 'dark',
+      default: 'won-dark',
     },
   },
-  args: mock,
+  args: mockGame,
   argTypes: {
     releaseDate: {
       control: 'date',
@@ -19,19 +18,19 @@ export default {
     platforms: {
       control: {
         type: 'inline-check',
-        options: ['linux', 'mac', 'windows'],
+        options: ['windows', 'linux', 'mac'],
       },
     },
     genres: {
       control: {
         type: 'inline-check',
-        options: ['Role-playing', 'Narrative', 'Adventure'],
+        options: ['Role-playing', 'Narrative'],
       },
     },
   },
 } as Meta
 
-export const Basic: Story<GameDetailsProps> = (args) => (
+export const Default: Story<GameDetailsProps> = (args) => (
   <div style={{ maxWidth: '130rem', margin: '0 auto' }}>
     <GameDetails {...args} />
   </div>
