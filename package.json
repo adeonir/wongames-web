@@ -30,7 +30,6 @@
     ]
   },
   "dependencies": {
-    "@apollo/client": "^3.3.11",
     "@styled-icons/boxicons-regular": "^10.38.0",
     "@styled-icons/boxicons-solid": "^10.38.0",
     "@styled-icons/fa-brands": "^10.26.0",
@@ -50,8 +49,8 @@
   "devDependencies": {
     "@babel/core": "^7.13.10",
     "@babel/preset-typescript": "^7.13.0",
-    "@storybook/addon-essentials": "^6.1.21",
-    "@storybook/react": "^6.1.21",
+    "@storybook/addon-essentials": "6.0.26",
+    "@storybook/react": "6.0.26",
     "@testing-library/jest-dom": "^5.16.0",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
