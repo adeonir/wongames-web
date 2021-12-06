@@ -1,23 +1,23 @@
 import { renderWithTheme } from 'utils/tests/helpers'
 
-import { FormContainer, FormLink } from '.'
+import { FormLink, FormWrapper } from '.'
 
 describe('<Form />', () => {
-  it('should render the form', () => {
+  it('should render the heading', () => {
     const { container } = renderWithTheme(
-      <FormContainer>
+      <FormWrapper>
         <FormLink>
           My nice <a href="#">link</a>
         </FormLink>
-      </FormContainer>
+      </FormWrapper>
     )
 
     expect(container.parentElement).toMatchInlineSnapshot(`
-      .c0 .sc-gKsewC {
+      .c0 .sc-jSgupP {
         margin: 0.8rem 0;
       }
 
-      .c0 .sc-bdfBwQ {
+      .c0 .sc-gKsewC {
         margin: 3.2rem auto 1.6rem;
       }
 

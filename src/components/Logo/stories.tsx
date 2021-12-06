@@ -1,15 +1,14 @@
-import { Meta, Story } from '@storybook/react/types-6-0'
-
-import { Logo } from '.'
-import { LogoProps } from '.'
+import { Story, Meta } from '@storybook/react/types-6-0'
+import Logo, { LogoProps } from '.'
 
 export default {
-  title: 'Components/Logo',
+  title: 'Logo',
   component: Logo,
+  parameters: {
+    backgrounds: {
+      default: 'won-dark',
+    },
+  },
 } as Meta
 
-export const Basic: Story<LogoProps> = (args) => <Logo {...args} />
-
-Basic.args = {
-  color: 'black',
-}
+export const Default: Story<LogoProps> = (args) => <Logo {...args} />

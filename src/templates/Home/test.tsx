@@ -1,44 +1,48 @@
-import 'match-media.mock'
+import 'match-media-mock'
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
-import bannersMock from 'components/BannerSlider/mock'
+import bannerMock from 'components/BannerSlider/mock'
 import gamesMock from 'components/GameCardSlider/mock'
-import highlightsMock from 'components/Highlight/mock'
+import highlightMock from 'components/Highlight/mock'
 
-import { Home } from '.'
+import Home from '.'
 
 const props = {
-  banners: bannersMock,
+  banners: bannerMock,
   newGames: gamesMock,
-  mostPopularHighlight: highlightsMock,
+  mostPopularHighlight: highlightMock,
   mostPopularGames: gamesMock,
   upcomingGames: gamesMock,
-  upcomingHighlight: highlightsMock,
+  upcomingHighlight: highlightMock,
   upcomingMoreGames: gamesMock,
-  freeGamesHighlight: highlightsMock,
   freeGames: gamesMock,
+  freeHighlight: highlightMock,
 }
 
-jest.mock('components/ShowCase', () => ({
-  __esModule: true,
-  ShowCase: function Mock() {
-    return <div data-testid="Mock showcase" />
-  },
-}))
+jest.mock('components/Showcase', () => {
+  return {
+    __esModule: true,
+    default: function Mock() {
+      return <div data-testid="Mock Showcase"></div>
+    },
+  }
+})
 
-jest.mock('components/BannerSlider', () => ({
-  __esModule: true,
-  BannerSlider: function Mock() {
-    return <div data-testid="Mock banner slider" />
-  },
-}))
+jest.mock('components/BannerSlider', () => {
+  return {
+    __esModule: true,
+    default: function Mock() {
+      return <div data-testid="Mock Banner Slider"></div>
+    },
+  }
+})
 
 describe('<Home />', () => {
-  it('should render slider and showcase', () => {
+  it('should render banner and showcases', () => {
     renderWithTheme(<Home {...props} />)
 
-    expect(screen.getByTestId(/banner slider/i)).toBeInTheDocument()
-    expect(screen.getAllByTestId(/mock showcase/i)).toHaveLength(5)
+    expect(screen.getByTestId('Mock Banner Slider')).toBeInTheDocument()
+    expect(screen.getAllByTestId('Mock Showcase')).toHaveLength(5)
   })
 })

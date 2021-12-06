@@ -1,45 +1,46 @@
-import { Button } from 'components/Button'
-import { Ribbon, RibbonColors, RibbonSizes } from 'components/Ribbon'
+import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
+import Button from 'components/Button'
 
 import * as S from './styles'
 
 export type BannerProps = {
-  image: string
+  img: string
   title: string
   subtitle: string
   buttonLabel: string
   buttonLink: string
-  ribbonText?: React.ReactNode
-  ribbonSize?: RibbonSizes
+  ribbon?: React.ReactNode
   ribbonColor?: RibbonColors
+  ribbonSize?: RibbonSizes
 }
 
-export const Banner = ({
-  image,
+const Banner = ({
+  img,
   title,
   subtitle,
   buttonLabel,
   buttonLink,
-  ribbonText,
-  ribbonSize = 'normal',
+  ribbon,
   ribbonColor = 'primary',
+  ribbonSize = 'normal',
 }: BannerProps) => (
-  <S.BannerContainer>
-    {!!ribbonText && (
-      <Ribbon size={ribbonSize} color={ribbonColor}>
-        {ribbonText}
+  <S.Wrapper>
+    {!!ribbon && (
+      <Ribbon color={ribbonColor} size={ribbonSize}>
+        {ribbon}
       </Ribbon>
     )}
 
-    <S.Image src={image} role="img" aria-label={title} />
+    <S.Image src={img} role="img" aria-label={title} />
 
     <S.Caption>
       <S.Title>{title}</S.Title>
       <S.Subtitle dangerouslySetInnerHTML={{ __html: subtitle }} />
-
       <Button as="a" href={buttonLink} size="large">
         {buttonLabel}
       </Button>
     </S.Caption>
-  </S.BannerContainer>
+  </S.Wrapper>
 )
+
+export default Banner

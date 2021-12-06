@@ -7,13 +7,54 @@ exports[`<FormSignIn /> should render the form 1`] = `
   overflow: hidden;
 }
 
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #b5b5b5;
+  border-radius: 0.2rem;
+  padding: 0 1.6rem;
+  border: 0.2rem solid;
+  border-color: #b5b5b5;
+}
+
+.c2:focus-within {
+  box-shadow: 0 0 0.5rem #f231a5;
+}
+
+.c5 {
+  color: #030517;
+  font-family: Poppins,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+  font-size: 1.6rem;
+  padding: 0.8rem 0;
+  padding-left: 1.6rem;
+  background: transparent;
+  border: 0;
+  outline: none;
+  width: 100%;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  color: #8f8f8f;
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+}
+
+.c3 > svg {
+  width: 2.2rem;
+}
+
 .c8 {
-  border-radius: 0.4rem;
-  cursor: pointer;
-  position: relative;
-  z-index: 10;
-  -webkit-text-decoration: none;
-  text-decoration: none;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -26,82 +67,23 @@ exports[`<FormSignIn /> should render the form 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  font-size: 1.6rem;
-  padding: 0.8rem 2.4rem;
-  height: 5rem;
   background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
-  border: 0.1rem solid transparent;
   color: #fafafa;
+  font-family: Poppins,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+  border: 0;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  padding: 0.8rem;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  height: 5rem;
+  font-size: 1.6rem;
+  padding: 0.8rem 4.8rem;
   width: 100%;
-}
-
-.c8 svg {
-  width: 1.8rem;
 }
 
 .c8:hover {
   background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
-}
-
-.c2 {
-  background: #eaeaea;
-  border-radius: 0.2rem;
-  border: 0.2rem solid #eaeaea;
-  padding: 0 1.6rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c2:focus-within {
-  box-shadow: 0 0 0.5rem #f231a5;
-}
-
-.c5 {
-  border: 0;
-  background: transparent;
-  color: #030517;
-  font-size: 1.6rem;
-  padding: 0.8rem 0;
-  width: 100%;
-  padding-left: 0.8rem;
-}
-
-.c5::-webkit-input-placeholder {
-  color: #8f8f8f;
-}
-
-.c5::-moz-placeholder {
-  color: #8f8f8f;
-}
-
-.c5:-ms-input-placeholder {
-  color: #8f8f8f;
-}
-
-.c5::placeholder {
-  color: #8f8f8f;
-}
-
-.c3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 2.2rem;
-  -webkit-order: 0;
-  -ms-flex-order: 0;
-  order: 0;
-}
-
-.c3 > svg {
-  fill: #8f8f8f;
-  width: 100%;
 }
 
 .c0 .c1 {
@@ -145,111 +127,115 @@ exports[`<FormSignIn /> should render the form 1`] = `
   color: #0f1971;
 }
 
-<div
-  class="c0"
->
-  <form>
+<body>
+  <div>
     <div
-      class="c1 "
+      class="c0"
     >
-      <div
-        class="c2"
-      >
+      <form>
         <div
-          class="c3"
+          class="c1 "
         >
-          <svg
-            aria-hidden="true"
-            class="c4"
-            fill="currentColor"
-            focusable="false"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+          <div
+            class="c2"
           >
-            <path
-              d="M0 0h24v24H0V0z"
-              fill="none"
-            />
-            <path
-              d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"
-            />
-          </svg>
-        </div>
-        <input
-          class="c5"
-          name="email"
-          placeholder="Email"
-          type="email"
-          value=""
-        />
-      </div>
-    </div>
-    <div
-      class="c1 "
-    >
-      <div
-        class="c2"
-      >
-        <div
-          class="c3"
-        >
-          <svg
-            aria-hidden="true"
-            class="c4"
-            fill="currentColor"
-            focusable="false"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="none"
+            <div
+              class="c3"
             >
-              <path
-                d="M0 0h24v24H0V0z"
-              />
-              <path
-                d="M0 0h24v24H0V0z"
-                opacity="0.87"
-              />
-            </g>
-            <path
-              d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"
+              <svg
+                aria-hidden="true"
+                class="c4"
+                fill="currentColor"
+                focusable="false"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h24v24H0V0z"
+                  fill="none"
+                />
+                <path
+                  d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"
+                />
+              </svg>
+            </div>
+            <input
+              class="c5"
+              name="email"
+              placeholder="Email"
+              type="email"
+              value=""
             />
-          </svg>
+          </div>
         </div>
-        <input
-          class="c5"
-          name="password"
-          placeholder="Password"
-          type="password"
-          value=""
-        />
-      </div>
+        <div
+          class="c1 "
+        >
+          <div
+            class="c2"
+          >
+            <div
+              class="c3"
+            >
+              <svg
+                aria-hidden="true"
+                class="c4"
+                fill="currentColor"
+                focusable="false"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  fill="none"
+                >
+                  <path
+                    d="M0 0h24v24H0V0z"
+                  />
+                  <path
+                    d="M0 0h24v24H0V0z"
+                    opacity="0.87"
+                  />
+                </g>
+                <path
+                  d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"
+                />
+              </svg>
+            </div>
+            <input
+              class="c5"
+              name="password"
+              placeholder="Password"
+              type="password"
+              value=""
+            />
+          </div>
+        </div>
+        <a
+          class="c6"
+          href="#"
+        >
+          Forgot your password?
+        </a>
+        <button
+          class="c7 c8"
+        >
+          <span>
+            Sign in now
+          </span>
+        </button>
+        <div
+          class="c9"
+        >
+          Don’t have an account?
+           
+          <a
+            href="/sign-up"
+          >
+            Sign up
+          </a>
+        </div>
+      </form>
     </div>
-    <a
-      class="c6"
-      href="#"
-    >
-      Forgot your password?
-    </a>
-    <button
-      class="c7 c8"
-    >
-      <span>
-        Sign in now
-      </span>
-    </button>
-    <div
-      class="c9"
-    >
-      Don’t have an account?
-       
-      <a
-        href="/sign-up"
-      >
-        Sign up
-      </a>
-    </div>
-  </form>
-</div>
+  </div>
+</body>
 `;

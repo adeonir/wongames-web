@@ -1,9 +1,8 @@
-import { Meta, Story } from '@storybook/react/types-6-0'
-
-import { Banner, BannerProps } from '.'
+import { Story, Meta } from '@storybook/react/types-6-0'
+import Banner, { BannerProps } from '.'
 
 export default {
-  title: 'Sliders/Banner',
+  title: 'Banner',
   component: Banner,
   argTypes: {
     ribbon: {
@@ -11,9 +10,9 @@ export default {
     },
   },
   args: {
-    image: 'https://source.unsplash.com/user/willianjusten/1042x580',
+    img: 'https://source.unsplash.com/user/willianjusten/1042x580',
     title: 'Defy death',
-    subtitle: 'Play the new <strong>CrashLands</strong> season',
+    subtitle: '<p>Play the new <strong>CrashLands</strong> season',
     buttonLabel: 'Buy now',
     buttonLink: '/games/defy-death',
   },
@@ -22,34 +21,20 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<BannerProps> = (args) => (
-  <div
-    style={{
-      maxWidth: '96rem',
-      margin: '0 auto',
-    }}
-  >
+export const Default: Story<BannerProps> = (args) => (
+  <div style={{ maxWidth: '104rem', margin: '0 auto' }}>
     <Banner {...args} />
   </div>
 )
 
 export const WithRibbon: Story<BannerProps> = (args) => (
-  <div
-    style={{
-      maxWidth: '96rem',
-      margin: '0 auto',
-    }}
-  >
+  <div style={{ maxWidth: '104rem', margin: '0 auto' }}>
     <Banner {...args} />
   </div>
 )
-WithRibbon.argTypes = {
-  ribbonText: {
-    type: 'string',
-  },
-}
+
 WithRibbon.args = {
-  ribbonText: 'Best seller',
+  ribbon: '20% OFF',
   ribbonSize: 'normal',
   ribbonColor: 'primary',
 }

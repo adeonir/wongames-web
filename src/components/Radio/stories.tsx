@@ -1,50 +1,50 @@
-import { Meta, Story } from '@storybook/react/types-6-0'
-
-import { Radio, RadioProps } from '.'
+import { Story, Meta } from '@storybook/react/types-6-0'
+import Radio, { RadioProps } from '.'
 
 export default {
-  title: 'Forms/Radio',
+  title: 'Form/Radio',
   component: Radio,
   parameters: {
     layout: 'fullscreen',
     backgrounds: {
-      default: 'dark',
+      default: 'won-dark',
     },
   },
   argTypes: {
-    onCheck: {
-      action: 'checked',
-    },
+    onCheck: { action: 'checked' },
   },
 } as Meta
 
-export const Basic: Story<RadioProps> = (args) => (
+export const Default: Story<RadioProps> = (args) => (
   <>
     <div style={{ padding: 10 }}>
       <Radio
-        labelText="First"
-        labelFor="first"
-        name="name"
-        value="first"
+        label="primeiro"
+        labelFor="primeiro"
+        id="primeiro"
+        name="nome"
+        value="primeiro"
         defaultChecked
         {...args}
       />
     </div>
     <div style={{ padding: 10 }}>
       <Radio
-        labelText="Second"
-        labelFor="second"
-        name="name"
-        value="second"
+        label="segundo"
+        labelFor="segundo"
+        id="segundo"
+        name="nome"
+        value="segundo"
         {...args}
       />
     </div>
     <div style={{ padding: 10 }}>
       <Radio
-        labelText="Third"
-        labelFor="third"
-        name="name"
-        value="third"
+        label="terceiro"
+        labelFor="terceiro"
+        id="terceiro"
+        name="nome"
+        value="terceiro"
         {...args}
       />
     </div>

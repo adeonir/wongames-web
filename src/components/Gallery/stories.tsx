@@ -1,22 +1,22 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
-
-import { Gallery, GalleryProps } from '.'
-
+import Gallery, { GalleryProps } from '.'
 import items from './mock'
 
 export default {
-  title: 'Components/Gallery',
+  title: 'Gallery',
   component: Gallery,
-  args: { items },
+  args: {
+    items,
+  },
   parameters: {
     layout: 'fullscreen',
     backgrounds: {
-      default: 'dark',
+      default: 'won-dark',
     },
   },
 } as Meta
 
-export const Basic: Story<GalleryProps> = (args) => (
+export const Default: Story<GalleryProps> = (args) => (
   <div style={{ maxWidth: '130rem', margin: '0 auto' }}>
     <Gallery {...args} />
   </div>

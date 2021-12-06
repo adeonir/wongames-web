@@ -1,53 +1,42 @@
-import { Meta, Story } from '@storybook/react/types-6-0'
+import { Story, Meta } from '@storybook/react/types-6-0'
 
-import { GameCard, GameCardProps } from '.'
+import GameCard, { GameCardProps } from '.'
 
 export default {
-  title: 'Sliders/GameCard',
+  title: 'GameCard',
   component: GameCard,
+  parameters: {
+    backgrounds: {
+      default: 'won-dark',
+    },
+  },
   args: {
     title: 'Population Zero',
-    developer: 'Rockstart Games',
-    image: 'https://source.unsplash.com/user/willianjusten/300x140',
+    developer: 'Rockstar Games',
+    img: 'https://source.unsplash.com/user/willianjusten/300x140',
     price: 'R$ 235,00',
+    promotionalPrice: 'R$ 215,00',
   },
   argTypes: {
-    onFavorite: {
-      action: 'favorite clicked',
-    },
-    ribbon: {
-      type: 'string',
-    },
+    onFav: { action: 'clicked' },
+    ribbon: { type: 'string' },
   },
 } as Meta
 
-export const Basic: Story<GameCardProps> = (args) => (
+export const Default: Story<GameCardProps> = (args) => (
   <div style={{ width: '30rem' }}>
     <GameCard {...args} />
   </div>
 )
-
-export const PromotionalPrice: Story<GameCardProps> = (args) => (
-  <div style={{ width: '30rem' }}>
-    <GameCard {...args} />
-  </div>
-)
-PromotionalPrice.args = {
-  promoPrice: 'R$ 100,00',
-}
 
 export const WithRibbon: Story<GameCardProps> = (args) => (
   <div style={{ width: '30rem' }}>
     <GameCard {...args} />
   </div>
 )
-WithRibbon.argTypes = {
-  ribbonText: {
-    type: 'string',
-  },
-}
+
 WithRibbon.args = {
-  ribbonText: '20% OFF',
+  ribbon: '20% OFF',
   ribbonSize: 'small',
   ribbonColor: 'primary',
 }

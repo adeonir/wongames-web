@@ -1,15 +1,15 @@
-import styled from 'styled-components'
-import { Meta, Story } from '@storybook/react/types-6-0'
+import { Story, Meta } from '@storybook/react/types-6-0'
 import { Settings } from 'react-slick'
+import styled from 'styled-components'
 
-import { Slider } from '.'
+import Slider from '.'
 
 export default {
-  title: 'Sliders/Slider',
+  title: 'Slider',
   component: Slider,
 } as Meta
 
-const horizontal: Settings = {
+const settings: Settings = {
   dots: true,
   infinite: true,
   speed: 500,
@@ -18,38 +18,40 @@ const horizontal: Settings = {
 }
 
 const Slide = styled.div`
-  background: #eee;
-  border: 0.1rem solid #666;
+  background: gray;
   width: 30rem;
   padding: 10rem 0;
+  border: 0.1rem solid red;
+  color: white;
   text-align: center;
 `
 
 export const Horizontal: Story = () => (
-  <Slider settings={horizontal}>
+  <Slider settings={settings}>
     <Slide>1</Slide>
     <Slide>2</Slide>
     <Slide>3</Slide>
     <Slide>4</Slide>
     <Slide>5</Slide>
+    <Slide>6</Slide>
   </Slider>
 )
 
-const vertical: Settings = {
+const verticalSettings: Settings = {
   vertical: true,
   verticalSwiping: true,
-  speed: 500,
-  dots: false,
+  dots: true,
   infinite: false,
   slidesToShow: 1,
 }
 
 export const Vertical: Story = () => (
-  <Slider settings={vertical}>
+  <Slider settings={verticalSettings}>
     <Slide>1</Slide>
     <Slide>2</Slide>
     <Slide>3</Slide>
     <Slide>4</Slide>
     <Slide>5</Slide>
+    <Slide>6</Slide>
   </Slider>
 )

@@ -1,26 +1,23 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { ArrowBackIos as ArrowLeft } from '@styled-icons/material-outlined/ArrowBackIos'
+import { ArrowForwardIos as ArrowRight } from '@styled-icons/material-outlined/ArrowForwardIos'
+import { Close } from '@styled-icons/material-outlined/Close'
 import SlickSlider from 'react-slick'
 
-import {
-  ArrowBackIos as ArrowLeft,
-  ArrowForwardIos as ArrowRight,
-  Close,
-} from '@styled-icons/material-outlined'
-
-import { Slider, SliderSettings } from 'components/Slider'
+import Slider, { SliderSettings } from 'components/Slider'
 
 import * as S from './styles'
 
-const settings: SliderSettings = {
-  arrows: true,
+const commonSettings: SliderSettings = {
   infinite: false,
   lazyLoad: 'ondemand',
-  nextArrow: <ArrowRight aria-label="Next image" />,
-  prevArrow: <ArrowLeft aria-label="Previous image" />,
+  arrows: true,
+  nextArrow: <ArrowRight aria-label="next image" />,
+  prevArrow: <ArrowLeft aria-label="previous image" />,
 }
 
-const thumbSettings: SliderSettings = {
-  ...settings,
+const settings: SliderSettings = {
+  ...commonSettings,
   slidesToShow: 4,
   responsive: [
     {
@@ -51,21 +48,21 @@ const thumbSettings: SliderSettings = {
 }
 
 const modalSettings: SliderSettings = {
-  ...settings,
+  ...commonSettings,
   slidesToShow: 1,
+}
+
+export type GalleryImageProps = {
+  src: string
+  label: string
 }
 
 export type GalleryProps = {
   items: GalleryImageProps[]
 }
 
-export type GalleryImageProps = {
-  src: string
-  alt: string
-}
-
-export const Gallery = ({ items }: GalleryProps) => {
-  const sliderRef = useRef<SlickSlider>(null)
+const Gallery = ({ items }: GalleryProps) => {
+  const slider = useRef<SlickSlider>(null)
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
@@ -74,44 +71,45 @@ export const Gallery = ({ items }: GalleryProps) => {
     }
 
     window.addEventListener('keyup', handleKeyUp)
-
     return () => window.removeEventListener('keyup', handleKeyUp)
   }, [])
 
   return (
-    <S.GalleryContainer>
-      <Slider settings={thumbSettings} ref={sliderRef}>
+    <S.Wrapper>
+      <Slider ref={slider} settings={settings}>
         {items.map((item, index) => (
           <img
             role="button"
             key={`thumb-${index}`}
             src={item.src}
-            alt={`Thumbnail - ${item.alt}`}
+            alt={`Thumb - ${item.label}`}
             onClick={() => {
               setIsOpen(true)
-              sliderRef.current!.slickGoTo(index, true)
+              slider.current!.slickGoTo(index, true)
             }}
           />
         ))}
       </Slider>
 
-      <S.Modal aria-label="modal" aria-hidden={!isOpen} isOpen={isOpen}>
+      <S.Modal isOpen={isOpen} aria-label="modal" aria-hidden={!isOpen}>
         <S.Close
           role="button"
           aria-label="close modal"
           onClick={() => setIsOpen(false)}
         >
-          <Close size={28} />
+          <Close size={40} />
         </S.Close>
 
         <S.Content>
-          <Slider settings={modalSettings} ref={sliderRef}>
+          <Slider ref={slider} settings={modalSettings}>
             {items.map((item, index) => (
-              <img key={`slide-${index}`} src={item.src} alt={`${item.alt}`} />
+              <img key={`gallery-${index}`} src={item.src} alt={item.label} />
             ))}
           </Slider>
         </S.Content>
       </S.Modal>
-    </S.GalleryContainer>
+    </S.Wrapper>
   )
 }
+
+export default Gallery

@@ -1,14 +1,12 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-import { theme } from 'styles'
-
 import { GameCardSliderProps } from '.'
 
-type ContainerProps = Pick<GameCardSliderProps, 'color'>
+type WrapperProps = Pick<GameCardSliderProps, 'color'>
 
-export const GameCardSliderContainer = styled.section<ContainerProps>`
-  ${({ color }) => css`
+export const Wrapper = styled.section<WrapperProps>`
+  ${({ theme, color }) => css`
     ${media.lessThan('huge')`
       overflow-x: hidden;
     `}
@@ -32,6 +30,7 @@ export const GameCardSliderContainer = styled.section<ContainerProps>`
       .slick-slide > div {
         margin: 0 ${theme.spacings.xsmall};
       }
+
       .slick-list {
         margin: 0 -${theme.spacings.xsmall};
       }

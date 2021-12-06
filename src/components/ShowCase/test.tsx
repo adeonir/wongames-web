@@ -1,33 +1,38 @@
-import 'match-media.mock'
+import 'match-media-mock'
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
 
-import { ShowCase } from '.'
+import Showcase from '.'
 
 const props = {
-  heading: 'Most Popular',
+  title: 'Most Popular',
   highlight: highlightMock,
   games: gamesMock.slice(0, 1),
 }
 
-describe('<ShowCase />', () => {
+describe('<Showcase />', () => {
   it('should render full showcase', () => {
-    renderWithTheme(<ShowCase {...props} />)
+    renderWithTheme(<Showcase {...props} />)
 
-    screen.getByRole('heading', { name: /most popular/i })
-    screen.getByRole('heading', { name: highlightMock.title })
+    expect(
+      screen.getByRole('heading', { name: /most popular/i })
+    ).toBeInTheDocument()
+
+    expect(
+      screen.getByRole('heading', { name: highlightMock.title })
+    ).toBeInTheDocument()
 
     expect(
       screen.getByRole('heading', { name: gamesMock[0].title })
     ).toBeInTheDocument()
   })
 
-  it('should render without heading', () => {
+  it('should render without title', () => {
     renderWithTheme(
-      <ShowCase highlight={props.highlight} games={props.games} />
+      <Showcase games={props.games} highlight={props.highlight} />
     )
 
     screen.getByRole('heading', { name: highlightMock.title })
@@ -39,7 +44,7 @@ describe('<ShowCase />', () => {
   })
 
   it('should render without highlight', () => {
-    renderWithTheme(<ShowCase heading={props.heading} games={props.games} />)
+    renderWithTheme(<Showcase title={props.title} games={props.games} />)
 
     screen.getByRole('heading', { name: /most popular/i })
     screen.getByRole('heading', { name: gamesMock[0].title })
@@ -51,7 +56,7 @@ describe('<ShowCase />', () => {
 
   it('should render without games', () => {
     renderWithTheme(
-      <ShowCase heading={props.heading} highlight={props.highlight} />
+      <Showcase title={props.title} highlight={props.highlight} />
     )
 
     screen.getByRole('heading', { name: /most popular/i })

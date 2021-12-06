@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
-import { Logo } from '.'
+import Logo from '.'
 
 describe('<Logo />', () => {
   it('should render the logo with id passed', () => {
@@ -13,7 +13,7 @@ describe('<Logo />', () => {
   it('should render a white label by default', () => {
     renderWithTheme(<Logo />)
     expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyle({
-      color: '#fafafa',
+      color: '#FAFAFA',
     })
   })
 
@@ -38,8 +38,8 @@ describe('<Logo />', () => {
     })
   })
 
-  it('should render a bigger logo without text when `hideLabel` is true ', () => {
-    renderWithTheme(<Logo hideLabel />)
+  it('should render a bigger logo without text if hideOnMobile', () => {
+    renderWithTheme(<Logo hideOnMobile />)
     expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyleRule(
       'width',
       '5.8rem',
