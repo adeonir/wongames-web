@@ -21,7 +21,7 @@ export type HomeTemplateProps = {
   freeHighlight: HighlightProps
 }
 
-const Home = ({
+const HomeTemplate = ({
   banners,
   newGames,
   mostPopularHighlight,
@@ -58,4 +58,4 @@ const Home = ({
   </Base>
 )
 
-export default Home
+export default HomeTemplate

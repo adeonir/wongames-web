@@ -9,7 +9,7 @@ type AuthProps = {
   children: React.ReactNode
 }
 
-const Auth = ({ title, children }: AuthProps) => (
+const AuthTemplate = ({ title, children }: AuthProps) => (
   <S.Wrapper>
     <S.BannerBlock>
       <S.BannerContent>
@@ -47,4 +47,4 @@ const Auth = ({ title, children }: AuthProps) => (
   </S.Wrapper>
 )
 
-export default Auth
+export default AuthTemplate

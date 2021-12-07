@@ -1,10 +1,11 @@
+import ProfileTemplate from 'templates/Profile'
+
 import FormProfile from 'components/FormProfile'
-import Profile from 'templates/Profile'
 
 export default function Me() {
   return (
-    <Profile>
+    <ProfileTemplate>
       <FormProfile />
-    </Profile>
+    </ProfileTemplate>
   )
 }

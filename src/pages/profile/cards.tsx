@@ -1,13 +1,14 @@
+import ProfileTemplate from 'templates/Profile'
+
 import CardsList, { CardsListProps } from 'components/CardsList'
-import Profile from 'templates/Profile'
 
 import mockCards from 'components/PaymentOptions/mock'
 
-export default function ProfileCards({ cards }: CardsListProps) {
+export default function Cards({ cards }: CardsListProps) {
   return (
-    <Profile>
+    <ProfileTemplate>
       <CardsList cards={cards} />
-    </Profile>
+    </ProfileTemplate>
   )
 }
 

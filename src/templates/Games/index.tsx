@@ -1,9 +1,10 @@
-import Base from 'templates/Base'
 import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined/KeyboardArrowDown'
 
+import BaseTemplate from 'templates/Base'
+
+import { Grid } from 'components/Grid'
 import ExploreSidebar, { ItemProps } from 'components/ExploreSidebar'
 import GameCard, { GameCardProps } from 'components/GameCard'
-import { Grid } from 'components/Grid'
 
 import * as S from './styles'
 
@@ -22,7 +23,7 @@ const GamesTemplate = ({ filterItems, games = [] }: GamesTemplateProps) => {
   }
 
   return (
-    <Base>
+    <BaseTemplate>
       <S.Main>
         <ExploreSidebar items={filterItems} onFilter={handleFilter} />
 
@@ -39,7 +40,7 @@ const GamesTemplate = ({ filterItems, games = [] }: GamesTemplateProps) => {
           </S.ShowMore>
         </section>
       </S.Main>
-    </Base>
+    </BaseTemplate>
   )
 }
 

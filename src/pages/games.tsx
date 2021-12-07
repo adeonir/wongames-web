@@ -1,12 +1,13 @@
 import GamesTemplate, { GamesTemplateProps } from 'templates/Games'
+
 import filterItemsMock from 'components/ExploreSidebar/mock'
 import gamesMock from 'components/GameCardSlider/mock'
 
-export default function GamesPage(props: GamesTemplateProps) {
+export default function Games(props: GamesTemplateProps) {
   return <GamesTemplate {...props} />
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   return {
     props: {
       games: gamesMock,

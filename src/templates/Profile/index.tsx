@@ -1,9 +1,10 @@
 import { useRouter } from 'next/router'
 
+import BaseTemplate from 'templates/Base'
+
 import { Container } from 'components/Container'
 import Heading from 'components/Heading'
 import ProfileMenu from 'components/ProfileMenu'
-import Base from 'templates/Base'
 
 import * as S from './styles'
 
@@ -15,7 +16,7 @@ const Profile = ({ children }: ProfileTemplateProps) => {
   const { asPath } = useRouter()
 
   return (
-    <Base>
+    <BaseTemplate>
       <Container>
         <Heading lineLeft lineColor="secondary">
           My profile
@@ -26,7 +27,7 @@ const Profile = ({ children }: ProfileTemplateProps) => {
           <S.Content>{children}</S.Content>
         </S.Main>
       </Container>
-    </Base>
+    </BaseTemplate>
   )
 }
 
