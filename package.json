@@ -15,9 +15,9 @@
     "generate": "yarn plop --plopfile ./generators/plopfile.js",
     "schema:download": "apollo client:download-schema --endpoint=http://localhost:1337/graphql schema-temp.gql",
     "schema:convert": "node src/utils/graphql/convertToNonNull.js",
-    "schema:clear": "node src/utils/graphql/clearSchema.js",
     "codegen:generate": "apollo codegen:generate --target typescript --excludes=node_modules/ --includes=src/graphql/queries**/*.ts --localSchemaFile schema.gql --tagName=gql --outputFlat src/graphql/types",
-    "codegen": "yarn schema:download && yarn schema:convert && yarn codegen:generate && yarn schema:clear",
+    "codegen:lint": "prettier --write src/graphql/types/**/*.ts",
+    "codegen": "yarn schema:download && yarn schema:convert && yarn codegen:generate && yarn codegen:lint",
     "storybook": "start-storybook -s ./public -p 6006",
     "storybook:build": "build-storybook -s ./public",
     "postinstall": "husky install"
