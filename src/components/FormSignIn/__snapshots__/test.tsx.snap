@@ -39,6 +39,16 @@ exports[`<FormSignIn /> should render the form 1`] = `
   width: 100%;
 }
 
+.c5:-webkit-autofill,
+.c5:-webkit-autofill:hover,
+.c5:-webkit-autofill:focus,
+.c5:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px #b5b5b5 inset;
+  -webkit-text-fill-color: #030517;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 .c3 {
   display: -webkit-box;
   display: -webkit-flex;

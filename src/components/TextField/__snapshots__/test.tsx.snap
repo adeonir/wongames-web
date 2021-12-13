@@ -39,6 +39,16 @@ exports[`<TextField /> Renders with error 1`] = `
   width: 100%;
 }
 
+.c8:-webkit-autofill,
+.c8:-webkit-autofill:hover,
+.c8:-webkit-autofill:focus,
+.c8:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px #b5b5b5 inset;
+  -webkit-text-fill-color: #030517;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 .c2 {
   font-size: 1.4rem;
   color: #030517;
