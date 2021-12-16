@@ -1,3 +1,4 @@
+import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 
 import GameTemplate, { GameTemplateProps } from 'templates/Game'
@@ -13,7 +14,6 @@ import {
   GetGameBySlug,
   GetGameBySlugVariables,
 } from 'graphql/types'
-import { GetStaticProps } from 'next'
 
 const apolloClient = initializeApollo()
 
