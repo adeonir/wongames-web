@@ -1,12 +1,12 @@
-import Cart, { CartProps } from 'templates/Cart'
+import CartTemplate, { CartTemplateProps } from 'templates/Cart'
 
-import itemsMock from 'components/CartList/mock'
+import cardsMock from 'components/PaymentOptions/mock'
 import gamesMock from 'components/GameCardSlider/mock'
 import higlightMock from 'components/Highlight/mock'
-import cardsMock from 'components/PaymentOptions/mock'
+import itemsMock from 'components/CartList/mock'
 
-export default function CartPage(props: CartProps) {
-  return <Cart {...props} />
+export default function Cart(props: CartTemplateProps) {
+  return <CartTemplate {...props} />
 }
 
 export async function getServerSideProps() {

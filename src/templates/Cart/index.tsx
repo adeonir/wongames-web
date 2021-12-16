@@ -1,34 +1,36 @@
+import { Info } from '@styled-icons/material-outlined/Info'
+
+import BaseTemplate from 'templates/Base'
+
 import { Container } from 'components/Container'
 import { Divider } from 'components/Divider'
 import { GameCardProps } from 'components/GameCard'
 import { HighlightProps } from 'components/Highlight'
-import PaymentOptions, { PaymentOptionsProps } from 'components/PaymentOptions'
 import CartList, { CartListProps } from 'components/CartList'
+import Empty from 'components/Empty'
 import Heading from 'components/Heading'
+import PaymentOptions, { PaymentOptionsProps } from 'components/PaymentOptions'
 import Showcase from 'components/Showcase'
-import Base from 'templates/Base'
-import { Info } from '@styled-icons/material-outlined/Info'
 
 import * as S from './styles'
-import Empty from 'components/Empty'
 
-export type CartProps = {
+export type CartTemplateProps = {
   recommendedGames: GameCardProps[]
   recommendedHighlight: HighlightProps
 } & CartListProps &
   Pick<PaymentOptionsProps, 'cards'>
 
-const Cart = ({
+const CartTemplate = ({
   recommendedGames,
   recommendedHighlight,
   items,
   total,
   cards,
-}: CartProps) => {
+}: CartTemplateProps) => {
   const handlePayment = () => ({})
 
   return (
-    <Base>
+    <BaseTemplate>
       <Container>
         <Heading lineLeft lineColor="secondary">
           My cart
@@ -63,8 +65,8 @@ const Cart = ({
         games={recommendedGames}
         highlight={recommendedHighlight}
       />
-    </Base>
+    </BaseTemplate>
   )
 }
 
-export default Cart
+export default CartTemplate

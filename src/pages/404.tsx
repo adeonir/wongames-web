@@ -1,10 +1,11 @@
+import BaseTemplate from 'templates/Base'
+
 import { Container } from 'components/Container'
 import Empty from 'components/Empty'
-import Base from 'templates/Base'
 
-export default function Page404() {
+export default function NotFound() {
   return (
-    <Base>
+    <BaseTemplate>
       <Container>
         <Empty
           title="404: Not found"
@@ -12,6 +13,6 @@ export default function Page404() {
           hasLink
         />
       </Container>
-    </Base>
+    </BaseTemplate>
   )
 }

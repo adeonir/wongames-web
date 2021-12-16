@@ -1,13 +1,13 @@
-import Base from 'templates/Base'
+import BaseTemplate from 'templates/Base'
 
-import GameInfo, { GameInfoProps } from 'components/GameInfo'
-import Gallery, { GalleryImageProps } from 'components/Gallery'
-import GameDetails, { GameDetailsProps } from 'components/GameDetails'
-import TextContent from 'components/TextContent'
-import Showcase from 'components/Showcase'
 import { Divider } from 'components/Divider'
 import { GameCardProps } from 'components/GameCard'
 import { HighlightProps } from 'components/Highlight'
+import Gallery, { GalleryImageProps } from 'components/Gallery'
+import GameDetails, { GameDetailsProps } from 'components/GameDetails'
+import GameInfo, { GameInfoProps } from 'components/GameInfo'
+import Showcase from 'components/Showcase'
+import TextContent from 'components/TextContent'
 
 import * as S from './styles'
 
@@ -22,7 +22,7 @@ export type GameTemplateProps = {
   recommendedGames: GameCardProps[]
 }
 
-const Game = ({
+const GameTemplate = ({
   cover,
   gameInfo,
   gallery,
@@ -32,7 +32,7 @@ const Game = ({
   upcomingHighlight,
   recommendedGames,
 }: GameTemplateProps) => (
-  <Base>
+  <BaseTemplate>
     <S.Cover src={cover} role="image" aria-label="cover" />
 
     <S.Main>
@@ -61,7 +61,7 @@ const Game = ({
 
       <Showcase title="You may like these games" games={recommendedGames} />
     </S.Main>
-  </Base>
+  </BaseTemplate>
 )
 
-export default Game
+export default GameTemplate

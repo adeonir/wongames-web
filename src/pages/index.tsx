@@ -1,16 +1,37 @@
-import Home, { HomeTemplateProps } from 'templates/Home'
-import bannersMock from 'components/BannerSlider/mock'
+import { GetStaticProps } from 'next'
+
+import HomeTemplate, { HomeTemplateProps } from 'templates/Home'
+
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
 
-export default function Index(props: HomeTemplateProps) {
-  return <Home {...props} />
+import { initializeApollo } from 'services'
+import { GET_HOME } from 'graphql/queries'
+import { GetHome } from 'graphql/types'
+
+export default function Home(props: HomeTemplateProps) {
+  return <HomeTemplate {...props} />
 }
 
-export function getServerSideProps() {
+export const getStaticProps: GetStaticProps = async () => {
+  const apolloClient = initializeApollo()
+  const { data } = await apolloClient.query<GetHome>({ query: GET_HOME })
+
   return {
     props: {
-      banners: bannersMock,
+      revalidate: 60,
+      banners: data.banners.map((banner) => ({
+        img: `http://localhost:1337${banner.image?.src}`,
+        title: banner.title,
+        subtitle: banner.subtitle,
+        buttonLabel: banner.button?.label,
+        buttonLink: banner.button?.link,
+        ...(banner.ribbon && {
+          ribbon: banner.ribbon.text,
+          ribbonColor: banner.ribbon.color,
+          ribbonSize: banner.ribbon.size,
+        }),
+      })),
       newGames: gamesMock,
       mostPopularHighlight: highlightMock,
       mostPopularGames: gamesMock,
