@@ -5,19 +5,19 @@ import Highlight, { HighlightProps } from 'components/Highlight'
 
 import * as S from './styles'
 
-export type ShowcaseProps = {
+export type ShowCaseProps = {
   title?: string
   highlight?: HighlightProps
   games?: GameCardProps[]
   arrowColor?: 'white' | 'black'
 }
 
-const Showcase = ({
+const ShowCase = ({
   title,
   highlight,
   games,
   arrowColor = 'white',
-}: ShowcaseProps) => (
+}: ShowCaseProps) => (
   <S.Wrapper>
     {!!title && (
       <Heading lineLeft lineColor="secondary">
@@ -29,4 +29,4 @@ const Showcase = ({
   </S.Wrapper>
 )
 
-export default Showcase
+export default ShowCase

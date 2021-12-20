@@ -6,7 +6,7 @@ import { HighlightProps } from 'components/Highlight'
 import Gallery, { GalleryImageProps } from 'components/Gallery'
 import GameDetails, { GameDetailsProps } from 'components/GameDetails'
 import GameInfo, { GameInfoProps } from 'components/GameInfo'
-import Showcase from 'components/Showcase'
+import ShowCase from 'components/ShowCase'
 import TextContent from 'components/TextContent'
 
 import * as S from './styles'
@@ -53,13 +53,13 @@ const GameTemplate = ({
         <Divider />
       </S.SectionGameDetails>
 
-      <Showcase
+      <ShowCase
         title="Upcoming"
         games={upcomingGames}
         highlight={upcomingHighlight}
       />
 
-      <Showcase title="You may like these games" games={recommendedGames} />
+      <ShowCase title="You may like these games" games={recommendedGames} />
     </S.Main>
   </BaseTemplate>
 )

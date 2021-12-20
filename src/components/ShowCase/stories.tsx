@@ -1,11 +1,13 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
-import Showcase, { ShowcaseProps } from '.'
+
 import highlightMock from 'components/Highlight/mock'
 import gamesMock from 'components/GameCardSlider/mock'
 
+import ShowCase, { ShowCaseProps } from '.'
+
 export default {
-  title: 'Showcase',
-  component: Showcase,
+  title: 'ShowCase',
+  component: ShowCase,
   decorators: [
     (Story) => (
       <div style={{ margin: '0 auto' }}>
@@ -21,7 +23,7 @@ export default {
   },
 } as Meta
 
-export const Default: Story<ShowcaseProps> = (args) => <Showcase {...args} />
+export const Default: Story<ShowCaseProps> = (args) => <ShowCase {...args} />
 
 Default.args = {
   title: 'Most Popular',
@@ -29,8 +31,8 @@ Default.args = {
   games: gamesMock,
 }
 
-export const WithoutHighlight: Story<ShowcaseProps> = (args) => (
-  <Showcase {...args} />
+export const WithoutHighlight: Story<ShowCaseProps> = (args) => (
+  <ShowCase {...args} />
 )
 
 WithoutHighlight.args = {
@@ -38,8 +40,8 @@ WithoutHighlight.args = {
   games: gamesMock,
 }
 
-export const WithoutGames: Story<ShowcaseProps> = (args) => (
-  <Showcase {...args} />
+export const WithoutGames: Story<ShowCaseProps> = (args) => (
+  <ShowCase {...args} />
 )
 
 WithoutGames.args = {

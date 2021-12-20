@@ -5,7 +5,7 @@ import { GameCardProps } from 'components/GameCard'
 import { HighlightProps } from 'components/Highlight'
 import { Container } from 'components/Container'
 import BannerSlider from 'components/BannerSlider'
-import Showcase from 'components/Showcase'
+import ShowCase from 'components/ShowCase'
 
 import * as S from './styles'
 
@@ -40,21 +40,21 @@ const HomeTemplate = ({
     </Container>
 
     <S.SectionNews>
-      <Showcase title="News" games={newGames} arrowColor="black" />
+      <ShowCase title="News" games={newGames} arrowColor="black" />
     </S.SectionNews>
 
-    <Showcase
+    <ShowCase
       title="Most Popular"
       highlight={mostPopularHighlight}
       games={mostPopularGames}
     />
 
     <S.SectionUpcoming>
-      <Showcase title="Upcoming" games={upcomingGames} />
-      <Showcase highlight={upcomingHighlight} games={upcomingMoreGames} />
+      <ShowCase title="Upcoming" games={upcomingGames} />
+      <ShowCase highlight={upcomingHighlight} games={upcomingMoreGames} />
     </S.SectionUpcoming>
 
-    <Showcase title="Free games" highlight={freeHighlight} games={freeGames} />
+    <ShowCase title="Free games" highlight={freeHighlight} games={freeGames} />
   </Base>
 )
 
