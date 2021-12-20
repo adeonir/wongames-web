@@ -14,7 +14,7 @@ import {
 
 export interface BannerFragment_image {
   __typename: 'UploadFile'
-  src: string
+  url: string
 }
 
 export interface BannerFragment_button {
