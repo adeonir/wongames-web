@@ -45,7 +45,6 @@ export const getStaticProps: GetStaticProps = async () => {
       mostPopularGames: gamesMock,
       upcomingGames: gamesMock,
       upcomingHighlight: highlightMock,
-      upcomingMoreGames: gamesMock,
       freeGames: gamesMock,
       freeHighlight: highlightMock,
     },
