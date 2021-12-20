@@ -2,7 +2,6 @@ import { GetStaticProps } from 'next'
 
 import HomeTemplate, { HomeTemplateProps } from 'templates/Home'
 
-import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
 
 import { initializeApollo } from 'services'
@@ -16,7 +15,7 @@ export default function Home(props: HomeTemplateProps) {
 export const getStaticProps: GetStaticProps = async () => {
   const apolloClient = initializeApollo()
   const {
-    data: { banners, newGames, upcomingGames, freeGames },
+    data: { banners, newGames, upcomingGames, freeGames, sections },
   } = await apolloClient.query<GetHome>({ query: GET_HOME })
 
   return {
@@ -42,7 +41,13 @@ export const getStaticProps: GetStaticProps = async () => {
         price: game.price,
       })),
       mostPopularHighlight: highlightMock,
-      mostPopularGames: gamesMock,
+      mostPopularGames: sections?.popularGames!.games!.map((game) => ({
+        title: game.name,
+        slug: game.slug,
+        developers: game.developers[0].name,
+        img: `http://localhost:1337${game.cover?.url}`,
+        price: game.price,
+      })),
       upcomingGames: upcomingGames.map((game) => ({
         title: game.name,
         slug: game.slug,
