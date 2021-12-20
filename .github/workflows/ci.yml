@@ -36,5 +36,6 @@ jobs:
       - name: Typecheck
         run: yarn typecheck
 
-      - name: Build
-        run: yarn build
+      # Disabling build because it's not needed for now
+      # - name: Build
+      #   run: yarn build
