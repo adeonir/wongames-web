@@ -11,13 +11,13 @@ import { ENUM_GAME_RATING } from './globalTypes'
 
 export interface GetGameBySlug_games_gallery {
   __typename: 'UploadFile'
-  src: string
-  alt: string | null
+  url: string
+  alternativeText: string | null
 }
 
 export interface GetGameBySlug_games_cover {
   __typename: 'UploadFile'
-  src: string
+  url: string
 }
 
 export interface GetGameBySlug_games_developers {
