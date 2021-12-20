@@ -33,6 +33,7 @@ export const getStaticProps: GetStaticProps = async () => {
           ribbonSize: banner.ribbon.size,
         }),
       })),
+      newGamesTitle: sections?.newGames?.title,
       newGames: newGames.map((game) => ({
         title: game.name,
         slug: game.slug,
@@ -40,14 +41,16 @@ export const getStaticProps: GetStaticProps = async () => {
         img: `http://localhost:1337${game.cover?.url}`,
         price: game.price,
       })),
-      mostPopularHighlight: highlightMock,
-      mostPopularGames: sections?.popularGames!.games!.map((game) => ({
+      popularGamesTitle: sections?.popularGames?.title,
+      popularGamesHighlight: highlightMock,
+      popularGames: sections?.popularGames!.games!.map((game) => ({
         title: game.name,
         slug: game.slug,
         developers: game.developers[0].name,
         img: `http://localhost:1337${game.cover?.url}`,
         price: game.price,
       })),
+      upcomingGamesTitle: sections?.upcomingGames?.title,
       upcomingGames: upcomingGames.map((game) => ({
         title: game.name,
         slug: game.slug,
@@ -56,6 +59,7 @@ export const getStaticProps: GetStaticProps = async () => {
         price: game.price,
       })),
       upcomingHighlight: highlightMock,
+      freeGamesTitle: sections?.freeGames?.title,
       freeGames: freeGames.map((game) => ({
         title: game.name,
         slug: game.slug,
