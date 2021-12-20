@@ -16,7 +16,7 @@ export default function Home(props: HomeTemplateProps) {
 export const getStaticProps: GetStaticProps = async () => {
   const apolloClient = initializeApollo()
   const {
-    data: { banners, newGames },
+    data: { banners, newGames, upcomingGames },
   } = await apolloClient.query<GetHome>({ query: GET_HOME })
 
   return {
@@ -43,7 +43,13 @@ export const getStaticProps: GetStaticProps = async () => {
       })),
       mostPopularHighlight: highlightMock,
       mostPopularGames: gamesMock,
-      upcomingGames: gamesMock,
+      upcomingGames: upcomingGames.map((game) => ({
+        title: game.name,
+        slug: game.slug,
+        developers: game.developers[0].name,
+        img: `http://localhost:1337${game.cover?.url}`,
+        price: game.price,
+      })),
       upcomingHighlight: highlightMock,
       freeGames: gamesMock,
       freeHighlight: highlightMock,
