@@ -24,10 +24,10 @@ jest.mock('templates/Base', () => ({
   },
 }))
 
-jest.mock('components/Showcase', () => ({
+jest.mock('components/ShowCase', () => ({
   __esModule: true,
   default: function Mock() {
-    return <div data-testid="Mock Showcase" />
+    return <div data-testid="Mock ShowCase" />
   },
 }))
 
@@ -61,7 +61,7 @@ describe('<Cart />', () => {
     ).toBeInTheDocument()
     expect(screen.getByTestId('Mock Cart')).toBeInTheDocument()
     expect(screen.getByTestId('Mock PaymentOptions')).toBeInTheDocument()
-    expect(screen.getByTestId('Mock Showcase')).toBeInTheDocument()
+    expect(screen.getByTestId('Mock ShowCase')).toBeInTheDocument()
     expect(screen.queryByTestId('Mock Empty')).not.toBeInTheDocument()
   })
 

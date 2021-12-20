@@ -49,10 +49,10 @@ jest.mock('components/GameInfo', () => ({
   },
 }))
 
-jest.mock('components/Showcase', () => ({
+jest.mock('components/ShowCase', () => ({
   __esModule: true,
   default: function Mock() {
-    return <div data-testid="Mock Showcase" />
+    return <div data-testid="Mock ShowCase" />
   },
 }))
 
@@ -62,7 +62,7 @@ describe('<Game />', () => {
     expect(screen.getByTestId('Mock Gallery')).toBeInTheDocument()
     expect(screen.getByTestId('Mock GameDetails')).toBeInTheDocument()
     expect(screen.getByTestId('Mock GameInfo')).toBeInTheDocument()
-    expect(screen.getAllByTestId('Mock Showcase')).toHaveLength(2)
+    expect(screen.getAllByTestId('Mock ShowCase')).toHaveLength(2)
     expect(screen.getByText(/custom html/i)).toBeInTheDocument()
   })
 

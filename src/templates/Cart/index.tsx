@@ -10,7 +10,7 @@ import CartList, { CartListProps } from 'components/CartList'
 import Empty from 'components/Empty'
 import Heading from 'components/Heading'
 import PaymentOptions, { PaymentOptionsProps } from 'components/PaymentOptions'
-import Showcase from 'components/Showcase'
+import ShowCase from 'components/ShowCase'
 
 import * as S from './styles'
 
@@ -60,7 +60,7 @@ const CartTemplate = ({
         <Divider />
       </Container>
 
-      <Showcase
+      <ShowCase
         title="You may like these games"
         games={recommendedGames}
         highlight={recommendedHighlight}

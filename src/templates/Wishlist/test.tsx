@@ -13,10 +13,10 @@ const props = {
   recommendedGames: gamesMock,
 }
 
-jest.mock('components/Showcase', () => ({
+jest.mock('components/ShowCase', () => ({
   __esModule: true,
   default: function Mock() {
-    return <div data-testid="Mock Showcase" />
+    return <div data-testid="Mock ShowCase" />
   },
 }))
 
@@ -29,7 +29,7 @@ describe('<Wishlist />', () => {
     ).toBeInTheDocument()
 
     expect(screen.getAllByText(/population zero/i)).toHaveLength(6)
-    expect(screen.getByTestId('Mock Showcase')).toBeInTheDocument()
+    expect(screen.getByTestId('Mock ShowCase')).toBeInTheDocument()
   })
 
   it('should render empty when there are no games', () => {

@@ -7,7 +7,7 @@ import { HighlightProps } from 'components/Highlight'
 import Empty from 'components/Empty'
 import GameCard, { GameCardProps } from 'components/GameCard'
 import Heading from 'components/Heading'
-import Showcase from 'components/Showcase'
+import ShowCase from 'components/ShowCase'
 
 export type WishlistTemplateProps = {
   games?: GameCardProps[]
@@ -43,7 +43,7 @@ const WishlistTemplate = ({
       <Divider />
     </Container>
 
-    <Showcase
+    <ShowCase
       title="You may like these games"
       games={recommendedGames}
       highlight={recommendedHighlight}
