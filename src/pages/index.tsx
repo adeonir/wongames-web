@@ -2,8 +2,6 @@ import { GetStaticProps } from 'next'
 
 import HomeTemplate, { HomeTemplateProps } from 'templates/Home'
 
-import highlightMock from 'components/Highlight/mock'
-
 import { initializeApollo } from 'services'
 import { GET_HOME } from 'graphql/queries'
 import { GetHome } from 'graphql/types'
