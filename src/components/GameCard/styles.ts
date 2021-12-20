@@ -29,6 +29,7 @@ export const ImageBox = styled.a`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transform: scale(100.01%);
   }
 
   @keyframes placeholderShimmer {

@@ -48,6 +48,16 @@ describe('<GameCard />', () => {
     expect(price).toHaveStyle({ backgroundColor: theme.colors.secondary })
   })
 
+  it('should render "FREE" in label if price is 0', () => {
+    const freeGame = { ...props, price: 0 }
+
+    renderWithTheme(<GameCard {...freeGame} />)
+
+    const price = screen.getByText('FREE')
+
+    expect(price).toHaveStyle({ backgroundColor: theme.colors.secondary })
+  })
+
   it('should render a line-through in price when promotional', () => {
     renderWithTheme(<GameCard {...props} promotionalPrice={215} />)
 
