@@ -240,3 +240,7 @@ export interface GetHome {
   freeGames: GetHome_freeGames[]
   sections: GetHome_sections | null
 }
+
+export interface GetHomeVariables {
+  date: any
+}
