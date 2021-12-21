@@ -10,17 +10,14 @@ import { ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT } from './globalTypes'
 // ====================================================
 
 export interface GetUpcoming_upcomingGames_cover {
-  __typename: 'UploadFile'
   url: string
 }
 
 export interface GetUpcoming_upcomingGames_developers {
-  __typename: 'Developer'
   name: string
 }
 
 export interface GetUpcoming_upcomingGames {
-  __typename: 'Game'
   name: string
   slug: string
   cover: GetUpcoming_upcomingGames_cover | null
@@ -29,17 +26,14 @@ export interface GetUpcoming_upcomingGames {
 }
 
 export interface GetUpcoming_showCase_upcomingGames_highlight_background {
-  __typename: 'UploadFile'
   url: string
 }
 
 export interface GetUpcoming_showCase_upcomingGames_highlight_floatImage {
-  __typename: 'UploadFile'
   url: string
 }
 
 export interface GetUpcoming_showCase_upcomingGames_highlight {
-  __typename: 'ComponentPageHighlight'
   title: string
   subtitle: string
   background: GetUpcoming_showCase_upcomingGames_highlight_background | null
@@ -50,13 +44,11 @@ export interface GetUpcoming_showCase_upcomingGames_highlight {
 }
 
 export interface GetUpcoming_showCase_upcomingGames {
-  __typename: 'ComponentPageSection'
   title: string | null
   highlight: GetUpcoming_showCase_upcomingGames_highlight | null
 }
 
 export interface GetUpcoming_showCase {
-  __typename: 'Home'
   upcomingGames: GetUpcoming_showCase_upcomingGames | null
 }
 

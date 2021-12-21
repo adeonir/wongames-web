@@ -1,9 +1,11 @@
-import { screen } from '@testing-library/react'
+import { MockedProvider } from '@apollo/client/testing'
+
 import { renderWithTheme } from 'utils/tests/helpers'
 import gamesMock from 'components/GameCardSlider/mock'
 import filterItemsMock from 'components/ExploreSidebar/mock'
 
 import Games from '.'
+import React from 'react'
 
 jest.mock('templates/Base', () => ({
   __esModule: true,
@@ -29,7 +31,9 @@ jest.mock('components/GameCard', () => ({
 describe('<Games />', () => {
   it('should render sections', () => {
     renderWithTheme(
-      <Games filterItems={filterItemsMock} games={[gamesMock[0]]} />
+      <MockedProvider mocks={gamesMock} addTypename={false}>
+        <Games filterItems={filterItemsMock} games={[gamesMock[0]]} />
+      </MockedProvider>
     )
 
     expect(screen.getByTestId('Mock ExploreSidebar')).toBeInTheDocument()
