@@ -10,38 +10,31 @@ import { ENUM_GAME_RATING } from './globalTypes'
 // ====================================================
 
 export interface GetGameBySlug_games_gallery {
-  __typename: 'UploadFile'
   url: string
   alternativeText: string | null
 }
 
 export interface GetGameBySlug_games_cover {
-  __typename: 'UploadFile'
   url: string
 }
 
 export interface GetGameBySlug_games_developers {
-  __typename: 'Developer'
   name: string
 }
 
 export interface GetGameBySlug_games_publisher {
-  __typename: 'Publisher'
   name: string
 }
 
 export interface GetGameBySlug_games_categories {
-  __typename: 'Category'
   name: string
 }
 
 export interface GetGameBySlug_games_platforms {
-  __typename: 'Platform'
   name: string
 }
 
 export interface GetGameBySlug_games {
-  __typename: 'Game'
   name: string
   short_description: string
   description: string

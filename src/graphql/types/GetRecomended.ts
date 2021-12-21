@@ -10,17 +10,14 @@ import { ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT } from './globalTypes'
 // ====================================================
 
 export interface GetRecomended_recommended_section_highlight_background {
-  __typename: 'UploadFile'
   url: string
 }
 
 export interface GetRecomended_recommended_section_highlight_floatImage {
-  __typename: 'UploadFile'
   url: string
 }
 
 export interface GetRecomended_recommended_section_highlight {
-  __typename: 'ComponentPageHighlight'
   title: string
   subtitle: string
   background: GetRecomended_recommended_section_highlight_background | null
@@ -31,17 +28,14 @@ export interface GetRecomended_recommended_section_highlight {
 }
 
 export interface GetRecomended_recommended_section_games_cover {
-  __typename: 'UploadFile'
   url: string
 }
 
 export interface GetRecomended_recommended_section_games_developers {
-  __typename: 'Developer'
   name: string
 }
 
 export interface GetRecomended_recommended_section_games {
-  __typename: 'Game'
   name: string
   slug: string
   cover: GetRecomended_recommended_section_games_cover | null
@@ -50,14 +44,12 @@ export interface GetRecomended_recommended_section_games {
 }
 
 export interface GetRecomended_recommended_section {
-  __typename: 'ComponentPagePopularGames'
   title: string
   highlight: GetRecomended_recommended_section_highlight | null
   games: GetRecomended_recommended_section_games[]
 }
 
 export interface GetRecomended_recommended {
-  __typename: 'Recommended'
   section: GetRecomended_recommended_section | null
 }
 

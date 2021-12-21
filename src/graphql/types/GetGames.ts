@@ -8,17 +8,14 @@
 // ====================================================
 
 export interface GetGames_games_cover {
-  __typename: 'UploadFile'
   url: string
 }
 
 export interface GetGames_games_developers {
-  __typename: 'Developer'
   name: string
 }
 
 export interface GetGames_games {
-  __typename: 'Game'
   name: string
   slug: string
   cover: GetGames_games_cover | null
