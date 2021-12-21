@@ -3,9 +3,8 @@ import { GetStaticProps } from 'next'
 import HomeTemplate, { HomeTemplateProps } from 'templates/Home'
 
 import { initializeApollo } from 'services'
-import { GET_HOME } from 'graphql/queries'
 import { GetHome, GetHomeVariables } from 'graphql/types'
-
+import { GET_HOME } from 'graphql/queries'
 import { bannersMapper, gamesMapper, highlightMapper } from 'utils'
 
 export default function Home(props: HomeTemplateProps) {
