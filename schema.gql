@@ -588,7 +588,6 @@ type Home {
   upcomingGames: ComponentPageSection
   freeGames: ComponentPageSection
   popularGames: ComponentPagePopularGames
-  published_at: DateTime
 }
 
 input HomeInput {
@@ -596,7 +595,6 @@ input HomeInput {
   upcomingGames: ComponentPageSectionInput
   freeGames: ComponentPageSectionInput
   popularGames: ComponentPagePopularGameInput
-  published_at: DateTime
   created_by: ID
   updated_by: ID
 }
@@ -606,7 +604,6 @@ input editHomeInput {
   upcomingGames: editComponentPageSectionInput
   freeGames: editComponentPageSectionInput
   popularGames: editComponentPagePopularGameInput
-  published_at: DateTime
   created_by: ID
   updated_by: ID
 }

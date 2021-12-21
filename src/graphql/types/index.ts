@@ -1,3 +1,7 @@
+export * from './BannerFragment'
+export * from './GameFragment'
 export * from './GetGameBySlug'
 export * from './GetGames'
 export * from './GetHome'
+export * from './GetRecommended'
+export * from './HighlightFragment'
