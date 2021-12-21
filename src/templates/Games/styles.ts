@@ -5,9 +5,9 @@ import { Container } from 'components/Container'
 export const Main = styled(Container)`
   ${({ theme }) => css`
     ${media.greaterThan('medium')`
-    display: grid;
-    grid-template-columns: 26rem 1fr;
-    gap: ${theme.grid.gutter};
+      display: grid;
+      grid-template-columns: 26rem 1fr;
+      gap: ${theme.grid.gutter};
     `}
   `}
 `
@@ -24,5 +24,12 @@ export const ShowMore = styled.div`
     > svg {
       color: ${theme.colors.primary};
     }
+  `}
+`
+
+export const Loading = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.colors.white};
+    font-weight: bold;
   `}
 `
