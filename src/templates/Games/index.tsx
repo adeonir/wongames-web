@@ -1,4 +1,9 @@
+import { useQuery } from '@apollo/client'
 import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined/KeyboardArrowDown'
+
+import { GetGames, GetGamesVariables } from 'graphql/types'
+import { GET_GAMES } from 'graphql/queries'
+import { singleGameMapper } from 'utils'
 
 import BaseTemplate from 'templates/Base'
 
@@ -13,7 +18,11 @@ export type GamesTemplateProps = {
   filterItems: ItemProps[]
 }
 
-const GamesTemplate = ({ filterItems, games = [] }: GamesTemplateProps) => {
+const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
+  const { data } = useQuery<GetGames, GetGamesVariables>(GET_GAMES, {
+    variables: { limit: 15 },
+  })
+
   const handleFilter = () => {
     return
   }
@@ -29,8 +38,8 @@ const GamesTemplate = ({ filterItems, games = [] }: GamesTemplateProps) => {
 
         <section>
           <Grid>
-            {games.map((item) => (
-              <GameCard key={item.title} {...item} />
+            {data?.games.map((game) => (
+              <GameCard key={game.slug} {...singleGameMapper(game)} />
             ))}
           </Grid>
 
