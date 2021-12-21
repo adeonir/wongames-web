@@ -19,17 +19,18 @@ export const bannersMapper = (banners: GetHome_banners[]) => {
   }))
 }
 
+export const singleGameMapper = (game: GetGames_games) => {
+  return {
+    title: game.name,
+    slug: game.slug,
+    developer: game.developers[0].name,
+    img: `http://localhost:1337${game.cover?.url}`,
+    price: game.price,
+  }
+}
+
 export const gamesMapper = (games: GetGames_games[] | null | undefined) => {
-  return (
-    games &&
-    games.map((game) => ({
-      title: game.name,
-      slug: game.slug,
-      developers: game.developers[0].name,
-      img: `http://localhost:1337${game.cover?.url}`,
-      price: game.price,
-    }))
-  )
+  return games && games.map((game) => singleGameMapper(game))
 }
 
 export const highlightMapper = (
