@@ -6,7 +6,7 @@ import { initializeApollo } from 'services'
 import { GET_HOME } from 'graphql/queries'
 import { GetHome, GetHomeVariables } from 'graphql/types'
 
-import { bannersMapper, gamesMapper, highligtMapper } from 'utils'
+import { bannersMapper, gamesMapper, highlightMapper } from 'utils'
 
 export default function Home(props: HomeTemplateProps) {
   return <HomeTemplate {...props} />
@@ -30,14 +30,14 @@ export const getStaticProps: GetStaticProps = async () => {
       newGamesTitle: sections?.newGames?.title,
       newGames: gamesMapper(newGames),
       popularGamesTitle: sections?.popularGames?.title,
-      popularGamesHighlight: highligtMapper(sections?.popularGames?.highlight),
+      popularGamesHighlight: highlightMapper(sections?.popularGames?.highlight),
       popularGames: gamesMapper(sections?.popularGames?.games),
       upcomingGamesTitle: sections?.upcomingGames?.title,
       upcomingGames: gamesMapper(upcomingGames),
-      upcomingHighlight: highligtMapper(sections?.upcomingGames?.highlight),
+      upcomingHighlight: highlightMapper(sections?.upcomingGames?.highlight),
       freeGamesTitle: sections?.freeGames?.title,
       freeGames: gamesMapper(freeGames),
-      freeHighlight: highligtMapper(sections?.freeGames?.highlight),
+      freeHighlight: highlightMapper(sections?.freeGames?.highlight),
     },
   }
 }

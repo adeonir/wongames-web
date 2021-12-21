@@ -32,7 +32,7 @@ export const gamesMapper = (games: GetGames_games[] | null | undefined) => {
   )
 }
 
-export const highligtMapper = (
+export const highlightMapper = (
   highlight: GetHome_sections_freeGames_highlight | null | undefined
 ) => {
   return (
