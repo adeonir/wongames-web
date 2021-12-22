@@ -19,6 +19,7 @@
 .DS_Store
 .vscode
 .idea
+schema-temp.gql
 
 # debug
 npm-debug.log*
