@@ -7,7 +7,7 @@ export default {
   component: CartIcon,
   parameters: {
     backgrounds: {
-      default: 'won-dark',
+      default: 'dark',
     },
   },
 } as ComponentMeta<typeof CartIcon>
