@@ -1,5 +1,6 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
-import OrdersList, { OrdersListProps } from '.'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+
+import OrdersList from '.'
 
 import itemsMock from './mock'
 
@@ -9,9 +10,9 @@ export default {
   args: {
     items: itemsMock,
   },
-} as Meta
+} as ComponentMeta<typeof OrdersList>
 
-export const Default: Story<OrdersListProps> = (args) => (
+export const Default: ComponentStory<typeof OrdersList> = (args) => (
   <div style={{ maxWidth: 850, margin: 'auto' }}>
     <OrdersList {...args} />
   </div>

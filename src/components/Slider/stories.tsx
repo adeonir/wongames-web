@@ -1,5 +1,7 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+
 import { Settings } from 'react-slick'
+
 import styled from 'styled-components'
 
 import Slider from '.'
@@ -7,7 +9,7 @@ import Slider from '.'
 export default {
   title: 'Slider',
   component: Slider,
-} as Meta
+} as ComponentMeta<typeof Slider>
 
 const settings: Settings = {
   dots: true,
@@ -26,7 +28,7 @@ const Slide = styled.div`
   text-align: center;
 `
 
-export const Horizontal: Story = () => (
+export const Horizontal: ComponentStory<typeof Slider> = () => (
   <Slider settings={settings}>
     <Slide>1</Slide>
     <Slide>2</Slide>
@@ -45,7 +47,7 @@ const verticalSettings: Settings = {
   slidesToShow: 1,
 }
 
-export const Vertical: Story = () => (
+export const Vertical: ComponentStory<typeof Slider> = () => (
   <Slider settings={verticalSettings}>
     <Slide>1</Slide>
     <Slide>2</Slide>

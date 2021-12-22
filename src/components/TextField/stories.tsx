@@ -1,7 +1,7 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Email } from '@styled-icons/material-outlined'
 
-import TextField, { TextFieldProps } from '.'
+import TextField from '.'
 
 export default {
   title: 'Form/TextField',
@@ -16,17 +16,19 @@ export default {
   },
   argTypes: {
     onInput: { action: 'changed' },
-    icon: { type: '' },
+    icon: {
+      type: undefined,
+    },
   },
-} as Meta
+} as ComponentMeta<typeof TextField>
 
-export const Default: Story<TextFieldProps> = (args) => (
+export const Default: ComponentStory<typeof TextField> = (args) => (
   <div style={{ maxWidth: 300, padding: 15 }}>
     <TextField {...args} />
   </div>
 )
 
-export const withError: Story<TextFieldProps> = (args) => (
+export const withError: ComponentStory<typeof TextField> = (args) => (
   <div style={{ maxWidth: 300, padding: 15 }}>
     <TextField {...args} />
   </div>

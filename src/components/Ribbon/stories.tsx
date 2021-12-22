@@ -1,5 +1,6 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
-import Ribbon, { RibbonProps } from '.'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+
+import Ribbon from '.'
 
 export default {
   title: 'Ribbon',
@@ -12,9 +13,9 @@ export default {
       type: 'string',
     },
   },
-} as Meta
+} as ComponentMeta<typeof Ribbon>
 
-export const Default: Story<RibbonProps> = (args) => (
+export const Default: ComponentStory<typeof Ribbon> = (args) => (
   <div
     style={{
       width: '40rem',

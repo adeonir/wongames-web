@@ -1,5 +1,6 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
-import CartList, { CartListProps } from '.'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+
+import CartList from '.'
 
 import mockItems from './mock'
 
@@ -12,7 +13,7 @@ export default {
   },
   argTypes: {
     items: {
-      type: '',
+      type: undefined,
     },
   },
   parameters: {
@@ -20,21 +21,21 @@ export default {
       default: 'won-dark',
     },
   },
-} as Meta
+} as ComponentMeta<typeof CartList>
 
-export const Default: Story<CartListProps> = (args) => (
+export const Default: ComponentStory<typeof CartList> = (args) => (
   <div style={{ maxWidth: 800 }}>
     <CartList {...args} />
   </div>
 )
 
-export const WithButton: Story<CartListProps> = (args) => (
+export const WithButton: ComponentStory<typeof CartList> = (args) => (
   <div style={{ maxWidth: 800 }}>
     <CartList {...args} hasButton />
   </div>
 )
 
-export const Empty: Story<CartListProps> = () => (
+export const Empty: ComponentStory<typeof CartList> = () => (
   <div style={{ maxWidth: 800 }}>
     <CartList />
   </div>

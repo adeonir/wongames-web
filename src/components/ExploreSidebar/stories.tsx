@@ -1,5 +1,6 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
-import ExploreSidebar, { ExploreSidebarProps } from '.'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+
+import ExploreSidebar from '.'
 
 import items from './mock'
 
@@ -15,15 +16,17 @@ export default {
       default: 'won-dark',
     },
   },
-} as Meta
+} as ComponentMeta<typeof ExploreSidebar>
 
-export const Default: Story<ExploreSidebarProps> = (args) => (
+export const Default: ComponentStory<typeof ExploreSidebar> = (args) => (
   <div style={{ padding: 16, maxWidth: 320 }}>
     <ExploreSidebar {...args} />
   </div>
 )
 
-export const WithInitialValues: Story<ExploreSidebarProps> = (args) => (
+export const WithInitialValues: ComponentStory<typeof ExploreSidebar> = (
+  args
+) => (
   <div style={{ padding: 16, maxWidth: 320 }}>
     <ExploreSidebar
       {...args}

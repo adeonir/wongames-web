@@ -1,5 +1,6 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
-import Heading, { HeadingProps } from '.'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+
+import Heading from '.'
 
 export default {
   title: 'Heading',
@@ -9,9 +10,11 @@ export default {
       type: 'string',
     },
   },
-} as Meta
+} as ComponentMeta<typeof Heading>
 
-export const Default: Story<HeadingProps> = (args) => <Heading {...args} />
+export const Default: ComponentStory<typeof Heading> = (args) => (
+  <Heading {...args} />
+)
 
 Default.args = {
   children: 'Most Populars',
