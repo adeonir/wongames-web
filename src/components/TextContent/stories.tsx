@@ -10,7 +10,7 @@ export default {
   args: textMock,
   parameters: {
     backgrounds: {
-      default: 'won-dark',
+      default: 'dark',
     },
   },
 } as ComponentMeta<typeof TextContent>

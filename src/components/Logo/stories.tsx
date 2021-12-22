@@ -6,7 +6,7 @@ export default {
   component: Logo,
   parameters: {
     backgrounds: {
-      default: 'won-dark',
+      default: 'dark',
     },
   },
 } as ComponentMeta<typeof Logo>
