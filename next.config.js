@@ -7,4 +7,7 @@ module.exports = withPWA({
     dest: 'public',
     disable: !isProduction,
   },
+  images: {
+    formats: ['image/avif', 'image/webp'],
+  },
 })
