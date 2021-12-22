@@ -3,11 +3,12 @@ import { GameFragment } from 'graphql/fragments'
 import { GetGames, GetGamesVariables } from 'graphql/types'
 
 export const GET_GAMES = gql`
-  query GetGames($limit: Int!, $start: Int) {
-    games(limit: $limit, start: $start) {
+  query GetGames($limit: Int!, $start: Int, $where: JSON, $sort: String) {
+    games(limit: $limit, start: $start, where: $where, sort: $sort) {
       ...GameFragment
     }
   }
+
   ${GameFragment}
 `
 
