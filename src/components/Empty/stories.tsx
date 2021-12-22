@@ -1,5 +1,6 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
-import Empty, { EmptyProps } from '.'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+
+import Empty from '.'
 
 export default {
   title: 'Empty',
@@ -9,9 +10,11 @@ export default {
       default: 'won-dark',
     },
   },
-} as Meta
+} as ComponentMeta<typeof Empty>
 
-export const Default: Story<EmptyProps> = (args) => <Empty {...args} />
+export const Default: ComponentStory<typeof Empty> = (args) => (
+  <Empty {...args} />
+)
 
 Default.args = {
   title: 'Your wishlist is empty',

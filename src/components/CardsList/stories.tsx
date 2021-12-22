@@ -1,5 +1,6 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
-import CardsList, { CardsListProps } from '.'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+
+import CardsList from '.'
 
 import cardsMock from 'components/PaymentOptions/mock'
 
@@ -9,9 +10,9 @@ export default {
   args: {
     cards: cardsMock,
   },
-} as Meta
+} as ComponentMeta<typeof CardsList>
 
-export const Default: Story<CardsListProps> = (args) => (
+export const Default: ComponentStory<typeof CardsList> = (args) => (
   <div style={{ maxWidth: 850, margin: 'auto' }}>
     <CardsList {...args} />
   </div>

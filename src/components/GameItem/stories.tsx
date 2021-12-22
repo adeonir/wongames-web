@@ -1,5 +1,6 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
-import GameItem, { GameItemProps } from '.'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+
+import GameItem from '.'
 
 export default {
   title: 'GameItem',
@@ -7,13 +8,15 @@ export default {
   args: {
     img: 'https://source.unsplash.com/user/willianjusten/151x70',
     title: 'Red Dead Redemption 2',
-    price: 'R$ 215,00',
+    price: 215,
   },
-} as Meta
+} as ComponentMeta<typeof GameItem>
 
-export const Default: Story<GameItemProps> = (args) => <GameItem {...args} />
+export const Default: ComponentStory<typeof GameItem> = (args) => (
+  <GameItem {...args} />
+)
 
-export const WithPayment: Story<GameItemProps> = (args) => (
+export const WithPayment: ComponentStory<typeof GameItem> = (args) => (
   <GameItem {...args} />
 )
 

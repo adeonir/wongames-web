@@ -1,5 +1,6 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
-import Radio, { RadioProps } from '.'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+
+import Radio from '.'
 
 export default {
   title: 'Form/Radio',
@@ -13,9 +14,9 @@ export default {
   argTypes: {
     onCheck: { action: 'checked' },
   },
-} as Meta
+} as ComponentMeta<typeof Radio>
 
-export const Default: Story<RadioProps> = (args) => (
+export const Default: ComponentStory<typeof Radio> = (args) => (
   <>
     <div style={{ padding: 10 }}>
       <Radio

@@ -1,9 +1,9 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import highlightMock from 'components/Highlight/mock'
 import gamesMock from 'components/GameCardSlider/mock'
 
-import ShowCase, { ShowCaseProps } from '.'
+import ShowCase from '.'
 
 export default {
   title: 'ShowCase',
@@ -21,9 +21,11 @@ export default {
       default: 'won-dark',
     },
   },
-} as Meta
+} as ComponentMeta<typeof ShowCase>
 
-export const Default: Story<ShowCaseProps> = (args) => <ShowCase {...args} />
+export const Default: ComponentStory<typeof ShowCase> = (args) => (
+  <ShowCase {...args} />
+)
 
 Default.args = {
   title: 'Most Popular',
@@ -31,7 +33,7 @@ Default.args = {
   games: gamesMock,
 }
 
-export const WithoutHighlight: Story<ShowCaseProps> = (args) => (
+export const WithoutHighlight: ComponentStory<typeof ShowCase> = (args) => (
   <ShowCase {...args} />
 )
 
@@ -40,7 +42,7 @@ WithoutHighlight.args = {
   games: gamesMock,
 }
 
-export const WithoutGames: Story<ShowCaseProps> = (args) => (
+export const WithoutGames: ComponentStory<typeof ShowCase> = (args) => (
   <ShowCase {...args} />
 )
 

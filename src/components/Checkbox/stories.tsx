@@ -1,5 +1,6 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
-import Checkbox, { CheckboxProps } from '.'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+
+import Checkbox from '.'
 
 export default {
   title: 'Form/Checkbox',
@@ -13,9 +14,9 @@ export default {
   argTypes: {
     onCheck: { action: 'checked' },
   },
-} as Meta
+} as ComponentMeta<typeof Checkbox>
 
-export const Default: Story<CheckboxProps> = (args) => (
+export const Default: ComponentStory<typeof Checkbox> = (args) => (
   <>
     <div style={{ padding: 10 }}>
       <Checkbox

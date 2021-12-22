@@ -1,5 +1,6 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
-import CartDropdown, { CartDropdownProps } from '.'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+
+import CartDropdown from '.'
 
 import items from 'components/CartList/mock'
 
@@ -15,15 +16,15 @@ export default {
       default: 'won-dark',
     },
   },
-} as Meta
+} as ComponentMeta<typeof CartDropdown>
 
-export const Default: Story<CartDropdownProps> = (args) => (
+export const Default: ComponentStory<typeof CartDropdown> = (args) => (
   <div style={{ maxWidth: '98%', display: 'flex', justifyContent: 'flex-end' }}>
     <CartDropdown {...args} />
   </div>
 )
 
-export const Empty: Story<CartDropdownProps> = () => (
+export const Empty: ComponentStory<typeof CartDropdown> = () => (
   <div style={{ maxWidth: '98%', display: 'flex', justifyContent: 'flex-end' }}>
     <CartDropdown />
   </div>
