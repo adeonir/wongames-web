@@ -1,7 +1,8 @@
+import { ParsedUrlQueryInput } from 'querystring'
 import { useRouter } from 'next/router'
 import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined/KeyboardArrowDown'
 
-import { useQueryGames } from 'graphql/queries'
+import { useQueryGames } from 'graphql/queries/games'
 import {
   parseQueryStringToFilter,
   parseQueryStringToSearch,
@@ -10,12 +11,11 @@ import {
 
 import BaseTemplate from 'templates/Base'
 
-import { Grid } from 'components/Grid'
 import ExploreSidebar, { ItemProps } from 'components/ExploreSidebar'
 import GameCard from 'components/GameCard'
+import { Grid } from 'components/Grid'
 
 import * as S from './styles'
-import { ParsedUrlQueryInput } from 'querystring'
 
 export type GamesTemplateProps = {
   filterItems: ItemProps[]
@@ -41,12 +41,7 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
   }
 
   const handleShowMore = () => {
-    fetchMore({
-      variables: {
-        limit: 15,
-        start: data?.games?.length,
-      },
-    })
+    fetchMore({ variables: { limit: 15, start: data?.games.length } })
   }
 
   return (

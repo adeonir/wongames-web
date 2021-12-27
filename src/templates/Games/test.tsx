@@ -10,6 +10,18 @@ import { fetchMoreMock, gamesMock } from 'templates/Games/mock'
 
 import Games from '.'
 
+jest.mock('next/router')
+
+const push = jest.fn()
+const useRouter = jest.spyOn(require('next/router'), 'useRouter')
+
+useRouter.mockImplementation(() => ({
+  push,
+  query: '',
+  asPath: '',
+  route: '/',
+}))
+
 jest.mock('templates/Base', () => ({
   __esModule: true,
   default: function Mock({ children }: { children: React.ReactNode }) {
@@ -17,56 +29,63 @@ jest.mock('templates/Base', () => ({
   },
 }))
 
-jest.mock('components/ExploreSidebar', () => ({
-  __esModule: true,
-  default: function Mock({ children }: { children: React.ReactNode }) {
-    return <div data-testid="Mock ExploreSidebar">{children}</div>
-  },
-}))
-
 describe('<Games />', () => {
   it('should render loading when template starts', () => {
     renderWithTheme(
-      <MockedProvider mocks={[]}>
+      <MockedProvider mocks={[]} addTypename={false}>
         <Games filterItems={filterItemsMock} />
       </MockedProvider>
     )
 
-    expect(screen.getByText('Loading...')).toBeInTheDocument()
+    expect(screen.getByText(/loading.../i)).toBeInTheDocument()
   })
 
   it('should render sections', async () => {
     renderWithTheme(
-      <MockedProvider mocks={[gamesMock]}>
+      <MockedProvider mocks={[gamesMock]} addTypename={false}>
         <Games filterItems={filterItemsMock} />
       </MockedProvider>
     )
 
-    await waitFor(() => {
-      expect(screen.getByTestId('Mock ExploreSidebar')).toBeInTheDocument()
-      expect(screen.getByText('Mad Max')).toBeInTheDocument()
+    expect(screen.getByText(/loading.../i)).toBeInTheDocument()
 
+    await waitFor(() => {
+      expect(screen.getByText(/price/i)).toBeInTheDocument()
+      expect(screen.getByText(/mad max/i)).toBeInTheDocument()
       expect(
         screen.getByRole('button', { name: /show more/i })
       ).toBeInTheDocument()
     })
   })
 
-  it('should render more games when `show more` is clicked', async () => {
+  it('should render more games when show more is clicked', async () => {
     renderWithTheme(
       <MockedProvider mocks={[gamesMock, fetchMoreMock]} cache={apolloCache}>
         <Games filterItems={filterItemsMock} />
       </MockedProvider>
     )
 
-    await waitFor(() => {
-      expect(screen.getByText('Mad Max')).toBeInTheDocument()
-    })
+    expect(await screen.findByText(/mad max/i)).toBeInTheDocument()
 
-    userEvent.click(screen.getByRole('button', { name: /show more/i }))
+    userEvent.click(await screen.findByRole('button', { name: /show more/i }))
 
-    await waitFor(() => {
-      expect(screen.getByText('Cyberpunk 2077')).toBeInTheDocument()
+    expect(await screen.findByText(/cyberpunk 2077/i)).toBeInTheDocument()
+  })
+
+  it('should change push router when selecting a filter', async () => {
+    renderWithTheme(
+      <MockedProvider mocks={[gamesMock, fetchMoreMock]} cache={apolloCache}>
+        <Games filterItems={filterItemsMock} />
+      </MockedProvider>
+    )
+
+    userEvent.click(await screen.findByRole('checkbox', { name: /windows/i }))
+    userEvent.click(await screen.findByRole('checkbox', { name: /linux/i }))
+    userEvent.click(await screen.findByRole('radio', { name: /low to high/i }))
+
+    expect(push).toHaveBeenCalledWith({
+      pathname: '/games',
+      query: { platforms: ['windows', 'linux'], sort_by: 'low-to-high' },
     })
   })
 })
