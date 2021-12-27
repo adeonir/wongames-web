@@ -14,6 +14,7 @@ import BaseTemplate from 'templates/Base'
 import ExploreSidebar, { ItemProps } from 'components/ExploreSidebar'
 import GameCard from 'components/GameCard'
 import { Grid } from 'components/Grid'
+import Empty from 'components/Empty'
 
 import * as S from './styles'
 
@@ -60,16 +61,25 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
           <S.Loading>Loading...</S.Loading>
         ) : (
           <section>
-            <Grid>
-              {data?.games.map((game) => (
-                <GameCard key={game.slug} {...singleGameMapper(game)} />
-              ))}
-            </Grid>
+            {data?.games.length ? (
+              <>
+                <Grid>
+                  {data?.games.map((game) => (
+                    <GameCard key={game.slug} {...singleGameMapper(game)} />
+                  ))}
+                </Grid>
 
-            <S.ShowMore role="button" onClick={handleShowMore}>
-              <p>Show More</p>
-              <ArrowDown size={35} />
-            </S.ShowMore>
+                <S.ShowMore role="button" onClick={handleShowMore}>
+                  <p>Show More</p>
+                  <ArrowDown size={35} />
+                </S.ShowMore>
+              </>
+            ) : (
+              <Empty
+                title=":("
+                description="We didn't find any games with these filters"
+              />
+            )}
           </section>
         )}
       </S.Main>
