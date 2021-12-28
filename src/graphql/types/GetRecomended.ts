@@ -36,6 +36,7 @@ export interface GetRecomended_recommended_section_games_developers {
 }
 
 export interface GetRecomended_recommended_section_games {
+  id: string
   name: string
   slug: string
   cover: GetRecomended_recommended_section_games_cover | null
