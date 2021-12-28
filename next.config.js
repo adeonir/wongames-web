@@ -13,5 +13,6 @@ module.exports = withPWA({
   },
   images: {
     formats: ['image/avif', 'image/webp'],
+    domains: ['localhost'],
   },
 })
