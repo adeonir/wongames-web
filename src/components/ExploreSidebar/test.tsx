@@ -106,9 +106,9 @@ describe('<ExploreSidebar />', () => {
 
     const variant = {
       media: '(max-width:768px)',
-      modifier: String(css`
+      modifier: css`
         ${Overlay}
-      `),
+      `,
     }
 
     const Element = container.firstChild

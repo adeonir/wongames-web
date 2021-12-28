@@ -31,21 +31,21 @@ export const singleGameMapper = (game: GetGames_games) => {
 }
 
 export const gamesMapper = (games: GetGames_games[] | null | undefined) => {
-  return games && games.map((game) => singleGameMapper(game))
+  return games ? games.map((game) => singleGameMapper(game)) : []
 }
 
 export const highlightMapper = (
   highlight: GetHome_sections_freeGames_highlight | null | undefined
 ) => {
-  return (
-    highlight && {
-      title: highlight.title,
-      subtitle: highlight.subtitle,
-      backgroundImage: `http://localhost:1337${highlight.background?.url}`,
-      floatImage: `http://localhost:1337${highlight.floatImage?.url}`,
-      buttonLabel: highlight.buttonLabel,
-      buttonLink: `/games/${highlight.buttonLink}`,
-      alignment: highlight.alignment,
-    }
-  )
+  return highlight
+    ? {
+        title: highlight.title,
+        subtitle: highlight.subtitle,
+        backgroundImage: `http://localhost:1337${highlight.background?.url}`,
+        floatImage: `http://localhost:1337${highlight.floatImage?.url}`,
+        buttonLabel: highlight.buttonLabel,
+        buttonLink: `${highlight.buttonLink}`,
+        alignment: highlight.alignment,
+      }
+    : {}
 }
