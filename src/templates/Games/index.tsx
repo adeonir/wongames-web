@@ -26,6 +26,7 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
   const { push, query } = useRouter()
 
   const { data, loading, fetchMore } = useQueryGames({
+    notifyOnNetworkStatusChange: true,
     variables: {
       limit: 15,
       where: parseQueryStringToSearch({ queryString: query, filterItems }),
@@ -57,31 +58,36 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
           onFilter={handleFilter}
         />
 
-        {loading ? (
-          <S.Loading>Loading...</S.Loading>
-        ) : (
-          <section>
-            {data?.games.length ? (
-              <>
-                <Grid>
-                  {data?.games.map((game) => (
-                    <GameCard key={game.slug} {...singleGameMapper(game)} />
-                  ))}
-                </Grid>
+        <section>
+          {data?.games.length ? (
+            <>
+              <Grid>
+                {data?.games.map((game) => (
+                  <GameCard key={game.slug} {...singleGameMapper(game)} />
+                ))}
+              </Grid>
 
-                <S.ShowMore role="button" onClick={handleShowMore}>
-                  <p>Show More</p>
-                  <ArrowDown size={35} />
-                </S.ShowMore>
-              </>
-            ) : (
-              <Empty
-                title=":("
-                description="We didn't find any games with these filters"
-              />
-            )}
-          </section>
-        )}
+              <S.ShowMore>
+                {loading ? (
+                  <S.ShowMoreLoading
+                    src="/img/dots.svg"
+                    alt="Loading more games"
+                  />
+                ) : (
+                  <S.ShowMoreButton role="button" onClick={handleShowMore}>
+                    <p>Show More</p>
+                    <ArrowDown size={35} />
+                  </S.ShowMoreButton>
+                )}
+              </S.ShowMore>
+            </>
+          ) : (
+            <Empty
+              title=":("
+              description="We didn't find any games with these filters"
+            />
+          )}
+        </section>
       </S.Main>
     </BaseTemplate>
   )
