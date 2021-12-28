@@ -35,3 +35,10 @@ export const ShowMoreButton = styled.div`
 export const ShowMoreLoading = styled.img`
   width: 4rem;
 `
+
+export const Loading = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.colors.white};
+    font-weight: bold;
+  `}
+`
