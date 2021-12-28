@@ -1,7 +1,6 @@
+import { useEffect, useState } from 'react'
 import { ParsedUrlQueryInput } from 'querystring'
 import xor from 'lodash.xor'
-
-import { useEffect, useState } from 'react'
 import { Close } from '@styled-icons/material-outlined/Close'
 import { FilterList } from '@styled-icons/material-outlined/FilterList'
 
@@ -45,13 +44,13 @@ const ExploreSidebar = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values])
 
-  const handleCheckbox = (name: string, value: string) => {
-    const currentValues = (values[name] as []) || []
-    setValues((state) => ({ ...state, [name]: xor(currentValues, [value]) }))
-  }
-
   const handleRadio = (name: string, value: string | boolean) => {
     setValues((state) => ({ ...state, [name]: value }))
+  }
+
+  const handleCheckbox = (name: string, value: string) => {
+    const currentList = (values[name] as []) || []
+    setValues((state) => ({ ...state, [name]: xor(currentList, [value]) }))
   }
 
   const handleFilterMenu = () => {
