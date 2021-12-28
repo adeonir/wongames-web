@@ -3,6 +3,10 @@ const withPWA = require('next-pwa')
 const isProduction = process.env.NODE_ENV === 'production'
 
 module.exports = withPWA({
+  swcMinify: true,
+  experimental: {
+    styledComponents: true,
+  },
   pwa: {
     dest: 'public',
     disable: !isProduction,
