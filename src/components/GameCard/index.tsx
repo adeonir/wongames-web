@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 import {
@@ -46,7 +47,7 @@ const GameCard = ({
     )}
     <Link href={`/game/${slug}`} passHref>
       <S.ImageBox>
-        <img src={img} alt={title} />
+        <Image src={img} alt={title} width={297} height={137} />
       </S.ImageBox>
     </Link>
     <S.Content>
