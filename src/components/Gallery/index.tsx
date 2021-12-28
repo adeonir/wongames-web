@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import { ArrowBackIos as ArrowLeft } from '@styled-icons/material-outlined/ArrowBackIos'
 import { ArrowForwardIos as ArrowRight } from '@styled-icons/material-outlined/ArrowForwardIos'
@@ -78,11 +79,13 @@ const Gallery = ({ items }: GalleryProps) => {
     <S.Wrapper>
       <Slider ref={slider} settings={settings}>
         {items.map((item, index) => (
-          <img
+          <Image
             role="button"
             key={`thumb-${index}`}
             src={item.src}
             alt={`Thumb - ${item.label}`}
+            width={293}
+            height={172}
             onClick={() => {
               setIsOpen(true)
               slider.current!.slickGoTo(index, true)
@@ -103,7 +106,13 @@ const Gallery = ({ items }: GalleryProps) => {
         <S.Content>
           <Slider ref={slider} settings={modalSettings}>
             {items.map((item, index) => (
-              <img key={`gallery-${index}`} src={item.src} alt={item.label} />
+              <Image
+                key={`gallery-${index}`}
+                src={item.src}
+                alt={item.label}
+                width={1200}
+                height={675}
+              />
             ))}
           </Slider>
         </S.Content>
