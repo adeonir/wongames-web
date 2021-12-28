@@ -14,7 +14,7 @@ module.exports = {
     '!src/utils/**/*.ts',
   ],
   setupFilesAfterEnv: ['<rootDir>/.jest/config.ts'],
-  modulePaths: ['<rootDir>/src', '<rootDir>/.jest'],
+  modulePaths: ['<rootDir>/src/', '<rootDir>/.jest'],
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
   },
