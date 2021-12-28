@@ -15,7 +15,7 @@ import {
   GetGamesVariables,
   GetGameBySlug,
   GetGameBySlugVariables,
-  GetRecomended,
+  GetRecommended,
   GetUpcoming,
   GetUpcomingVariables,
 } from 'graphql/types'
@@ -59,7 +59,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const [game] = data.games
 
-  const { data: item } = await apolloClient.query<GetRecomended>({
+  const { data: item } = await apolloClient.query<GetRecommended>({
     query: GET_RECOMMENDED,
   })
 

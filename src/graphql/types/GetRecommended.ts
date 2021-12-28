@@ -6,61 +6,54 @@
 import { ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT } from './globalTypes'
 
 // ====================================================
-// GraphQL query operation: GetRecomended
+// GraphQL query operation: GetRecommended
 // ====================================================
 
-export interface GetRecomended_recommended_section_highlight_background {
-  __typename: 'UploadFile'
+export interface GetRecommended_recommended_section_highlight_background {
   url: string
 }
 
-export interface GetRecomended_recommended_section_highlight_floatImage {
-  __typename: 'UploadFile'
+export interface GetRecommended_recommended_section_highlight_floatImage {
   url: string
 }
 
-export interface GetRecomended_recommended_section_highlight {
-  __typename: 'ComponentPageHighlight'
+export interface GetRecommended_recommended_section_highlight {
   title: string
   subtitle: string
-  background: GetRecomended_recommended_section_highlight_background | null
-  floatImage: GetRecomended_recommended_section_highlight_floatImage | null
+  background: GetRecommended_recommended_section_highlight_background | null
+  floatImage: GetRecommended_recommended_section_highlight_floatImage | null
   buttonLabel: string
   buttonLink: string
   alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT | null
 }
 
-export interface GetRecomended_recommended_section_games_cover {
-  __typename: 'UploadFile'
+export interface GetRecommended_recommended_section_games_cover {
   url: string
 }
 
-export interface GetRecomended_recommended_section_games_developers {
-  __typename: 'Developer'
+export interface GetRecommended_recommended_section_games_developers {
   name: string
 }
 
-export interface GetRecomended_recommended_section_games {
-  __typename: 'Game'
+export interface GetRecommended_recommended_section_games {
+  id: string
   name: string
   slug: string
-  cover: GetRecomended_recommended_section_games_cover | null
-  developers: GetRecomended_recommended_section_games_developers[]
+  cover: GetRecommended_recommended_section_games_cover | null
+  developers: GetRecommended_recommended_section_games_developers[]
   price: number
 }
 
-export interface GetRecomended_recommended_section {
-  __typename: 'ComponentPagePopularGames'
+export interface GetRecommended_recommended_section {
   title: string
-  highlight: GetRecomended_recommended_section_highlight | null
-  games: GetRecomended_recommended_section_games[]
+  highlight: GetRecommended_recommended_section_highlight | null
+  games: GetRecommended_recommended_section_games[]
 }
 
-export interface GetRecomended_recommended {
-  __typename: 'Recommended'
-  section: GetRecomended_recommended_section | null
+export interface GetRecommended_recommended {
+  section: GetRecommended_recommended_section | null
 }
 
-export interface GetRecomended {
-  recommended: GetRecomended_recommended | null
+export interface GetRecommended {
+  recommended: GetRecommended_recommended | null
 }

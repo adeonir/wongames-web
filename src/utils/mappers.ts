@@ -21,6 +21,7 @@ export const bannersMapper = (banners: GetHome_banners[]) => {
 
 export const singleGameMapper = (game: GetGames_games) => {
   return {
+    id: game.id,
     title: game.name,
     slug: game.slug,
     developer: game.developers[0].name,
