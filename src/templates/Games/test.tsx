@@ -6,7 +6,7 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import apolloCache from 'services'
 
 import filterItemsMock from 'components/ExploreSidebar/mock'
-import { fetchMoreMock, gamesMock } from 'templates/Games/mock'
+import { fetchMoreMock, gamesMock, noGamesMock } from 'templates/Games/mock'
 
 import Games from '.'
 
@@ -48,7 +48,7 @@ describe('<Games />', () => {
 
   it('should render emtpy when no games were found', async () => {
     renderWithTheme(
-      <MockedProvider mocks={[]} addTypename={false}>
+      <MockedProvider mocks={[noGamesMock]} addTypename={false}>
         <Games filterItems={filterItemsMock} />
       </MockedProvider>
     )

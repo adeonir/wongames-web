@@ -23,8 +23,17 @@ export interface GetGames_games {
   price: number
 }
 
+export interface GetGames_gamesConnection_values {
+  id: string
+}
+
+export interface GetGames_gamesConnection {
+  values: (GetGames_gamesConnection_values | null)[] | null
+}
+
 export interface GetGames {
   games: GetGames_games[]
+  gamesConnection: GetGames_gamesConnection | null
 }
 
 export interface GetGamesVariables {
