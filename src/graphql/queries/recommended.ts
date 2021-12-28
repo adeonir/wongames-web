@@ -3,7 +3,7 @@ import { gql } from '@apollo/client'
 import { GameFragment, HighlightFragment } from 'graphql/fragments'
 
 export const GET_RECOMMENDED = gql`
-  query GetRecomended {
+  query GetRecommended {
     recommended {
       section {
         title
