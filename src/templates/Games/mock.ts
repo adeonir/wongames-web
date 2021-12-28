@@ -25,6 +25,7 @@ export const gamesMock = {
     data: {
       games: [
         {
+          id: '1',
           name: 'Mad Max',
           slug: 'mad-max',
           price: 518.39,
@@ -52,6 +53,7 @@ export const fetchMoreMock = {
     data: {
       games: [
         {
+          id: '2',
           name: 'Cyberpunk 2077',
           slug: 'cyberpunk-2077',
           price: 518.39,

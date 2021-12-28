@@ -18,6 +18,7 @@ export interface GetUpcoming_upcomingGames_developers {
 }
 
 export interface GetUpcoming_upcomingGames {
+  id: string
   name: string
   slug: string
   cover: GetUpcoming_upcomingGames_cover | null
