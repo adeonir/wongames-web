@@ -6,6 +6,7 @@ import {
 
 import {
   bannersMapper,
+  cartMapper,
   gamesMapper,
   highlightMapper,
   singleGameMapper,
@@ -134,5 +135,31 @@ describe('highlightMapper()', () => {
       alignment: 'right',
       floatImage: 'http://localhost:1337/image.jpg',
     })
+  })
+})
+
+describe('cartMapper()', () => {
+  it('should return empty array if there are no games', () => {
+    expect(cartMapper(undefined)).toStrictEqual([])
+  })
+
+  it('should return mapper cart items', () => {
+    const game = {
+      id: '1',
+      name: 'Game name',
+      cover: {
+        url: '/image.png',
+      },
+      price: 10,
+    } as GetGames_games
+
+    expect(cartMapper([game])).toStrictEqual([
+      {
+        id: '1',
+        img: 'http://localhost:1337/image.png',
+        price: '$10.00',
+        title: 'Game name',
+      },
+    ])
   })
 })
