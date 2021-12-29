@@ -1,20 +1,48 @@
-import { createContext, ReactNode, useContext } from 'react'
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from 'react'
+import { getStorageItem } from 'utils/storage'
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export type CartContextType = {}
+type CartContextType = {
+  items: string[]
+}
 
-export const CartContextDefaultValues = {}
+const CART_KEY = 'cartItem'
 
-export const CartContext = createContext<CartContextType>(
-  CartContextDefaultValues
-)
+const CartContextDefaultValues = {
+  items: [],
+}
 
-type CartProviderProps = {
+const CartContext = createContext<CartContextType>(CartContextDefaultValues)
+
+export type CartProviderProps = {
   children: ReactNode
 }
 
 const CartProvider = ({ children }: CartProviderProps) => {
-  return <CartContext.Provider value={{}}>{children}</CartContext.Provider>
+  const [cartItems, setCartItems] = useState<string[]>([])
+
+  useEffect(() => {
+    const data = getStorageItem(CART_KEY)
+
+    if (data) {
+      setCartItems(data)
+    }
+  }, [])
+
+  return (
+    <CartContext.Provider
+      value={{
+        items: cartItems,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  )
 }
 
 const useCart = () => useContext(CartContext)
