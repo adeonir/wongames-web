@@ -8,6 +8,7 @@ import {
 } from 'react'
 
 import { formatPrice } from 'utils/formatters'
+import { cartMapper } from 'utils/mappers'
 import { getStorageItem } from 'utils/storage'
 
 type CartItem = {
@@ -56,12 +57,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
   return (
     <CartContext.Provider
       value={{
-        items: data?.games.map((game) => ({
-          id: game.id,
-          img: `http://localhost:1337${game.cover?.url}`,
-          price: formatPrice(game.price),
-          title: game.name,
-        })),
+        items: cartMapper(data?.games),
       }}
     >
       {children}
