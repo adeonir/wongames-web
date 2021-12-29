@@ -7,7 +7,6 @@ import {
   useState,
 } from 'react'
 
-import { formatPrice } from 'utils/formatters'
 import { cartMapper } from 'utils/mappers'
 import { getStorageItem } from 'utils/storage'
 
