@@ -8,7 +8,7 @@ import highlightMock from 'components/Highlight/mock'
 
 import Game, { GameTemplateProps } from '.'
 import { GameDetailsProps } from 'components/GameDetails'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { renderWithTheme } from 'utils/tests'
 
 const props: GameTemplateProps = {
   cover: 'bg-image.jpg',

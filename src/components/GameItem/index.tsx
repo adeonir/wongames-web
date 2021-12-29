@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { Download } from '@styled-icons/boxicons-solid/Download'
 
-import { formatPrice } from 'utils'
+import { formatPrice } from 'utils/formatters'
 
 import * as S from './styles'
 

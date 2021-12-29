@@ -3,7 +3,7 @@ import { AppProps } from 'next/app'
 import { ApolloProvider } from '@apollo/client'
 import { ThemeProvider } from 'styled-components'
 
-import { useApollo } from 'services'
+import { useApollo } from 'utils/apollo'
 
 import { GlobalStyles, theme } from 'styles'
 

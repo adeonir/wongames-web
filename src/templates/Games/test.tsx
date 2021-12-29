@@ -2,8 +2,8 @@ import { screen, waitFor } from '@testing-library/react'
 import { MockedProvider } from '@apollo/client/testing'
 import userEvent from '@testing-library/user-event'
 
-import { renderWithTheme } from 'utils/tests/helpers'
-import apolloCache from 'services'
+import { renderWithTheme } from 'utils/tests'
+import apolloCache from 'utils/apollo/cache'
 
 import filterItemsMock from 'components/ExploreSidebar/mock'
 import { fetchMoreMock, gamesMock, noGamesMock } from 'templates/Games/mock'

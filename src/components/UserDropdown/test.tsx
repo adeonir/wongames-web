@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { renderWithTheme } from 'utils/tests'
 
 import UserDropdown from '.'
 

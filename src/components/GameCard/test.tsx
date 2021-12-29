@@ -1,6 +1,6 @@
 import { fireEvent, screen } from '@testing-library/react'
 import { theme } from 'styles'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { renderWithTheme } from 'utils/tests'
 
 import GameCard from '.'
 

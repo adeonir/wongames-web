@@ -2,7 +2,7 @@ import {
   AddShoppingCart,
   FavoriteBorder,
 } from '@styled-icons/material-outlined'
-import { formatPrice } from 'utils'
+import { formatPrice } from 'utils/formatters'
 
 import Button from 'components/Button'
 import Heading from 'components/Heading'
