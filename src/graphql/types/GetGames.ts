@@ -38,7 +38,7 @@ export interface GetGames {
 }
 
 export interface GetGamesVariables {
-  limit: number
+  limit?: number | null
   start?: number | null
   where?: any | null
   sort?: string | null
