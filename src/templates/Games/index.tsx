@@ -6,8 +6,8 @@ import { useQueryGames } from 'graphql/queries/games'
 import {
   parseQueryStringToFilter,
   parseQueryStringToSearch,
-  singleGameMapper,
-} from 'utils'
+} from 'utils/filters'
+import { singleGameMapper } from 'utils/mappers'
 
 import BaseTemplate from 'templates/Base'
 

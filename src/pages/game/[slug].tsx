@@ -3,7 +3,8 @@ import { useRouter } from 'next/router'
 
 import GameTemplate, { GameTemplateProps } from 'templates/Game'
 
-import { initializeApollo } from 'services'
+import { initializeApollo } from 'utils/apollo'
+import { gamesMapper, highlightMapper } from 'utils/mappers'
 import {
   GET_GAMES,
   GET_GAME_BY_SLUG,
@@ -19,7 +20,6 @@ import {
   GetUpcoming,
   GetUpcomingVariables,
 } from 'graphql/types'
-import { gamesMapper, highlightMapper } from 'utils'
 
 const apolloClient = initializeApollo()
 const TODAY = new Date().toISOString().slice(0, 10)

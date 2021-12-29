@@ -2,10 +2,10 @@ import WishlisTemplate, { WishlistTemplateProps } from 'templates/Wishlist'
 
 import gamesMock from 'components/GameCardSlider/mock'
 
-import { initializeApollo } from 'services'
+import { initializeApollo } from 'utils/apollo'
+import { gamesMapper, highlightMapper } from 'utils/mappers'
 import { GetRecommended } from 'graphql/types'
 import { GET_RECOMMENDED } from 'graphql/queries'
-import { gamesMapper, highlightMapper } from 'utils'
 
 export default function Wishlist(props: WishlistTemplateProps) {
   return <WishlisTemplate {...props} />

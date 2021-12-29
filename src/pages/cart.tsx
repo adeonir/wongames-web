@@ -1,9 +1,9 @@
 import CartTemplate, { CartTemplateProps } from 'templates/Cart'
 
-import { initializeApollo } from 'services'
+import { initializeApollo } from 'utils/apollo'
+import { gamesMapper, highlightMapper } from 'utils/mappers'
 import { GetRecommended } from 'graphql/types'
 import { GET_RECOMMENDED } from 'graphql/queries'
-import { gamesMapper, highlightMapper } from 'utils'
 
 import cardsMock from 'components/PaymentOptions/mock'
 import itemsMock from 'components/CartList/mock'

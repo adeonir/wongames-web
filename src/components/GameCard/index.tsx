@@ -6,7 +6,7 @@ import {
   Favorite,
   FavoriteBorder,
 } from '@styled-icons/material-outlined'
-import { formatPrice } from 'utils'
+import { formatPrice } from 'utils/formatters'
 
 import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
 import Button from 'components/Button'

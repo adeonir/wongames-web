@@ -1,10 +1,10 @@
 import { GetServerSidePropsContext } from 'next'
 
-import { initializeApollo } from 'services'
+import { initializeApollo } from 'utils/apollo'
 import { GET_GAMES } from 'graphql/queries'
 import { GetGames, GetGamesVariables } from 'graphql/types'
 
-import { parseQueryStringToSearch } from 'utils'
+import { parseQueryStringToSearch } from 'utils/filters'
 
 import GamesTemplate, { GamesTemplateProps } from 'templates/Games'
 
