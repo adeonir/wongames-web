@@ -9,7 +9,7 @@ import {
 import { formatPrice } from 'utils/formatters'
 
 import { cartMapper } from 'utils/mappers'
-import { getStorageItem } from 'utils/storage'
+import { getStorageItem, setStorageItem } from 'utils/storage'
 
 type CartItem = {
   id: string
@@ -22,12 +22,22 @@ type CartContextType = {
   items: CartItem[]
   quantity: number
   total: string
+  loading: boolean
+  isInCart: (id: string) => boolean
+  addToCart: (id: string) => void
+  removeFromCart: (id: string) => void
+  clearCart: () => void
 }
 
 const CartContextDefaultValues = {
   items: [],
   quantity: 0,
   total: '$0.00',
+  loading: false,
+  isInCart: () => false,
+  addToCart: () => null,
+  removeFromCart: () => null,
+  clearCart: () => null,
 }
 
 const CartContext = createContext<CartContextType>(CartContextDefaultValues)
@@ -49,7 +59,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
     }
   }, [])
 
-  const { data } = useQueryGames({
+  const { data, loading } = useQueryGames({
     skip: !cartItems?.length,
     variables: {
       where: {
@@ -58,16 +68,42 @@ const CartProvider = ({ children }: CartProviderProps) => {
     },
   })
 
-  const sum = data?.games.reduce((acc, game) => {
+  const total = data?.games.reduce((acc, game) => {
     return acc + game.price
   }, 0)
+
+  const isInCart = (id: string) => cartItems.includes(id)
+
+  const saveCart = (items: string[]) => {
+    setCartItems(items)
+    setStorageItem(CART_KEY, items)
+  }
+
+  const addToCart = (id: string) => {
+    const items = [...cartItems, id]
+    saveCart(items)
+  }
+
+  const removeFromCart = (id: string) => {
+    const items = cartItems.filter((item) => item !== id)
+    saveCart(items)
+  }
+
+  const clearCart = () => {
+    saveCart([])
+  }
 
   return (
     <CartContext.Provider
       value={{
         items: cartMapper(data?.games),
         quantity: cartItems?.length,
-        total: formatPrice(sum || 0),
+        total: formatPrice(total || 0),
+        loading,
+        isInCart,
+        addToCart,
+        removeFromCart,
+        clearCart,
       }}
     >
       {children}
