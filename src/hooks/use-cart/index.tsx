@@ -6,6 +6,7 @@ import {
   useEffect,
   useState,
 } from 'react'
+import { formatPrice } from 'utils/formatters'
 
 import { cartMapper } from 'utils/mappers'
 import { getStorageItem } from 'utils/storage'
@@ -19,10 +20,14 @@ type CartItem = {
 
 type CartContextType = {
   items: CartItem[]
+  quantity: number
+  total: string
 }
 
 const CartContextDefaultValues = {
   items: [],
+  quantity: 0,
+  total: '$0.00',
 }
 
 const CartContext = createContext<CartContextType>(CartContextDefaultValues)
@@ -53,10 +58,16 @@ const CartProvider = ({ children }: CartProviderProps) => {
     },
   })
 
+  const sum = data?.games.reduce((acc, game) => {
+    return acc + game.price
+  }, 0)
+
   return (
     <CartContext.Provider
       value={{
         items: cartMapper(data?.games),
+        quantity: cartItems?.length,
+        total: formatPrice(sum || 0),
       }}
     >
       {children}
