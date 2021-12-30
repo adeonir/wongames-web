@@ -1,10 +1,11 @@
+import { render } from 'utils/tests'
+
 import { theme } from 'styles'
-import { renderWithTheme } from 'utils/tests'
 import { Container } from '.'
 
 describe('<Container />', () => {
   it('should render the heading', () => {
-    const { container } = renderWithTheme(
+    const { container } = render(
       <Container>
         <span>Won Games</span>
       </Container>

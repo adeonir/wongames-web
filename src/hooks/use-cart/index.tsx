@@ -18,7 +18,7 @@ type CartItem = {
   title: string
 }
 
-type CartContextType = {
+export type CartContextProps = {
   items: CartItem[]
   quantity: number
   total: string
@@ -29,7 +29,7 @@ type CartContextType = {
   clearCart: () => void
 }
 
-const CartContextDefaultValues = {
+export const CartContextDefaultValues = {
   items: [],
   quantity: 0,
   total: '$0.00',
@@ -40,7 +40,9 @@ const CartContextDefaultValues = {
   clearCart: () => null,
 }
 
-const CartContext = createContext<CartContextType>(CartContextDefaultValues)
+export const CartContext = createContext<CartContextProps>(
+  CartContextDefaultValues
+)
 
 export type CartProviderProps = {
   children: ReactNode
