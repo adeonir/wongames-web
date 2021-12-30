@@ -17,7 +17,6 @@ export const Default: ComponentStory<typeof CartIcon> = () => <CartIcon />
 export const withItems: ComponentStory<typeof CartIcon> = (args) => (
   <CartIcon {...args} />
 )
-
 withItems.args = {
   quantity: 3,
 }
