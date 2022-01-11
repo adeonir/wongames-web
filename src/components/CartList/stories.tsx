@@ -1,19 +1,17 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentMeta, Story } from '@storybook/react'
 
 import CartList from '.'
 
-import mockItems from './mock'
+import items from './mock'
 
 export default {
   title: 'CartList',
   component: CartList,
-  args: {
-    items: mockItems,
-    total: 'R$ 330,00',
-  },
   argTypes: {
-    items: {
-      type: undefined,
+    cartContextValue: {
+      control: {
+        type: null,
+      },
     },
   },
   parameters: {
@@ -23,19 +21,27 @@ export default {
   },
 } as ComponentMeta<typeof CartList>
 
-export const Default: ComponentStory<typeof CartList> = (args) => (
+export const Default: Story = (args) => (
   <div style={{ maxWidth: 800 }}>
     <CartList {...args} />
   </div>
 )
+Default.args = {
+  total: 'R$ 330,00',
+  cartContextValue: { items },
+}
 
-export const WithButton: ComponentStory<typeof CartList> = (args) => (
+export const WithButton: Story = (args) => (
   <div style={{ maxWidth: 800 }}>
     <CartList {...args} hasButton />
   </div>
 )
+WithButton.args = {
+  total: 'R$ 330,00',
+  cartContextValue: { items },
+}
 
-export const Empty: ComponentStory<typeof CartList> = () => (
+export const Empty: Story = () => (
   <div style={{ maxWidth: 800 }}>
     <CartList />
   </div>
