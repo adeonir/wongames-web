@@ -2,6 +2,8 @@ import { ThemeProvider } from 'styled-components'
 import { GlobalStyles, theme } from 'styles'
 import { CartContext, CartContextDefaultValues } from 'hooks'
 
+import '../.jest/next-image-mock'
+
 export const parameters = {
   backgrounds: {
     default: 'light',

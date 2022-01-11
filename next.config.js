@@ -13,6 +13,6 @@ module.exports = withPWA({
   },
   images: {
     formats: ['image/avif', 'image/webp'],
-    domains: ['localhost'],
+    domains: ['localhost', 'source.unsplash.com'],
   },
 })

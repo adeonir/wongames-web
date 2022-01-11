@@ -1,10 +1,9 @@
 /* eslint-disable */
-import * as nextImage from 'next/image'
+import * as NextImage from 'next/image'
 
-Object.defineProperty(nextImage, 'default', {
+const OriginalNextImage = NextImage.default
+
+Object.defineProperty(NextImage, 'default', {
   configurable: true,
-  value: (props) => {
-    const { objectFit, ...rest } = props
-    return <img {...rest} />
-  },
+  value: (props) => <OriginalNextImage {...props} unoptimized />,
 })
