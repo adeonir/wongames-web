@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentMeta, Story } from '@storybook/react'
 
 import CartDropdown from '.'
 
@@ -7,9 +7,12 @@ import items from 'components/CartList/mock'
 export default {
   title: 'CartDropdown',
   component: CartDropdown,
-  args: {
-    items,
-    total: 'R$ 300,00',
+  argTypes: {
+    cartContextValue: {
+      control: {
+        type: null,
+      },
+    },
   },
   parameters: {
     backgrounds: {
@@ -18,13 +21,20 @@ export default {
   },
 } as ComponentMeta<typeof CartDropdown>
 
-export const Default: ComponentStory<typeof CartDropdown> = (args) => (
+export const Default: Story = (args) => (
   <div style={{ maxWidth: '98%', display: 'flex', justifyContent: 'flex-end' }}>
     <CartDropdown {...args} />
   </div>
 )
+Default.args = {
+  cartContextValue: {
+    items,
+    quantity: items.length,
+    total: 'R$ 330,00',
+  },
+}
 
-export const Empty: ComponentStory<typeof CartDropdown> = () => (
+export const Empty: Story = () => (
   <div style={{ maxWidth: '98%', display: 'flex', justifyContent: 'flex-end' }}>
     <CartDropdown />
   </div>
