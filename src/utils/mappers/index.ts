@@ -57,7 +57,7 @@ export const cartMapper = (games: GetGames_games[] | undefined) => {
     ? games.map((game) => ({
         id: game.id,
         img: `http://localhost:1337${game.cover?.url}`,
-        price: formatPrice(game.price),
+        price: game.price,
         title: game.name,
       }))
     : []
