@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentStory, ComponentMeta, Story } from '@storybook/react'
 
 import CartIcon from '.'
 
@@ -14,9 +14,7 @@ export default {
 
 export const Default: ComponentStory<typeof CartIcon> = () => <CartIcon />
 
-export const withItems: ComponentStory<typeof CartIcon> = (args) => (
-  <CartIcon {...args} />
-)
+export const withItems: Story = (args) => <CartIcon {...args} />
 withItems.args = {
   quantity: 3,
 }
