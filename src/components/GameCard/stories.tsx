@@ -1,6 +1,7 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
+import { CartContextProps } from 'hooks'
 
-import GameCard from '.'
+import GameCard, { GameCardProps } from '.'
 
 export default {
   title: 'GameCard',
@@ -11,6 +12,7 @@ export default {
     },
   },
   args: {
+    id: '1',
     slug: 'population-zero',
     title: 'Population Zero',
     developer: 'Rockstar Games',
@@ -22,20 +24,28 @@ export default {
     onFav: { action: 'clicked' },
     ribbon: { type: 'string' },
   },
-} as ComponentMeta<typeof GameCard>
+} as Meta<GameCardProps>
 
-export const Default: ComponentStory<typeof GameCard> = (args) => (
+export const Default: Story<GameCardProps> = (args) => (
   <div style={{ width: '30rem' }}>
     <GameCard {...args} />
   </div>
 )
 
-export const WithRibbon: ComponentStory<typeof GameCard> = (args) => (
+export const IsInCart: Story<GameCardProps & CartContextProps> = (args) => (
   <div style={{ width: '30rem' }}>
     <GameCard {...args} />
   </div>
 )
+IsInCart.args = {
+  isInCart: () => true,
+}
 
+export const WithRibbon: Story<GameCardProps> = (args) => (
+  <div style={{ width: '30rem' }}>
+    <GameCard {...args} />
+  </div>
+)
 WithRibbon.args = {
   ribbon: '20% OFF',
   ribbonSize: 'small',
