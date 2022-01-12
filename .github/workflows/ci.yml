@@ -4,6 +4,10 @@ on: [pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        containers: [1, 2]
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -29,12 +33,21 @@ jobs:
 
       - name: Linting
         run: yarn lint
-
-      - name: Test
-        run: yarn jest
+        with:
+          record: true
+          parallel: true
 
       - name: Typecheck
         run: yarn typecheck
+        with:
+          record: true
+          parallel: true
+
+      - name: Test
+        run: yarn jest
+        with:
+          record: true
+          parallel: true
 
       # Disabling build because it's not needed for now
       # - name: Build
