@@ -38,4 +38,4 @@ jobs:
 
       # Disabling build because it's not needed for now
       # - name: Build
-      # run: yarn build
+      #   run: yarn build
