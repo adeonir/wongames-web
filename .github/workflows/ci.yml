@@ -30,12 +30,12 @@ jobs:
       - name: Linting
         run: yarn lint
 
-      - name: Test
-        run: yarn jest
-
       - name: Typecheck
         run: yarn typecheck
 
+      - name: Test
+        run: yarn test
+
       # Disabling build because it's not needed for now
       # - name: Build
-      #   run: yarn build
+      # run: yarn build
