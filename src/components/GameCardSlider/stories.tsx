@@ -1,10 +1,11 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
-import GameCardSlider from '.'
+import GameCardSlider, { GameCardSliderProps } from '.'
 
 import items from './mock'
 
 export default {
+  id: '1',
   title: 'GameCardSlider',
   component: GameCardSlider,
   args: { items },
@@ -14,9 +15,9 @@ export default {
       default: 'dark',
     },
   },
-} as ComponentMeta<typeof GameCardSlider>
+} as Meta<GameCardSliderProps>
 
-export const Default: ComponentStory<typeof GameCardSlider> = (args) => (
+export const Default: Story<GameCardSliderProps> = (args) => (
   <div style={{ maxWidth: '130rem', margin: '0 auto' }}>
     <GameCardSlider {...args} />
   </div>
