@@ -7,7 +7,6 @@ import { Divider } from 'components/Divider'
 import { GameCardProps } from 'components/GameCard'
 import { HighlightProps } from 'components/Highlight'
 import CartList, { CartListProps } from 'components/CartList'
-import Empty from 'components/Empty'
 import Heading from 'components/Heading'
 import PaymentOptions, { PaymentOptionsProps } from 'components/PaymentOptions'
 import ShowCase from 'components/ShowCase'
@@ -25,8 +24,6 @@ const CartTemplate = ({
   recommendedTitle,
   recommendedGames,
   recommendedHighlight,
-  items,
-  total,
   cards,
 }: CartTemplateProps) => {
   const handlePayment = () => ({})
@@ -38,19 +35,12 @@ const CartTemplate = ({
           My cart
         </Heading>
 
-        {items?.length ? (
-          <S.Content>
-            <CartList items={items} total={total} />
+        <S.Content>
+          <CartList />
 
-            <PaymentOptions cards={cards} handlePayment={handlePayment} />
-          </S.Content>
-        ) : (
-          <Empty
-            title="Your cart is empty"
-            description="Go back to the store and explore great games and offers"
-            hasLink
-          />
-        )}
+          <PaymentOptions cards={cards} handlePayment={handlePayment} />
+        </S.Content>
+
         <S.Text>
           <Info size={18} /> Your purchase is protected by a secure connection
           from the WON platform. By purchasing from our store you agree and

@@ -4,8 +4,6 @@ import {
   GetHome_sections_freeGames_highlight,
 } from 'graphql/types'
 
-import { formatPrice } from 'utils/formatters'
-
 export const bannersMapper = (banners: GetHome_banners[]) => {
   return banners.map((banner) => ({
     img: `http://localhost:1337${banner.image?.url}`,
