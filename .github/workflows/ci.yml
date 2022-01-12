@@ -32,22 +32,22 @@ jobs:
         run: yarn --prefer-offline --frozen-lockfile
 
       - name: Linting
-        run: yarn lint
         with:
           record: true
           parallel: true
+        run: yarn lint
 
       - name: Typecheck
-        run: yarn typecheck
         with:
           record: true
           parallel: true
+        run: yarn typecheck
 
       - name: Test
-        run: yarn jest
         with:
           record: true
           parallel: true
+        run: yarn jest
 
       # Disabling build because it's not needed for now
       # - name: Build
