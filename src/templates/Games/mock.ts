@@ -1,8 +1,8 @@
-import { GET_GAMES } from 'graphql/queries'
+import { QUERY_GAMES } from 'graphql/queries'
 
 export const noGamesMock = {
   request: {
-    query: GET_GAMES,
+    query: QUERY_GAMES,
     variables: { limit: 15, where: {} },
   },
   result: {
@@ -18,7 +18,7 @@ export const noGamesMock = {
 
 export const gamesMock = {
   request: {
-    query: GET_GAMES,
+    query: QUERY_GAMES,
     variables: { limit: 15, where: {} },
   },
   result: {
@@ -46,7 +46,7 @@ export const gamesMock = {
 
 export const fetchMoreMock = {
   request: {
-    query: GET_GAMES,
+    query: QUERY_GAMES,
     variables: { limit: 15, where: {}, start: 1 },
   },
   result: {

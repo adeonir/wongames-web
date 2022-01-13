@@ -1,7 +1,7 @@
 import {
-  GetGames_games,
-  GetHome_banners,
-  GetHome_sections_freeGames_highlight,
+  QueryGames_games,
+  QueryHome_banners,
+  QueryHome_sections_freeGames_highlight,
 } from 'graphql/types'
 
 import {
@@ -29,7 +29,7 @@ describe('bannersMapper', () => {
         color: 'primary',
         size: 'small',
       },
-    } as GetHome_banners
+    } as QueryHome_banners
 
     expect(bannersMapper([banner])).toEqual([
       {
@@ -61,7 +61,7 @@ describe('singleGameMapper and gamesMapper', () => {
         },
       ],
       price: 0,
-    } as GetGames_games
+    } as QueryGames_games
 
     expect(singleGameMapper(game)).toEqual({
       id: '1',
@@ -87,7 +87,7 @@ describe('singleGameMapper and gamesMapper', () => {
         },
       ],
       price: 0,
-    } as GetGames_games
+    } as QueryGames_games
 
     expect(gamesMapper([game])).toEqual([
       {
@@ -124,7 +124,7 @@ describe('highlightMapper()', () => {
       floatImage: {
         url: '/image.jpg',
       },
-    } as GetHome_sections_freeGames_highlight
+    } as QueryHome_sections_freeGames_highlight
 
     expect(highlightMapper(highlight)).toStrictEqual({
       title: 'Highlight title',
@@ -151,7 +151,7 @@ describe('cartMapper()', () => {
         url: '/image.png',
       },
       price: 10,
-    } as GetGames_games
+    } as QueryGames_games
 
     expect(cartMapper([game])).toStrictEqual([
       {

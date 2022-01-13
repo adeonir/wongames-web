@@ -2,8 +2,8 @@ import { gql } from '@apollo/client'
 
 import { GameFragment, HighlightFragment } from 'graphql/fragments'
 
-export const GET_UPCOMING = gql`
-  query GetUpcoming($date: Date!) {
+export const QUERY_UPCOMING = gql`
+  query QueryUpcoming($date: Date!) {
     upcomingGames: games(
       where: { release_date_gt: $date }
       sort: "release_date:asc"

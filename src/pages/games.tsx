@@ -1,8 +1,8 @@
 import { GetServerSidePropsContext } from 'next'
 
 import { initializeApollo } from 'utils/apollo'
-import { GET_GAMES } from 'graphql/queries'
-import { GetGames, GetGamesVariables } from 'graphql/types'
+import { QUERY_GAMES } from 'graphql/queries'
+import { QueryGames, QueryGamesVariables } from 'graphql/types'
 
 import { parseQueryStringToSearch } from 'utils/filters'
 
@@ -77,8 +77,8 @@ export async function getServerSideProps({ query }: GetServerSidePropsContext) {
     filterCategories,
   ]
 
-  await apolloClient.query<GetGames, GetGamesVariables>({
-    query: GET_GAMES,
+  await apolloClient.query<QueryGames, QueryGamesVariables>({
+    query: QUERY_GAMES,
     variables: {
       limit: 15,
       where: parseQueryStringToSearch({ queryString: query, filterItems }),

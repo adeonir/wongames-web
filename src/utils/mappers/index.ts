@@ -1,10 +1,10 @@
 import {
-  GetGames_games,
-  GetHome_banners,
-  GetHome_sections_freeGames_highlight,
+  QueryGames_games,
+  QueryHome_banners,
+  QueryHome_sections_freeGames_highlight,
 } from 'graphql/types'
 
-export const bannersMapper = (banners: GetHome_banners[]) => {
+export const bannersMapper = (banners: QueryHome_banners[]) => {
   return banners.map((banner) => ({
     img: `http://localhost:1337${banner.image?.url}`,
     title: banner.title,
@@ -19,7 +19,7 @@ export const bannersMapper = (banners: GetHome_banners[]) => {
   }))
 }
 
-export const singleGameMapper = (game: GetGames_games) => {
+export const singleGameMapper = (game: QueryGames_games) => {
   return {
     id: game.id,
     title: game.name,
@@ -30,12 +30,12 @@ export const singleGameMapper = (game: GetGames_games) => {
   }
 }
 
-export const gamesMapper = (games: GetGames_games[] | null | undefined) => {
+export const gamesMapper = (games: QueryGames_games[] | null | undefined) => {
   return games ? games.map((game) => singleGameMapper(game)) : []
 }
 
 export const highlightMapper = (
-  highlight: GetHome_sections_freeGames_highlight | null | undefined
+  highlight: QueryHome_sections_freeGames_highlight | null | undefined
 ) => {
   return highlight
     ? {
@@ -50,7 +50,7 @@ export const highlightMapper = (
     : {}
 }
 
-export const cartMapper = (games: GetGames_games[] | undefined) => {
+export const cartMapper = (games: QueryGames_games[] | undefined) => {
   return games
     ? games.map((game) => ({
         id: game.id,

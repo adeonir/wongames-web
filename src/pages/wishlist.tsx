@@ -4,8 +4,8 @@ import gamesMock from 'components/GameCardSlider/mock'
 
 import { initializeApollo } from 'utils/apollo'
 import { gamesMapper, highlightMapper } from 'utils/mappers'
-import { GetRecommended } from 'graphql/types'
-import { GET_RECOMMENDED } from 'graphql/queries'
+import { QueryRecommended } from 'graphql/types'
+import { QUERY_RECOMMENDED } from 'graphql/queries'
 
 export default function Wishlist(props: WishlistTemplateProps) {
   return <WishlisTemplate {...props} />
@@ -14,8 +14,8 @@ export default function Wishlist(props: WishlistTemplateProps) {
 export async function getStaticProps() {
   const apolloClient = initializeApollo()
 
-  const { data } = await apolloClient.query<GetRecommended>({
-    query: GET_RECOMMENDED,
+  const { data } = await apolloClient.query<QueryRecommended>({
+    query: QUERY_RECOMMENDED,
   })
 
   return {
