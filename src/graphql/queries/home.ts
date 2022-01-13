@@ -6,8 +6,8 @@ import {
   HighlightFragment,
 } from 'graphql/fragments'
 
-export const GET_HOME = gql`
-  query GetHome($date: Date!) {
+export const QUERY_HOME = gql`
+  query QueryHome($date: Date!) {
     banners {
       ...BannerFragment
     }

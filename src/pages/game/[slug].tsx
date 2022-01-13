@@ -6,19 +6,19 @@ import GameTemplate, { GameTemplateProps } from 'templates/Game'
 import { initializeApollo } from 'utils/apollo'
 import { gamesMapper, highlightMapper } from 'utils/mappers'
 import {
-  GET_GAMES,
-  GET_GAME_BY_SLUG,
-  GET_RECOMMENDED,
-  GET_UPCOMING,
+  QUERY_GAMES,
+  QUERY_GAME_BY_SLUG,
+  QUERY_RECOMMENDED,
+  QUERY_UPCOMING,
 } from 'graphql/queries'
 import {
-  GetGames,
-  GetGamesVariables,
-  GetGameBySlug,
-  GetGameBySlugVariables,
-  GetRecommended,
-  GetUpcoming,
-  GetUpcomingVariables,
+  QueryGames,
+  QueryGamesVariables,
+  QueryGameBySlug,
+  QueryGameBySlugVariables,
+  QueryRecommended,
+  QueryUpcoming,
+  QueryUpcomingVariables,
 } from 'graphql/types'
 
 const apolloClient = initializeApollo()
@@ -35,8 +35,8 @@ export default function Index(props: GameTemplateProps) {
 }
 
 export async function getStaticPaths() {
-  const { data } = await apolloClient.query<GetGames, GetGamesVariables>({
-    query: GET_GAMES,
+  const { data } = await apolloClient.query<QueryGames, QueryGamesVariables>({
+    query: QUERY_GAMES,
     variables: { limit: 9 },
   })
 
@@ -49,10 +49,10 @@ export async function getStaticPaths() {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { data } = await apolloClient.query<
-    GetGameBySlug,
-    GetGameBySlugVariables
+    QueryGameBySlug,
+    QueryGameBySlugVariables
   >({
-    query: GET_GAME_BY_SLUG,
+    query: QUERY_GAME_BY_SLUG,
     variables: { slug: `${params?.slug}` },
     fetchPolicy: 'no-cache',
   })
@@ -63,14 +63,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const [game] = data.games
 
-  const { data: item } = await apolloClient.query<GetRecommended>({
-    query: GET_RECOMMENDED,
+  const { data: item } = await apolloClient.query<QueryRecommended>({
+    query: QUERY_RECOMMENDED,
   })
 
   const { data: upcoming } = await apolloClient.query<
-    GetUpcoming,
-    GetUpcomingVariables
-  >({ query: GET_UPCOMING, variables: { date: TODAY } })
+    QueryUpcoming,
+    QueryUpcomingVariables
+  >({ query: QUERY_UPCOMING, variables: { date: TODAY } })
 
   return {
     revalidate: 60,
