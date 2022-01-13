@@ -1,3 +1,4 @@
+export * from './globalTypes'
 export * from './BannerFragment'
 export * from './GameFragment'
 export * from './HighlightFragment'
