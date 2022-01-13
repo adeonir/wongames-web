@@ -12,7 +12,7 @@ exports[`<ProfileMenu /> should render the menu 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  border-bottom: 0.1rem solid #b5b5b5;
+  border-bottom: 0.1rem solid #eaeaea;
 }
 
 .c1 {
@@ -51,7 +51,7 @@ exports[`<ProfileMenu /> should render the menu 1`] = `
   }
 
   .c0 a:not(:last-child) {
-    border-bottom: 0.1rem solid #b5b5b5;
+    border-bottom: 0.1rem solid #eaeaea;
   }
 }
 

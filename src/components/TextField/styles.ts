@@ -10,11 +10,11 @@ export const InputWrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
-    background: ${theme.colors.lightGray};
+    background: ${theme.colors.lighterGray};
     border-radius: 0.2rem;
     padding: 0 ${theme.spacings.xsmall};
     border: 0.2rem solid;
-    border-color: ${theme.colors.lightGray};
+    border-color: ${theme.colors.lighterGray};
 
     &:focus-within {
       box-shadow: 0 0 0.5rem ${theme.colors.primary};
@@ -38,7 +38,7 @@ export const Input = styled.input<IconPositionProps>`
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,
     &:-webkit-autofill:active {
-      -webkit-box-shadow: 0 0 0px 1000px ${theme.colors.lightGray} inset;
+      -webkit-box-shadow: 0 0 0px 1000px ${theme.colors.lighterGray} inset;
       -webkit-text-fill-color: ${theme.colors.black};
       transition: background-color 5000s ease-in-out 0s;
     }

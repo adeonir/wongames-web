@@ -16,11 +16,11 @@ exports[`<FormSignIn /> should render the form 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background: #b5b5b5;
+  background: #eaeaea;
   border-radius: 0.2rem;
   padding: 0 1.6rem;
   border: 0.2rem solid;
-  border-color: #b5b5b5;
+  border-color: #eaeaea;
 }
 
 .c2:focus-within {
@@ -43,7 +43,7 @@ exports[`<FormSignIn /> should render the form 1`] = `
 .c5:-webkit-autofill:hover,
 .c5:-webkit-autofill:focus,
 .c5:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0px 1000px #b5b5b5 inset;
+  -webkit-box-shadow: 0 0 0px 1000px #eaeaea inset;
   -webkit-text-fill-color: #030517;
   -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s;
