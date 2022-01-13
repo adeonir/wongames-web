@@ -60,7 +60,7 @@ export const GamesList = styled.div`
 
 export const Footer = styled.div`
   ${({ theme }) => css`
-    background: ${tint(0.2, theme.colors.lightGray)};
+    background: ${tint(0.2, theme.colors.lighterGray)};
     color: ${theme.colors.black};
     font-weight: ${theme.font.bold};
     font-size: ${theme.font.sizes.small};

@@ -3,7 +3,7 @@
 exports[`<CartList /> should render the cart list 1`] = `
 .c2 {
   padding: 2.4rem;
-  border-bottom: 0.1rem solid #b5b5b5;
+  border-bottom: 0.1rem solid #eaeaea;
 }
 
 .c3 {
@@ -97,7 +97,7 @@ exports[`<CartList /> should render the cart list 1`] = `
 }
 
 .c9 {
-  background: #c3c3c3;
+  background: #eee;
   color: #030517;
   font-weight: 600;
   font-size: 1.4rem;
