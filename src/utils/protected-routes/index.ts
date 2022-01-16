@@ -6,7 +6,7 @@ export async function protectedRoutes(context: GetServerSidePropsContext) {
 
   if (!session) {
     context.res.writeHead(302, {
-      Location: '/sign-in',
+      Location: `/sign-in?callbackUrl=${context.resolvedUrl}`,
     })
     context.res.end()
   }
