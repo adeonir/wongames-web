@@ -17,7 +17,7 @@ const FormResetPassword = () => {
   const [loading, setLoading] = useState(false)
 
   const routes = useRouter()
-  const { push, query } = routes
+  const { query } = routes
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
@@ -33,19 +33,33 @@ const FormResetPassword = () => {
 
     setFieldError({})
 
-    const result = await signIn('credentials', {
-      ...values,
-      redirect: false,
-      callbackUrl: `${window.location.origin}${query?.callbackUrl || ''}`,
-    })
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/auth/reset-password`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          code: query.code,
+          password: values.password,
+          passwordConfirmation: values.confirm_password,
+        }),
+      }
+    )
 
-    if (result?.url) {
-      return push(result.url)
+    const data = await response.json()
+
+    if (data.error) {
+      setFormError(data.message[0].messages[0].message)
+      setLoading(false)
+    } else {
+      signIn('credentials', {
+        email: data.user.email,
+        password: values.password,
+        callbackUrl: '/',
+      })
     }
-
-    setLoading(false)
-
-    setFormError('username or password are invalid')
   }
 
   const handleInput = (field: string, value: string) => {
@@ -74,7 +88,7 @@ const FormResetPassword = () => {
           icon={<Lock />}
         />
 
-        <Button type="submit" size="large" disabled={loading} fullWidth>
+        <Button type="submit" size="large" fullWidth>
           {loading ? <FormLoading /> : 'Reset password'}
         </Button>
       </form>
