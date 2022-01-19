@@ -10,7 +10,7 @@ export const handlers = [
     (req, res, ctx) => {
       const { email } = req.body
 
-      if (email === 'false@example.com') {
+      if (email === 'false@email.com') {
         return res(
           ctx.status(400),
           ctx.json({
