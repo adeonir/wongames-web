@@ -49,12 +49,12 @@ const FormForgotPassword = () => {
       }
     )
 
-    const { data } = await response.json()
+    const data = await response.json()
 
     setLoading(false)
 
-    if (data) {
-      setFormError(data[0].messages[0].message)
+    if (data.error) {
+      setFormError(data.message[0].messages[0].message)
     } else {
       setSuccess(true)
     }
