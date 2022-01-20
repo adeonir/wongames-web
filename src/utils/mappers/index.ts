@@ -2,6 +2,7 @@ import {
   QueryGames_games,
   QueryHome_banners,
   QueryHome_sections_freeGames_highlight,
+  QueryWishlist_wishlists_games,
 } from 'graphql/types'
 
 export const bannersMapper = (banners: QueryHome_banners[]) => {
@@ -30,7 +31,9 @@ export const singleGameMapper = (game: QueryGames_games) => {
   }
 }
 
-export const gamesMapper = (games: QueryGames_games[] | null | undefined) => {
+export const gamesMapper = (
+  games: QueryGames_games[] | QueryWishlist_wishlists_games[] | null | undefined
+) => {
   return games ? games.map((game) => singleGameMapper(game)) : []
 }
 
