@@ -17,7 +17,7 @@
     "schema:convert": "node src/utils/convertToNonNull.js",
     "codegen:generate": "apollo client:codegen --target=typescript --no-addTypename --excludes=node_modules --includes=src/graphql/**/* --localSchemaFile schema.gql --tagName=gql --outputFlat src/graphql/types",
     "codegen:lint": "prettier --write src/graphql/types/**/*.ts",
-    "codegen": "yarn schema:download && yarn codegen:generate && yarn codegen:lint",
+    "codegen": "yarn schema:download && yarn schema:convert &&  yarn codegen:generate && yarn codegen:lint",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
     "postinstall": "husky install"
