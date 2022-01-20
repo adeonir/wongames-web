@@ -7,10 +7,6 @@ export const MUTATION_CREATE_WISHLIST = gql`
     createWishlist(input: $input) {
       wishlist {
         id
-        user {
-          id
-          username
-        }
         games {
           ...GameFragment
         }
@@ -25,10 +21,6 @@ export const MUTATION_UPDATE_WISHLIST = gql`
     updateWishlist(input: $input) {
       wishlist {
         id
-        user {
-          id
-          username
-        }
         games {
           ...GameFragment
         }
