@@ -9,11 +9,6 @@ import { updateWishlistInput } from './globalTypes'
 // GraphQL mutation operation: MutationUpdateWishlist
 // ====================================================
 
-export interface MutationUpdateWishlist_updateWishlist_wishlist_user {
-  id: string
-  username: string
-}
-
 export interface MutationUpdateWishlist_updateWishlist_wishlist_games_cover {
   url: string
 }
@@ -33,7 +28,6 @@ export interface MutationUpdateWishlist_updateWishlist_wishlist_games {
 
 export interface MutationUpdateWishlist_updateWishlist_wishlist {
   id: string
-  user: MutationUpdateWishlist_updateWishlist_wishlist_user | null
   games: MutationUpdateWishlist_updateWishlist_wishlist_games[]
 }
 
