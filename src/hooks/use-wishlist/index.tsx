@@ -72,6 +72,6 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
   )
 }
 
-const useWishliat = () => useContext(WishlistContext)
+const useWishlist = () => useContext(WishlistContext)
 
-export { WishlistProvider, useWishliat }
+export { WishlistProvider, useWishlist }
