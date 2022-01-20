@@ -1,8 +1,8 @@
 import { ReactNode } from 'react'
 import { MockedProvider } from '@apollo/client/testing'
-
-import { useWishliat, WishlistProvider } from 'hooks/use-wishlist'
 import { renderHook } from '@testing-library/react-hooks'
+
+import { useWishlist, WishlistProvider } from 'hooks/use-wishlist'
 
 import { wishlistItems, wishlistMock } from './mock'
 
@@ -10,7 +10,7 @@ const useSession = jest.spyOn(require('next-auth/client'), 'useSession')
 const session = { jwt: '123', user: { email: 'loren@ipsum.com' } }
 useSession.mockImplementation(() => [session])
 
-describe('useWishliat', () => {
+describe('useWishlist', () => {
   it('should return the wishlist items', async () => {
     const wrapper = ({ children }: { children: ReactNode }) => (
       <MockedProvider mocks={[wishlistMock]}>
@@ -18,7 +18,7 @@ describe('useWishliat', () => {
       </MockedProvider>
     )
 
-    const { result, waitForNextUpdate } = renderHook(() => useWishliat(), {
+    const { result, waitForNextUpdate } = renderHook(() => useWishlist(), {
       wrapper,
     })
 
@@ -39,7 +39,7 @@ describe('useWishliat', () => {
       </MockedProvider>
     )
 
-    const { result, waitForNextUpdate } = renderHook(() => useWishliat(), {
+    const { result, waitForNextUpdate } = renderHook(() => useWishlist(), {
       wrapper,
     })
 
