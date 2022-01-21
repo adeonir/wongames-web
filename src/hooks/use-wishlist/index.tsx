@@ -48,7 +48,6 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
     QueryWishlist_wishlists_games[]
   >([])
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [createList, { loading: loadingCreate }] = useMutation(
     MUTATION_CREATE_WISHLIST,
     {
@@ -60,7 +59,6 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
     }
   )
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [updateList, { loading: loadingUpdate }] = useMutation(
     MUTATION_UPDATE_WISHLIST,
     {
@@ -71,7 +69,7 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
     }
   )
 
-  const { data, loading } = useQueryWishlist({
+  const { data, loading: loadingQuery } = useQueryWishlist({
     skip: !session?.user?.email,
     context: { session },
     variables: {
@@ -109,8 +107,18 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
     })
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const removeFromWishlist = (id: string) => null
+  const removeFromWishlist = (id: string) => {
+    updateList({
+      variables: {
+        input: {
+          where: { id: wishlistId },
+          data: {
+            games: wishlistIds.filter((gameId: string) => gameId !== id),
+          },
+        },
+      },
+    })
+  }
 
   return (
     <WishlistContext.Provider
@@ -119,7 +127,7 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
         isInWishlist,
         addToWishlist,
         removeFromWishlist,
-        loading,
+        loading: loadingCreate || loadingUpdate || loadingQuery,
       }}
     >
       {children}
