@@ -17,7 +17,7 @@ import {
 } from 'react'
 import { gamesMapper } from 'utils/mappers'
 
-type WishlistContextProps = {
+export type WishlistContextProps = {
   items?: GameCardProps[]
   loading?: boolean
   isInWishlist: (id: string) => boolean
