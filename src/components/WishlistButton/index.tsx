@@ -15,7 +15,12 @@ const WishlistButton = ({
   size = 'small',
 }: WishlistButtonProps) => {
   const [session] = useSession()
-  const { isInWishlist } = useWishlist()
+  const { isInWishlist, addToWishlist, removeFromWishlist } = useWishlist()
+
+  const handleClick = () => {
+    isInWishlist(id) ? removeFromWishlist(id) : addToWishlist(id)
+  }
+
   const buttonText = isInWishlist(id)
     ? 'Remove from wishlist'
     : 'Add to wishlist'
@@ -24,6 +29,7 @@ const WishlistButton = ({
 
   return (
     <Button
+      onClick={handleClick}
       size={size}
       minimal
       icon={
