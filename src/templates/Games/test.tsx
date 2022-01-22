@@ -1,7 +1,8 @@
-import { render, screen, waitFor } from 'utils/tests'
+import 'session-mock'
 import userEvent from '@testing-library/user-event'
 import { MockedProvider } from '@apollo/client/testing'
 
+import { render, screen, waitFor } from 'utils/tests'
 import apolloCache from 'utils/apollo/cache'
 
 import filterItemsMock from 'components/ExploreSidebar/mock'
