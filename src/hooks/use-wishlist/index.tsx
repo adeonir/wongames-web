@@ -18,8 +18,8 @@ import {
 import { gamesMapper } from 'utils/mappers'
 
 export type WishlistContextProps = {
-  items?: GameCardProps[]
-  loading?: boolean
+  items: GameCardProps[]
+  loading: boolean
   isInWishlist: (id: string) => boolean
   addToWishlist: (id: string) => void
   removeFromWishlist: (id: string) => void
