@@ -7,8 +7,12 @@ import { initializeApollo } from 'utils/apollo'
 import { gamesMapper, highlightMapper } from 'utils/mappers'
 import { protectedRoutes } from 'utils/protected-routes'
 
-import { QueryRecommended } from 'graphql/types'
-import { QUERY_RECOMMENDED } from 'graphql/queries'
+import {
+  QueryRecommended,
+  QueryWishlist,
+  QueryWishlistVariables,
+} from 'graphql/types'
+import { QUERY_RECOMMENDED, QUERY_WISHLIST } from 'graphql/queries'
 
 export default function Wishlist(props: WishlistTemplateProps) {
   return <WishlisTemplate {...props} />
@@ -16,7 +20,16 @@ export default function Wishlist(props: WishlistTemplateProps) {
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await protectedRoutes(context)
-  const apolloClient = initializeApollo()
+  const apolloClient = initializeApollo(null, session)
+
+  if (!session) return {}
+
+  await apolloClient.query<QueryWishlist, QueryWishlistVariables>({
+    query: QUERY_WISHLIST,
+    variables: {
+      identifier: session?.user?.email as string,
+    },
+  })
 
   const { data } = await apolloClient.query<QueryRecommended>({
     query: QUERY_RECOMMENDED,
@@ -25,6 +38,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   return {
     props: {
       session,
+      initializeApolloState: apolloClient.cache.extract(),
       games: gamesMock,
       recommendedTitle: data.recommended?.section?.title,
       recommendedGames: gamesMapper(data.recommended?.section?.games),
