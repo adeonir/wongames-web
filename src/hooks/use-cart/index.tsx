@@ -11,7 +11,7 @@ import { formatPrice } from 'utils/formatters'
 import { cartMapper } from 'utils/mappers'
 import { getStorageItem, setStorageItem } from 'utils/storage'
 
-type CartItem = {
+export type CartItem = {
   id: string
   img: string
   price: number
