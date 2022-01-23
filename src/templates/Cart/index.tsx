@@ -1,6 +1,7 @@
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements } from '@stripe/react-stripe-js'
 import { Info } from '@styled-icons/material-outlined/Info'
+import { Session } from 'next-auth'
 
 import BaseTemplate from 'templates/Base'
 
@@ -16,6 +17,7 @@ import ShowCase from 'components/ShowCase'
 import * as S from './styles'
 
 export type CartTemplateProps = {
+  session: Session
   recommendedTitle: string
   recommendedGames: GameCardProps[]
   recommendedHighlight: HighlightProps
@@ -26,6 +28,7 @@ const stripe = loadStripe(
 )
 
 const CartTemplate = ({
+  session,
   recommendedTitle,
   recommendedGames,
   recommendedHighlight,
@@ -41,7 +44,7 @@ const CartTemplate = ({
           <CartList />
 
           <Elements stripe={stripe}>
-            <PaymentForm />
+            <PaymentForm session={session} />
           </Elements>
         </S.Content>
 
