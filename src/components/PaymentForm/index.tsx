@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useState } from 'react'
 import { Session } from 'next-auth'
-import { CardElement } from '@stripe/react-stripe-js'
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import { StripeCardElementChangeEvent } from '@stripe/stripe-js'
 import { ErrorOutline, ShoppingCart } from '@styled-icons/material-outlined'
 
@@ -19,13 +19,14 @@ type PaymentFormProps = {
 
 const PaymentForm = ({ session }: PaymentFormProps) => {
   const { items } = useCart()
+  const stripe = useStripe()
+  const elements = useElements()
 
   const [error, setError] = useState<string | null>(null)
   const [disabled, setDisabled] = useState(true)
   const [loading, setLoading] = useState(false)
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [clientSecret, setClientSecret] = useState('')
   const [freeGames, setFreeGames] = useState(false)
+  const [clientSecret, setClientSecret] = useState('')
 
   useEffect(() => {
     async function setPaymentMode() {
@@ -37,16 +38,14 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
 
         if (data.freeGames) {
           setFreeGames(true)
-          setDisabled(false)
           return
         }
 
         if (data.error) {
           setError(data.error)
-          return
         } else {
-          setClientSecret(data.clientSecret)
           setFreeGames(false)
+          setClientSecret(data.client_secret)
         }
       }
     }
@@ -62,6 +61,21 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
     setLoading(true)
+
+    const payload = await stripe!.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements!.getElement(CardElement)!,
+      },
+    })
+
+    if (payload.error) {
+      setError(`Payment failed ${payload.error.message}`)
+      setLoading(false)
+    } else {
+      setError(null)
+      setLoading(false)
+      console.info('It worked!', payload)
+    }
   }
 
   return (
@@ -80,7 +94,9 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
               options={{
                 hidePostalCode: true,
                 style: {
-                  base: { fontSize: '16px' },
+                  base: {
+                    fontSize: '16px',
+                  },
                 },
               }}
               onChange={handleChange}
@@ -100,7 +116,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
           <Button
             fullWidth
             icon={loading ? <FormLoading /> : <ShoppingCart />}
-            disabled={!freeGames || disabled || !!error}
+            disabled={!freeGames && (disabled || !!error)}
           >
             {!loading && 'Buy now'}
           </Button>
