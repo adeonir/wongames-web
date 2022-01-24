@@ -1,15 +1,17 @@
-import { useEffect, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
+import { Session } from 'next-auth'
 import { CardElement } from '@stripe/react-stripe-js'
 import { StripeCardElementChangeEvent } from '@stripe/stripe-js'
 import { ErrorOutline, ShoppingCart } from '@styled-icons/material-outlined'
 
 import Button from 'components/Button'
 import Heading from 'components/Heading'
+import { FormLoading } from 'components/Form'
+
 import { useCart } from 'hooks'
+import { createPaymentIntent } from 'utils/stripe'
 
 import * as S from './styles'
-import { createPaymentIntent } from 'utils/stripe'
-import { Session } from 'next-auth'
 
 type PaymentFormProps = {
   session: Session
@@ -20,9 +22,9 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
 
   const [error, setError] = useState<string | null>(null)
   const [disabled, setDisabled] = useState(true)
+  const [loading, setLoading] = useState(false)
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [clientSecret, setClientSecret] = useState('')
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [freeGames, setFreeGames] = useState(false)
 
   useEffect(() => {
@@ -57,48 +59,53 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
     setError(event.error ? event.error.message : null)
   }
 
+  const handleSubmit = async (event: FormEvent) => {
+    event.preventDefault()
+    setLoading(true)
+  }
+
   return (
     <S.Wrapper>
-      <S.Body>
-        <Heading color="black" size="small" lineBottom>
-          Payment
-        </Heading>
-
-        {freeGames ? (
-          <S.FreeGames>
-            There are only free games in your cart, click BUY NOW and enjoy!
-          </S.FreeGames>
-        ) : (
-          <CardElement
-            options={{
-              hidePostalCode: true,
-              style: {
-                base: { fontSize: '16px' },
-              },
-            }}
-            onChange={handleChange}
-          />
-        )}
-
-        {error && (
-          <S.Error>
-            <ErrorOutline size={16} />
-            {error}
-          </S.Error>
-        )}
-      </S.Body>
-      <S.Footer>
-        <Button as="a" fullWidth minimal>
-          Continue shopping
-        </Button>
-        <Button
-          fullWidth
-          icon={<ShoppingCart />}
-          disabled={!freeGames || disabled || !!error}
-        >
-          Buy now
-        </Button>
-      </S.Footer>
+      <form onSubmit={handleSubmit}>
+        <S.Body>
+          <Heading color="black" size="small" lineBottom>
+            Payment
+          </Heading>
+          {freeGames ? (
+            <S.FreeGames>
+              There are only free games in your cart, click BUY NOW and enjoy!
+            </S.FreeGames>
+          ) : (
+            <CardElement
+              options={{
+                hidePostalCode: true,
+                style: {
+                  base: { fontSize: '16px' },
+                },
+              }}
+              onChange={handleChange}
+            />
+          )}
+          {error && (
+            <S.Error>
+              <ErrorOutline size={16} />
+              {error}
+            </S.Error>
+          )}
+        </S.Body>
+        <S.Footer>
+          <Button as="a" fullWidth minimal>
+            Continue shopping
+          </Button>
+          <Button
+            fullWidth
+            icon={loading ? <FormLoading /> : <ShoppingCart />}
+            disabled={!freeGames || disabled || !!error}
+          >
+            {!loading && 'Buy now'}
+          </Button>
+        </S.Footer>
+      </form>
     </S.Wrapper>
   )
 }
