@@ -3,8 +3,6 @@ import { Download } from '@styled-icons/boxicons-solid/Download'
 
 import { useCart } from 'hooks'
 
-import { formatPrice } from 'utils/formatters'
-
 import * as S from './styles'
 
 export type PaymentInfoProps = {
@@ -54,7 +52,7 @@ const GameItem = ({
             )}
           </S.Title>
           <S.Group>
-            <S.Price>{formatPrice(price)}</S.Price>
+            <S.Price>{price}</S.Price>
             {isInCart(id) && (
               <S.Remove onClick={() => removeFromCart(id)}>Remove</S.Remove>
             )}
@@ -67,12 +65,14 @@ const GameItem = ({
           <p>{paymentInfo.purchaseDate}</p>
           <S.CardInfo>
             <span>{paymentInfo.number}</span>
-            <Image
-              src={paymentInfo.img}
-              alt={paymentInfo.flag}
-              width={38}
-              height={24}
-            />
+            {!!paymentInfo.img && (
+              <Image
+                src={paymentInfo.img}
+                alt={paymentInfo.flag}
+                width={38}
+                height={24}
+              />
+            )}
           </S.CardInfo>
         </S.PaymentContent>
       )}
