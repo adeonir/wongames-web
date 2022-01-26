@@ -9,7 +9,7 @@ type FetcherParams = {
 }
 
 const fetcher = async ({ url, body, token }: FetcherParams) => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${url}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${url}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ export const createPaymentIntent = async ({
   token,
 }: PaymentIntentParams) => {
   return fetcher({
-    url: 'orders/create-payment-intent',
+    url: '/orders/create-payment-intent',
     body: JSON.stringify({ cart: items }),
     token,
   })
@@ -49,7 +49,7 @@ export const createPayment = async ({
   token,
 }: CreatePaymentParams) => {
   return fetcher({
-    url: 'orders',
+    url: '/orders',
     body: JSON.stringify({
       cart: items,
       paymentIntentId: paymentIntent?.id,
