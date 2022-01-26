@@ -2,8 +2,10 @@ import {
   QueryGames_games,
   QueryHome_banners,
   QueryHome_sections_freeGames_highlight,
+  QueryOrders_orders,
   QueryWishlist_wishlists_games,
 } from 'graphql/types'
+import { formatDate, formatPrice } from 'utils/formatters'
 
 export const bannersMapper = (banners: QueryHome_banners[]) => {
   return banners.map((banner) => ({
@@ -61,5 +63,31 @@ export const cartMapper = (games: QueryGames_games[] | undefined) => {
         price: game.price,
         title: game.name,
       }))
+    : []
+}
+
+export const ordersMapper = (orders: QueryOrders_orders[] | undefined) => {
+  return orders
+    ? orders.map((order) => {
+        return {
+          id: order.id,
+          paymentInfo: {
+            flag: order.card_brand,
+            img: order.card_brand ? `/img/cards/${order.card_brand}.png` : null,
+            number: order.card_last4
+              ? `**** **** **** ${order.card_last4}`
+              : 'Free Game',
+            purchaseDate: `Purchase made on ${formatDate(order.created_at)}`,
+          },
+          games: order.games.map((game) => ({
+            id: game.id,
+            title: game.name,
+            downloadLink:
+              'https://wongames.com/game/download/yuYT56Tgh431LkjhNBgdf',
+            img: `http://localhost:1337${game.cover?.url}`,
+            price: formatPrice(game.price),
+          })),
+        }
+      })
     : []
 }

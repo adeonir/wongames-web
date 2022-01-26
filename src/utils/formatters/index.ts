@@ -4,3 +4,11 @@ export const formatPrice = (price: number | bigint): string => {
     currency: 'USD',
   }).format(price)
 }
+
+export const formatDate = (date: Date): string => {
+  return new Intl.DateTimeFormat('en-US', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  }).format(new Date(date))
+}
