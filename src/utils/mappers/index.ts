@@ -5,7 +5,7 @@ import {
   QueryOrders_orders,
   QueryWishlist_wishlists_games,
 } from 'graphql/types'
-import { formatDate, formatPrice } from 'utils/formatters'
+import { formatDate } from 'utils/formatters'
 
 export const bannersMapper = (banners: QueryHome_banners[]) => {
   return banners.map((banner) => ({
@@ -85,7 +85,7 @@ export const ordersMapper = (orders: QueryOrders_orders[] | undefined) => {
             downloadLink:
               'https://wongames.com/game/download/yuYT56Tgh431LkjhNBgdf',
             img: `http://localhost:1337${game.cover?.url}`,
-            price: formatPrice(game.price),
+            price: game.price,
           })),
         }
       })

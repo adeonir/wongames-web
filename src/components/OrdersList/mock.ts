@@ -12,7 +12,7 @@ export default [
         id: '1',
         img: 'http://localhost:1337/image.jpg',
         title: 'game',
-        price: '$10.00',
+        price: 10,
         downloadLink:
           'https://wongames.com/game/download/yuYT56Tgh431LkjhNBgdf',
       },
@@ -31,7 +31,7 @@ export default [
         id: '2',
         img: 'http://localhost:1337/image.jpg',
         title: 'game',
-        price: '$10.00',
+        price: 10,
         downloadLink:
           'https://wongames.com/game/download/yuYT56Tgh431LkjhNBgdf',
       },

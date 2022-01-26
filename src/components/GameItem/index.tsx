@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { Download } from '@styled-icons/boxicons-solid/Download'
 
+import { formatPrice } from 'utils/formatters'
 import { useCart } from 'hooks'
 
 import * as S from './styles'
@@ -16,7 +17,7 @@ export type GameItemProps = {
   id: string
   img: string
   title: string
-  price: string
+  price: number
   downloadLink?: string
   paymentInfo?: PaymentInfoProps
 }
@@ -52,7 +53,7 @@ const GameItem = ({
             )}
           </S.Title>
           <S.Group>
-            <S.Price>{price}</S.Price>
+            <S.Price>{!price ? 'FREE' : formatPrice(price)}</S.Price>
             {isInCart(id) && (
               <S.Remove onClick={() => removeFromCart(id)}>Remove</S.Remove>
             )}
