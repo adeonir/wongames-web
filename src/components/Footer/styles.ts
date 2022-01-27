@@ -1,3 +1,4 @@
+import { darken } from 'polished'
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
@@ -27,10 +28,10 @@ export const Column = styled.div`
     a,
     span {
       display: block;
-      color: ${theme.colors.gray};
+      color: ${darken(0.2, theme.colors.gray)};
       text-decoration: none;
       margin-bottom: ${theme.spacings.xxsmall};
-      font-size: ${theme.font.sizes.small};
+      font-size: ${theme.font.sizes.medium};
     }
     a {
       word-wrap: break-word;
