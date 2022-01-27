@@ -5,6 +5,7 @@ import GameTemplate, { GameTemplateProps } from 'templates/Game'
 
 import { initializeApollo } from 'utils/apollo'
 import { gamesMapper, highlightMapper } from 'utils/mappers'
+import { getImageUrl } from 'utils/image'
 import {
   QUERY_GAMES,
   QUERY_GAME_BY_SLUG,
@@ -75,7 +76,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     revalidate: 60,
     props: {
-      cover: `http://localhost:1337${game.cover?.url}`,
+      cover: `${getImageUrl(game.cover?.url)}`,
       gameInfo: {
         id: game.id,
         title: game.name,
@@ -83,7 +84,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         description: game.short_description,
       },
       gallery: game.gallery.map(({ url, alternativeText }) => ({
-        src: `http://localhost:1337${url}`,
+        src: `${getImageUrl(url)}`,
         label: alternativeText ? alternativeText : game.name,
       })),
       description: game.description,
