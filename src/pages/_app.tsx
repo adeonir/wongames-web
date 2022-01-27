@@ -1,6 +1,8 @@
 import ProgressBar from 'nextjs-progressbar'
 import Head from 'next/head'
 import { AppProps } from 'next/app'
+import { DefaultSeo } from 'next-seo'
+import SEO from '../../next-seo.config'
 
 import { Provider as AuthProvider } from 'next-auth/client'
 import { ApolloProvider } from '@apollo/client'
@@ -31,6 +33,7 @@ export default function App({ Component, pageProps }: AppProps) {
                   content="The best Game Stores in the world!"
                 />
               </Head>
+              <DefaultSeo {...SEO} />
               <GlobalStyles />
               <ProgressBar
                 color="#f231a5"
