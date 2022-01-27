@@ -84,8 +84,8 @@ const Gallery = ({ items }: GalleryProps) => {
             key={`thumb-${index}`}
             src={item.src}
             alt={`Thumb - ${item.label}`}
-            width={293}
-            height={172}
+            width={295}
+            height={165}
             onClick={() => {
               setIsOpen(true)
               slider.current!.slickGoTo(index, true)
