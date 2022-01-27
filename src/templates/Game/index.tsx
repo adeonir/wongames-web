@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 import BaseTemplate from 'templates/Base'
 
 import { Divider } from 'components/Divider'
@@ -37,7 +39,9 @@ const GameTemplate = ({
   recommendedGames,
 }: GameTemplateProps) => (
   <BaseTemplate>
-    <S.Cover src={cover} role="image" aria-label="cover" />
+    <S.Cover>
+      <Image src={cover} alt={gameInfo.title} layout="fill" />
+    </S.Cover>
 
     <S.Main>
       <S.SectionGameInfo>
