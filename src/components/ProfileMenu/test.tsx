@@ -1,7 +1,13 @@
 import { render, screen } from 'utils/tests'
 
 import { theme } from 'styles'
+
 import ProfileMenu from '.'
+
+const useRouter = jest.spyOn(require('next/router'), 'useRouter')
+useRouter.mockImplementation(() => ({
+  push: jest.fn(),
+}))
 
 describe('<ProfileMenu />', () => {
   it('should render the menu', () => {
