@@ -15,7 +15,7 @@ import TextContent from 'components/TextContent'
 import * as S from './styles'
 
 export type GameTemplateProps = {
-  slug: string
+  slug?: string
   cover: string
   gameInfo: GameInfoProps
   gallery?: GalleryImageProps[]
