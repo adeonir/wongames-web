@@ -82,6 +82,7 @@
     "@typescript-eslint/parser": "5.10.1",
     "apollo": "2.33.9",
     "chalk": "5.0.0",
+    "cypress": "9.3.1",
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.9",
     "eslint-config-prettier": "7.2.0",
