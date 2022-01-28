@@ -12,6 +12,7 @@
     "test": "jest --maxWorkers=50%",
     "test:watch": "jest --maxWorkers=50% --watch",
     "cy:open": "cypress open",
+    "cy:run": "cypress run",
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "generate": "yarn plop --plopfile ./generators/plopfile.js",
     "schema:download": "apollo client:download-schema --endpoint=http://localhost:1337/graphql schema-temp.gql",
