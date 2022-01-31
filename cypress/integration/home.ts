@@ -7,8 +7,8 @@ describe('Home page', () => {
     cy.renderBanner()
 
     cy.renderShowCase({ name: 'New Games' })
-    cy.renderShowCase({ name: 'Popular Games' })
-    cy.renderShowCase({ name: 'Upcoming' })
-    cy.renderShowCase({ name: 'Free Games' })
+    cy.renderShowCase({ name: 'Popular Games', highlight: true })
+    cy.renderShowCase({ name: 'Upcoming', highlight: true })
+    cy.renderShowCase({ name: 'Free Games', highlight: true })
   })
 })
