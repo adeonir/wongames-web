@@ -34,7 +34,7 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
     },
   })
 
-  if (!data) return <S.Loading>Loading...</S.Loading>
+  if (!data || loading) return <S.Loading>Loading...</S.Loading>
 
   const { games, gamesConnection } = data
 
