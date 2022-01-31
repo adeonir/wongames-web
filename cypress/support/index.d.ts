@@ -7,5 +7,10 @@ declare namespace Cypress {
      * @example cy.google()
      */
     google(): Chainable<Window>
+    /**
+     * Custom command to render banner
+     * @example cy.renderBanner()
+     */
+    renderBanner(): Chainable<Element>
   }
 }
