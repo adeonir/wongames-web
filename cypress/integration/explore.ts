@@ -8,11 +8,11 @@ import {
 } from '../../src/utils/filters/fields'
 
 describe('Explore page', () => {
-  before(() => {})
+  before(() => {
+    cy.visit('/games')
+  })
 
   it('should render filters columns', () => {
-    cy.visit('/games')
-
     cy.findByRole('heading', { name: /Sort by price/i }).should('exist')
     cy.findByRole('heading', { name: /^Price/i }).should('exist')
     cy.findByRole('heading', { name: /Platforms/i }).should('exist')
@@ -22,5 +22,11 @@ describe('Explore page', () => {
     cy.getFields(platformsFields)
     cy.getFields(sortFields)
     cy.getFields(genresFields)
+  })
+
+  it('should show 15 games and show more when button is clicked', () => {
+    cy.getByDataCy('game-card').should('have.length', 15)
+    cy.findByRole('button', { name: /Show more/i }).click()
+    cy.getByDataCy('game-card').should('have.length', 30)
   })
 })
