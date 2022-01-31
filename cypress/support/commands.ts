@@ -32,6 +32,12 @@ Cypress.Commands.add('getByDataCy', (selector, ...args) =>
   cy.get(`[data-cy="${selector}"]`, ...args)
 )
 
+Cypress.Commands.add('getFields', (field) => {
+  field.map(({ label }) => {
+    cy.findByText(label).should('exist')
+  })
+})
+
 Cypress.Commands.add('renderBanner', () => {
   cy.get('.slick-slider').within(() => {
     cy.findByRole('heading', { name: 'Cyberpunk 2077' })

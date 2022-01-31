@@ -1,5 +1,10 @@
 /// <reference types="cypress" />
 
+type FieldAttributes = {
+  name: string | number
+  label: string
+}
+
 type ShowCaseAttributes = {
   name: string
   highlight?: boolean
@@ -17,6 +22,12 @@ declare namespace Cypress {
      * @example cy.getByDataCy('selector')
      */
     getByDataCy(selector: string): Chainable<JQuery<HTMLElement>>
+
+    /**
+     * Custom command to get fields bu label
+     * @example cy.getFields([{ label: 'foo', name: 'foo' }])
+     */
+    getFields(field: FieldAttributes[]): Chainable<Element>
 
     /**
      * Custom command to render banner
