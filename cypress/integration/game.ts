@@ -49,11 +49,22 @@ describe('Game page', () => {
 
     cy.findAllByLabelText(/Cart Items/i)
       .first()
-      .should('have.text', 1)
+      .contains(1)
       .click()
 
     cy.getByDataCy('cart-list').within(() => {
       cy.findByRole('heading', { name: /Cyberpunk 2077/i }).should('exist')
     })
+
+    cy.findAllByLabelText(/Cart Items/i)
+      .first()
+      .click()
+
+    cy.getByDataCy('game-info').within(() => {
+      cy.findByRole('button', { name: /Remove from cart/i }).click()
+      cy.findByRole('button', { name: /Add to cart/i }).should('exist')
+    })
+
+    cy.findAllByLabelText(/Cart Items/i).should('not.exist')
   })
 })
