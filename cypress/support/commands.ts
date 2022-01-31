@@ -46,3 +46,9 @@ Cypress.Commands.add('renderBanner', () => {
     cy.findByRole('link', { name: 'Buy now' })
   })
 })
+
+Cypress.Commands.add('renderShowCase', ({ name, highlight = false }) => {
+  cy.get(`[data-cy="${name}"]`).within(() => {
+    cy.findByRole('heading', { name }).should('exist')
+  })
+})
