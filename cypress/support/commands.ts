@@ -26,7 +26,17 @@
 
 import '@testing-library/cypress/add-commands'
 
+import { User } from './types'
+
 Cypress.Commands.add('google', () => cy.visit('https://google.com'))
+
+Cypress.Commands.add('signUp', (user: User) => {
+  cy.findByPlaceholderText(/Username/i).type(user.username)
+  cy.findByPlaceholderText(/email/i).type(user.email)
+  cy.findByPlaceholderText(/^password/i).type(user.password)
+  cy.findByPlaceholderText(/confirm password/i).type(user.password)
+  cy.findByRole('button', { name: /Sign up now/i }).click()
+})
 
 Cypress.Commands.add('getByDataCy', (selector, ...args) =>
   cy.get(`[data-cy="${selector}"]`, ...args)
