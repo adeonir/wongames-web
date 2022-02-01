@@ -1,13 +1,13 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
 import FormSignIn from '.'
 
 export default {
   title: 'Form/FormSignIn',
   component: FormSignIn,
-} as ComponentMeta<typeof FormSignIn>
+} as Meta
 
-export const Default: ComponentStory<typeof FormSignIn> = () => (
+export const Default: Story = () => (
   <div style={{ width: 300, margin: 'auto' }}>
     <FormSignIn />
   </div>
