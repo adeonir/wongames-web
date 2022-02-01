@@ -1,14 +1,21 @@
 /// <reference types="cypress" />
 
-type FieldAttributes = {
+type Field = {
   name: string | number
   label: string
 }
 
-type ShowCaseAttributes = {
+type ShowCase = {
   name: string
   highlight?: boolean
 }
+
+type User = {
+  username: string
+  email: string
+  password: string
+}
+
 declare namespace Cypress {
   interface Chainable {
     /**
@@ -16,6 +23,12 @@ declare namespace Cypress {
      * @example cy.google()
      */
     google(): Chainable<Window>
+
+    /**
+     * Custom command to sigh up
+     * @example cy.signUp({ username: 'john.doe', email: 'john.doe@example.com', password: '123456' })
+     */
+    signUp(user: User): Chainable<Element>
 
     /**
      * Custom command to get element by data-cy
@@ -27,7 +40,7 @@ declare namespace Cypress {
      * Custom command to get fields bu label
      * @example cy.getFields([{ label: 'foo', name: 'foo' }])
      */
-    getFields(field: FieldAttributes[]): Chainable<Element>
+    getFields(field: Field[]): Chainable<Element>
 
     /**
      * Custom command to render banner
@@ -39,7 +52,7 @@ declare namespace Cypress {
      * Custom command to render showcase
      * @example cy.renderShowCase()
      */
-    renderShowCase(attr: ShowCaseAttributes): Chainable<Element>
+    renderShowCase(attr: ShowCase): Chainable<Element>
 
     /**
      * Custom command to check if value is less than price
