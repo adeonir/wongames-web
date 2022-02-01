@@ -1,7 +1,7 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 import { Email } from '@styled-icons/material-outlined'
 
-import TextField from '.'
+import TextField, { TextFieldProps } from '.'
 
 export default {
   title: 'Form/TextField',
@@ -20,20 +20,29 @@ export default {
       type: undefined,
     },
   },
-} as ComponentMeta<typeof TextField>
+} as Meta<TextFieldProps>
 
-export const Default: ComponentStory<typeof TextField> = (args) => (
+export const Default: Story<TextFieldProps> = (args) => (
   <div style={{ maxWidth: 300, padding: 15 }}>
     <TextField {...args} />
   </div>
 )
 
-export const withError: ComponentStory<typeof TextField> = (args) => (
+export const WithError: Story<TextFieldProps> = (args) => (
   <div style={{ maxWidth: 300, padding: 15 }}>
     <TextField {...args} />
   </div>
 )
-
-withError.args = {
+WithError.args = {
   error: 'Ops...something is wrong',
+}
+
+export const WithoutIcon: Story<TextFieldProps> = (args) => (
+  <div style={{ maxWidth: 300, padding: 15 }}>
+    <TextField {...args} />
+  </div>
+)
+WithoutIcon.args = {
+  icon: undefined,
+  iconPosition: null,
 }
