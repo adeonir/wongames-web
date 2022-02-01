@@ -6,13 +6,14 @@ type IconPositionProps = Pick<TextFieldProps, 'iconPosition'>
 
 type WrapperProps = Pick<TextFieldProps, 'disabled'> & { error?: boolean }
 
-export const InputWrapper = styled.div`
-  ${({ theme }) => css`
+export const InputWrapper = styled.div<IconPositionProps>`
+  ${({ theme, iconPosition }) => css`
     display: flex;
     align-items: center;
     background: ${theme.colors.lighterGray};
     border-radius: 0.2rem;
     padding: 0 ${theme.spacings.xsmall};
+    padding-${iconPosition}: ${theme.spacings.xsmall};
     border: 0.2rem solid;
     border-color: ${theme.colors.lighterGray};
 
@@ -28,7 +29,7 @@ export const Input = styled.input<IconPositionProps>`
     font-family: ${theme.font.family};
     font-size: ${theme.font.sizes.medium};
     padding: ${theme.spacings.xxsmall} 0;
-    padding-${iconPosition}: ${theme.spacings.xsmall};
+    padding-${iconPosition}: ${theme.spacings.xxsmall};
     background: transparent;
     border: 0;
     outline: none;
