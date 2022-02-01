@@ -26,4 +26,23 @@ describe('User', () => {
     cy.findByRole('link', { name: /Sign in/i }).should('exist')
     cy.findByText(/Cypress/i).should('not.exist')
   })
+
+  it('should sign in the user and redirect to predefined page', () => {
+    cy.visit('/profile/me')
+
+    cy.location('href').should(
+      'eq',
+      `${Cypress.config().baseUrl}/sign-in?callbackUrl=/profile/me`
+    )
+
+    cy.signIn()
+
+    cy.location('href').should('eq', `${Cypress.config().baseUrl}/profile/me`)
+
+    cy.findByPlaceholderText(/Username/i).should('have.value', 'cypress')
+    cy.findByPlaceholderText(/E-mail/i).should(
+      'have.value',
+      'cypress@wongames.com'
+    )
+  })
 })
