@@ -3,7 +3,7 @@ import Joi from 'joi'
 import { UsersPermissionsRegisterInput } from 'graphql/types'
 
 const fieldsValidations = {
-  username: Joi.string().min(5).required(),
+  username: Joi.string().min(4).required(),
   email: Joi.string()
     .email({ tlds: { allow: false } })
     .required(),
