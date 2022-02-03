@@ -40,7 +40,7 @@ describe('validations', () => {
       const values = { username: 'hi', email: '', password: '' }
 
       expect(signUpValidate(values).username).toMatchInlineSnapshot(
-        `"\\"username\\" length must be at least 5 characters long"`
+        `"\\"username\\" length must be at least 4 characters long"`
       )
     })
 
