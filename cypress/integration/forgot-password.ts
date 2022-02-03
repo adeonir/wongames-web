@@ -31,7 +31,7 @@ describe('Forgot Password', () => {
             {
               messages: [
                 {
-                  message: 'This email does not exist!',
+                  message: 'This email does not exist',
                 },
               ],
             },
@@ -45,6 +45,6 @@ describe('Forgot Password', () => {
     cy.findAllByPlaceholderText(/Email/i).type('false@wongames.com')
     cy.findByRole('button', { name: /Send email/i }).click()
 
-    cy.findByText(/This email does not exist!/i).should('exist')
+    cy.findByText(/This email does not exist/i).should('exist')
   })
 })
