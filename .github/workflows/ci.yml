@@ -36,6 +36,5 @@ jobs:
       - name: Test
         run: yarn test
 
-      # Disabling build because it's not needed for now
-      # - name: Build
-      #   run: yarn build
+      - name: Build
+        run: yarn build
