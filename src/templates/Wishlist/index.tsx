@@ -28,7 +28,7 @@ const WishlistTemplate = ({
   const { items, loading } = useWishlist()
   return (
     <BaseTemplate>
-      <Container>
+      <Container data-cy="wishlist">
         <Heading lineLeft lineColor="secondary">
           Wishlist
         </Heading>
