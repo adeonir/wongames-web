@@ -90,6 +90,7 @@
     "apollo": "2.33.9",
     "chalk": "5.0.0",
     "cypress": "9.4.1",
+    "cypress-plugin-stripe-elements": "1.0.2",
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.10",
     "eslint-config-prettier": "7.2.0",
