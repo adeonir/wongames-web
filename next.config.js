@@ -12,10 +12,7 @@ module.exports = withPWA({
     disable: !isProduction,
   },
   images: {
-    formats: [
-      // 'image/avif',
-      'image/webp',
-    ],
+    formats: ['image/avif', 'image/webp'],
     domains: ['localhost', 'res.cloudinary.com'],
   },
 })
